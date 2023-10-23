@@ -1,0 +1,1 @@
+{"scripts":{"start":"ts-node src/index.ts"},"dependencies":{"@types/bcryptjs":"^2.4.5","@types/jsonwebtoken":"^9.0.4","bcryptjs":"^2.4.3","jsonwebtoken":"^9.0.2"}}
