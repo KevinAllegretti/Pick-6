@@ -1,5 +1,5 @@
 import express from 'express';
-import userRoutes from './routes/userRoutes';
+//import userRoutes from './routes/userRoutes';
 import pickRoutes from './routes/pickRoutes';
 import leaderboardRoutes from './routes/leaderboardRoutes';
 
@@ -15,8 +15,9 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 
-app.use('/users', userRoutes);
+//app.use('/users', userRoutes);
 
 app.use('/picks', pickRoutes);
 
 app.use('/leaderboard', leaderboardRoutes);
+

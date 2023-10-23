@@ -1,33 +1,62 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const mongoose_1 = __importDefault(require("mongoose"));
-const bcryptjs_1 = __importDefault(require("bcryptjs"));
-const userSchema = new mongoose_1.default.Schema({
+/*import mongoose from 'mongoose';
+
+const pickHistorySchema = new mongoose.Schema({
+    week: {
+        type: Number,
+        required: true
+    },
+    picks: {
+        type: [String],  // Array of strings for team picks
+        required: true
+    },
+    weekScore: {
+        type: Number,
+        default: 0
+    }
+});
+
+const userSchema = new mongoose.Schema({
     username: {
         type: String,
         required: true,
         unique: true
     },
-    password: {
-        type: String,
-        required: true
+    totalPoints: {
+        type: Number,
+        default: 0
+    },
+    picksHistory: {
+        type: [pickHistorySchema],
+        default: []
     }
 });
-// Before saving the user, hash the password
-userSchema.pre('save', async function (next) {
-    if (this.isModified('password')) {
-        this.password = await bcryptjs_1.default.hash(this.password, 8);
-    }
-    next();
-});
-userSchema.methods.toJSON = function () {
+
+userSchema.methods.toJSON = function() {
     const user = this;
     const userObject = user.toObject();
-    delete userObject.password;
     return userObject;
+}
+
+export type User = {
+    id: number;
+    username: string;
+    totalPoints: number;
+    picksHistory: Array<{
+        week: number;
+        picks: string[];
+        weekScore: number;
+    }>;
 };
-const User = mongoose_1.default.model('User', userSchema);
-exports.default = User;
+
+interface IUser extends mongoose.Document {
+    username: string;
+    totalPoints: number;
+    picksHistory: typeof User["picksHistory"];
+}
+
+const User = mongoose.model<IUser>('User', userSchema);
+
+export { IUser };
+export default User;
+*/ 

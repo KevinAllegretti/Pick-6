@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const userRoutes_1 = __importDefault(require("./routes/userRoutes"));
+//import userRoutes from './routes/userRoutes';
 const pickRoutes_1 = __importDefault(require("./routes/pickRoutes"));
 const leaderboardRoutes_1 = __importDefault(require("./routes/leaderboardRoutes"));
 const app = (0, express_1.default)();
@@ -15,6 +15,6 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
-app.use('/users', userRoutes_1.default);
+//app.use('/users', userRoutes);
 app.use('/picks', pickRoutes_1.default);
 app.use('/leaderboard', leaderboardRoutes_1.default);

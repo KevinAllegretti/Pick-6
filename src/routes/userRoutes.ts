@@ -1,42 +1,41 @@
-import express from 'express';
-import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
-import User from '../models/user';
+/*import express from 'express';
+import { User, IUser } from '../models/user';
 
 const router = express.Router();
 
-// Register
-router.post('/register', async (req, res) => {
-  try {
-    const user = new User(req.body);
-    await user.save();
-    res.status(201).send(user);
-  } catch (error) {
-    res.status(400).send(error);
-  }
+router.post('/login', async (req: express.Request, res: express.Response) => {
+    const { username } = req.body;
+    const user = await User.findOne({ username });
+
+    if (user) {
+        return res.status(200).send('Successfully logged in');
+    } else {
+        return res.status(400).send('Invalid credentials');
+    }
 });
 
-// Login
-// Login
-router.post('/login', async (req, res) => {
-    try {
-      const user = await User.findOne({ username: req.body.username });
-      
-      if (!user) {
-        return res.status(401).send({ error: 'Login failed! User not found.' });
-      }
-  
-      const isPasswordMatch = await bcrypt.compare(req.body.password, user.password);
-      if (!isPasswordMatch) {
-        return res.status(401).send({ error: 'Login failed! Incorrect password.' });
-      }
-  
-      const token = jwt.sign({ _id: user._id }, 'YOUR_SECRET_KEY');  // Change 'YOUR_SECRET_KEY' to a secret passphrase
-      res.send({ user, token });
-    } catch (error) {
-      res.status(400).send(error);
+router.use((req: express.Request, res: express.Response, next: express.NextFunction) => {
+    const username = req.headers['x-user'];
+
+    if (username) {
+        req.user = users.find(u => u.username === username);
+        next();
+    } else {
+        res.status(401).send('Please log in');
     }
-  });
-  
+});
+
+router.get('/profile', async (req, res) => {
+    const username = req.headers['x-user'] as string;  // Get the username from the header
+
+    const user = await User.findOne({ username });
+    if (user) {
+        // Return the user's data as a response
+        res.status(200).json(user);
+    } else {
+        res.status(404).send('User not found');
+    }
+});
 
 export default router;
+*/

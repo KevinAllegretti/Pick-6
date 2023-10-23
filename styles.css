@@ -1,0 +1,97 @@
+body {
+    font-family: 'Oswald', sans-serif;
+    background-color: #111;
+    background-image: url(''); /* Add a relevant background image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #ddd;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background: rgba(0, 0, 0, 0.8); /* Slight transparency to see background image */
+    padding: 30px;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.6); /* Greenish glow */
+}
+
+h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: rgb(0, 221, 255); /* Green color */
+}
+
+#addPick, #immortalLock {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: rgb(0, 217, 255); /* Green */
+    border: none;
+    border-radius: 5px;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #01b3ff; /* Darker green on hover */
+}
+
+input, select {
+    padding: 8px;
+    margin-right: 10px;
+    border: 1px solid rgb(0, 204, 255);
+    background-color: transparent;
+    color: #ddd;
+}
+
+#picksContainer {
+    margin-bottom: 20px;
+}
+
+#pick6Title {
+    font-family: 'Bungee', cursive;
+    font-size: 50px;
+    text-align: center;
+    color: rgb(0, 204, 255); /* A shiny gold color */
+    text-shadow: 2px 2px 10px rgba(0, 38, 255, 0.7); /* Gives a golden glow */
+    margin: 0;
+    padding: 20px 0; /* Adds some spacing above and below */
+    background: rgba(0, 0, 0, 0.7); /* Dark translucent background for contrast */
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+/* Adjusts the top padding of the container so the title looks more integrated */
+.container {
+    padding-top: 0;
+}
+
+#immortalLockOption {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;  /* Add some space between the checkbox and label */
+}
+
+#immortalLockOption label {
+    cursor: pointer; /* Make it clear that the label is clickable */
+}
+
+#immortalLockCheck:checked + label {
+    font-weight: bold;  /* Bold the label when checked for emphasis */
+}

@@ -1,32 +1,63 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.calculatePointsForWeek = void 0;
-const picks_1 = __importDefault(require("../models/picks"));
-const user_1 = __importDefault(require("../models/user"));
-const gamesOutcome_1 = __importDefault(require("../models/gamesOutcome"));
-const calculatePointsForWeek = async (week) => {
-    const outcomes = await gamesOutcome_1.default.findOne({ week });
-    const picksForWeek = await picks_1.default.find({ week });
-    picksForWeek.forEach(async (userPicks) => {
+/*import Pick from '../models/picks';
+import User, { IUser } from '../models/user';
+import GameOutcome from '../models/gamesOutcome';
+
+export const calculatePointsForWeek = async (week: number) => {
+    const outcomes = await GameOutcome.findOne({ week });
+    const picksForWeek = await Pick.find({ week });
+
+    if (!outcomes) {
+        throw new Error("No outcomes found for the specified week.");
+    }
+
+    for (const userPicks of picksForWeek) {
         let points = 0;
-        userPicks.picks.forEach(async (pick) => {
-            const outcomes = await gamesOutcome_1.default.findOne({ week });
-            if (!outcomes) {
-                throw new Error("No outcomes found for the specified week.");
+
+        for (const pick of userPicks.picks) {
+            const outcome = outcomes.outcomes.find(o => o.team === pick.team);
+
+            if (!outcome) continue;  // or handle this case if an outcome for a pick isn't found
+
+            if (pick.type === 'spread') {
+                if (pick.value === outcome.value) {
+                    points += 0.5;  // spread push
+                } else if ((pick.value - outcome.value) > 0) {
+                    points += 2;  // spread win
+                }
+            } else if (pick.type === 'moneyline') {
+                if (pick.value < -250) {
+                    points += 1.5;  // favorited moneyline with ML is -250 or higher
+                } else if (pick.value > 0) {
+                    points += 2;  // underdog moneyline win
+                } else {
+                    points += 1;  // any other favorited moneyline
+                }
             }
-            // Logic to calculate points based on outcome and pick
-            // Update the points variable accordingly
-        });
-        // Update user's total points
-        const user = await user_1.default.findById(userPicks.userId);
-        if (!user) {
-            throw new Error("User not found!");
         }
-        user.totalPoints = (user.totalPoints || 0) + points; // This handles the possibility of totalPoints being undefined
+
+        const definiteBonusBet = userPicks.bonusBet as { team: string, type: string, value: number };
+
+        // Handle bonus bet
+        const bonusBetOutcome = outcomes.outcomes.find(o => o.team === definiteBonusBet.team);
+        if (definiteBonusBet.type === 'spread' && definiteBonusBet.value === bonusBetOutcome?.value) {
+            points += 1;
+        } else if (definiteBonusBet.type === 'moneyline' && definiteBonusBet.value > 0) {
+            points += 1;
+        } else {
+            points -= 2;
+        }
+
+        // Update user's total points
+        const user = await User.findById(userPicks.userId);
+        if (!user) {
+            throw new Error("User not found");
+        }
+
+        user.totalPoints = (user.totalPoints || 0) + points;
         await user.save();
-    });
+    }
 };
-exports.calculatePointsForWeek = calculatePointsForWeek;
+
+
+*/ 

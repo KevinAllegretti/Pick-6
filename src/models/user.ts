@@ -1,42 +1,61 @@
-import mongoose from 'mongoose';
-import bcrypt from 'bcryptjs';
+/*import mongoose from 'mongoose';
 
-const userSchema = new mongoose.Schema({
-  username: {
-    type: String,
-    required: true,
-    unique: true
-  },
-  password: {
-    type: String,
-    required: true
-  }
+const pickHistorySchema = new mongoose.Schema({
+    week: {
+        type: Number,
+        required: true
+    },
+    picks: {
+        type: [String],  // Array of strings for team picks
+        required: true
+    },
+    weekScore: {
+        type: Number,
+        default: 0
+    }
 });
 
-// Before saving the user, hash the password
-userSchema.pre('save', async function(next) {
-  if (this.isModified('password')) {
-    this.password = await bcrypt.hash(this.password, 8);
-  }
-  next();
+const userSchema = new mongoose.Schema({
+    username: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    totalPoints: {
+        type: Number,
+        default: 0
+    },
+    picksHistory: {
+        type: [pickHistorySchema],
+        default: []
+    }
 });
 
 userSchema.methods.toJSON = function() {
     const user = this;
     const userObject = user.toObject();
-
-    delete userObject.password;
-
     return userObject;
 }
 
+export type User = {
+    id: number;
+    username: string;
+    totalPoints: number;
+    picksHistory: Array<{
+        week: number;
+        picks: string[];
+        weekScore: number;
+    }>;
+};
+
 interface IUser extends mongoose.Document {
     username: string;
-    password: string;
-    totalPoints?: number;  // Assuming this is the structure of your User
+    totalPoints: number;
+    picksHistory: typeof User["picksHistory"];
 }
 
 const User = mongoose.model<IUser>('User', userSchema);
 
 export { IUser };
 export default User;
+*/
