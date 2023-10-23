@@ -13,7 +13,7 @@
         <div class="players">
             
             <!-- LazyAhhGamer -->
-            <div class="player-card">
+            <div class="player-card" data-username="LazyAhhGamer">
                 <h2>LazyAhhGamer</h2>
                 <div class="picks">
                     <!-- Empty pick placeholders -->
@@ -30,7 +30,7 @@
             </div>
 
             <!-- Bear Jew -->
-            <div class="player-card">
+            <div class="player-card" data-username="Bear Jew">
                 <h2>Bear Jew</h2>
                 <div class="picks">
                     <!-- Empty pick placeholders -->
@@ -46,7 +46,7 @@
                 </div>
             </div>
 
-            <div class="player-card">
+            <div class="player-card" data-username="porkSkinGooner">
                 <h2>porkSkinGooner</h2>
                 <div class="picks">
                     <!-- Empty pick placeholders -->
@@ -65,7 +65,7 @@
             <!-- PorkSkinGooner (You already provided this, so I'll omit it to avoid redundancy) -->
 
             <!-- Primitive Picks -->
-            <div class="player-card">
+            <div class="player-card" data-username="Primitive Picks">
                 <h2>Primitive Picks</h2>
                 <div class="picks">
                     <!-- Empty pick placeholders -->
@@ -82,7 +82,7 @@
             </div>
 
             <!-- L to the OG -->
-            <div class="player-card">
+            <div class="player-card" data-username="L to the OG">
                 <h2>L to the OG</h2>
                 <div class="picks">
                     <!-- Empty pick placeholders -->
@@ -99,7 +99,7 @@
             </div>
 
             <!-- Midnight Professional -->
-            <div class="player-card">
+            <div class="player-card" data-username="Midnight Professional">
                 <h2>Midnight Professional</h2>
                 <div class="picks">
                     <!-- Empty pick placeholders -->
@@ -116,7 +116,7 @@
             </div>
 
             <!-- Parlay Prodigy -->
-            <div class="player-card">
+            <div class="player-card" data-username="Parlay Prodigy">
                 <h2>Parlay Prodigy</h2>
                 <div class="picks">
                     <!-- Empty pick placeholders -->
@@ -133,7 +133,7 @@
             </div>
 
             <!-- TheDiggler -->
-            <div class="player-card">
+            <div class="player-card" data-username="TheDiggler">
                 <h2>TheDiggler</h2>
                 <div class="picks">
                     <!-- Empty pick placeholders -->
@@ -151,5 +151,11 @@
             
         </div>
     </div>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const loggedInUsername = urlParams.get('username');
+    </script>
+    
+    <script src="homepage.js"></script>
 </body>
 </html>

@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const userRoutes_1 = __importDefault(require("./routes/userRoutes"));
+const path_1 = __importDefault(require("path"));
 const app = (0, express_1.default)();
 const PORT = 3000;
 // Use middleware to parse JSON
@@ -18,9 +19,13 @@ app.listen(PORT, () => {
 app.use(express_1.default.urlencoded({ extended: true }));
 // Place all your API routes above the static file middleware
 app.use('/users', userRoutes_1.default);
-// Serve static files last
-app.use(express_1.default.static('public'));
+app.get('/dashboard', (req, res) => {
+    res.sendFile(path_1.default.join(__dirname, '../public/dashboard.html'));
+});
 app.use((req, res, next) => {
     console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
     next();
 });
+// Serve static files last
+app.use(express_1.default.static('public'));
+app.use(express_1.default.static(path_1.default.join(__dirname, '../public')));

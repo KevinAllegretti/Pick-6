@@ -1,6 +1,6 @@
 import express from 'express';
 import userRoutes from './routes/userRoutes';
-
+import path from 'path';
 
 const app = express();
 const PORT = 3000;
@@ -23,10 +23,21 @@ app.use(express.urlencoded({ extended: true }));
 // Place all your API routes above the static file middleware
 app.use('/users', userRoutes);
 
-// Serve static files last
-app.use(express.static('public'));
+
+app.get('/dashboard', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/dashboard.html'));
+});
+
 
 app.use((req, res, next) => {
   console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
   next();
 });
+
+
+
+
+// Serve static files last
+app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, '../public')));
+
