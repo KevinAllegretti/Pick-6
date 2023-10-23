@@ -2,11 +2,10 @@ import express from 'express';
 import users from '../models/user';
 
 
-
-
 const router = express.Router();
 
 router.post('/login', (req: express.Request, res: express.Response) => {
+    console.log(req.body);
     const { username, password } = req.body;
 
     const user = users.find(u => u.username === username && u.password === password);
