@@ -40,33 +40,8 @@ router.post('/api/savePicks/:username', async (req, res) => {
   }
 });
 
-/*
-// New route to reset user picks
-router.post('/api/resetPicks/:username', async (req, res) => {
-    try {
-        const username = req.params.username;
-        console.log("Resetting picks for username:", username);
 
-        
-        // Connect to the database
-        const database = await connectToDatabase();
-        const picksCollection = database.collection('userPicks');
-        
-        // Update the user's picks and immortal lock to empty arrays
-        await picksCollection.updateOne({ username }, {
-            $set: {
-                picks: [],
-                immortalLock: []
-            }
-        });
 
-        res.json({ success: true, message: 'Picks reset successfully' });
-    } catch (error) {
-        console.error('Error resetting picks:', error);
-        res.status(500).json({ success: false, message: 'Internal server error' });
-    }
-});
-*/
 router.post('/api/resetPicks/:username', async (req, res) => {
     try {
         const username = req.params.username;
