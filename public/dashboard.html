@@ -11,49 +11,60 @@
 
 </head>
 <body>
-    <div class="container">
-        <h2 id="pick6Title">Pick 6</h2>
-        <h1>Welcome, porkSkinGooner!</h1>
-        <div id="picksContainer">
-            <!-- Dynamically add picks here -->
-        </div>
+    <div class="main-wrapper">
 
-        <div id="immortalLockOption">
-            <input type="checkbox" id="immortalLockCheck">
-            <label for="immortalLockCheck">Set Immortal Lock?</label>
+        <div class="container">
+            <h2 id="pick6Title">Pick 6</h2>
+            <h1></h1>
+            <div id="picksContainer">
+                <!-- Dynamically add picks here -->
+            </div>
+
+            <div id="immortalLockOption">
+                <input type="checkbox" id="immortalLockCheck">
+                <label for="immortalLockCheck">Set Immortal Lock?</label>
+            </div>
+            
+            <button id="resetPicks">Reset Picks</button>
+            <button id="submitPicks">Submit Picks</button>
+
+            <div id="addPick">
+                <select id="teamSelect">
+                    <!-- Populate with teams -->
+                    <input type="text" id="teamInput" placeholder="Enter Team Name">
+                </select>
+                <select id="typeSelect">
+                    <option value="spread">Spread</option>
+                    <option value="moneyline">Moneyline</option>
+                </select>
+                <input type="number" id="valueInput" placeholder="Value">
+                <button onclick="addPick()">Add Pick</button>
+
+            </div>
+
+            <div id="immortalLock" style="display: none;">
+                <h2>Immortal Lock</h2>
+                <select id="immortalTeamSelect">
+                    <!-- Populate with teams -->
+                    <input type="text" id="immortalTeamInput" placeholder="Enter Immortal Lock Team Name">
+                </select>
+                <select id="immortalTypeSelect">
+                    <option value="spread">Spread</option>
+                    <option value="moneyline">Moneyline</option>
+                </select>
+                <input type="number" id="immortalValueInput" placeholder="Value">
+                <button onclick="addImmortalLock()">Set Immortal Lock</button>
+            </div>
+
+            <div id="statusMessage"></div>
+            <a href="/homepage.html" class="back-button">Back to Home</a>
+
+        </div>
+        <div class="image-container">
+            <img src="IMG_7722.PNG">
         </div>
         
-        <div id="addPick">
-            <select id="teamSelect">
-                <!-- Populate with teams -->
-                <input type="text" id="teamInput" placeholder="Enter Team Name">
-            </select>
-            <select id="typeSelect">
-                <option value="spread">Spread</option>
-                <option value="moneyline">Moneyline</option>
-            </select>
-            <input type="number" id="valueInput" placeholder="Value">
-            <button onclick="addPick()">Add Pick</button>
-
-        </div>
-
-        <div id="immortalLock" style="display: none;">
-            <h2>Immortal Lock</h2>
-            <select id="immortalTeamSelect">
-                <!-- Populate with teams -->
-                <input type="text" id="immortalTeamInput" placeholder="Enter Immortal Lock Team Name">
-            </select>
-            <select id="immortalTypeSelect">
-                <option value="spread">Spread</option>
-                <option value="moneyline">Moneyline</option>
-            </select>
-            <input type="number" id="immortalValueInput" placeholder="Value">
-            <button onclick="addImmortalLock()">Set Immortal Lock</button>
-        </div>
-
-        <div id="statusMessage"></div>
     </div>
-
     <script src="dashboard.js"></script>
 </body>
 </html>

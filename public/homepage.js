@@ -1,7 +1,15 @@
 (function() {
-    console.log("Script is loaded!");
+    const urlParams = new URLSearchParams(window.location.search);
+    const username = urlParams.get('username');
 
-    const loggedInUsername = "porkSkinGooner"; // Just for testing
+    if (username) {
+    localStorage.setItem('username', username);
+    }
+
+    //const loggedInUsername = "LazyAhhGamer"; // Just for testing issue is its not dynamically learning the username
+    const loggedInUsername = localStorage.getItem('username');
+    console.log("Script is loaded!");
+    console.log("Logged in user:", loggedInUsername);
 
     const cards = document.querySelectorAll('.player-card');
 
@@ -18,18 +26,3 @@
         });
     });
 })();
-
-/*
-document.addEventListener('DOMContentLoaded', function() {
-    const cards = document.querySelectorAll('.player-card');
-    cards.forEach(card => {
-        card.addEventListener('click', function(e) {
-            const username = e.currentTarget.getAttribute('data-username');
-            console.log(username); // Just to test if it's working
-            if (username) {
-                window.location.href = `/dashboard?username=${username}`;
-            }
-        });
-    });
-});
-*/
