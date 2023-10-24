@@ -2,6 +2,8 @@ import express from 'express';
 import userRoutes from './routes/userRoutes';
 import path from 'path';
 import picksRoutes from './routes/picksRoutes'; // Update the path if needed
+import bodyParser from 'body-parser';
+
 
 
 const app = express();
@@ -21,7 +23,7 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 
-
+app.use(bodyParser.json());
 app.use((req, res, next) => {
   console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
   next();

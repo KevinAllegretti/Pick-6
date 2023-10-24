@@ -3,7 +3,7 @@ let userPicks = [];  // This will store user's picks in-memory
 let userImortalLock = [];
 // Fetching the username from localStorage
 const storedUsername = localStorage.getItem('username');
-
+console.log(storedUsername);
 // If the username exists in localStorage, update the h1 element
 if (storedUsername) {
     document.querySelector('h1').textContent = `Welcome, ${storedUsername}!`;
@@ -110,13 +110,13 @@ function resetPicks() {
     document.getElementById('immortalLockCheck').checked = false;
 
     // Make an API call to reset the picks on the server
-    fetch('/api/resetPicks/${username}', {  // Replace `${username}` with the correct variable or method to get the username
+    fetch(`/api/resetPicks/${storedUsername}`, {  // Replace `${username}` with the correct variable or method to get the username
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         }
     })
-    .then(response => response.json())
+    .then(response => { console.log(response); return response.json()})
     .then(data => {
         if (data.success) {
             console.log('Picks reset successfully on server.');
@@ -146,8 +146,9 @@ function submitUserPicks() {
         immortalLock: userImortalLock
     };
 
+
     // Make an API call to save the picks and immortal lock
-    fetch('/api/savePicks/${username}', {  // Endpoint to change depending on your backend setup
+    fetch(`/api/savePicks/${storedUsername}`, {  // Endpoint to change depending on your backend setup
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

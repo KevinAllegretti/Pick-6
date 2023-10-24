@@ -7,6 +7,7 @@ const express_1 = __importDefault(require("express"));
 const userRoutes_1 = __importDefault(require("./routes/userRoutes"));
 const path_1 = __importDefault(require("path"));
 const picksRoutes_1 = __importDefault(require("./routes/picksRoutes")); // Update the path if needed
+const body_parser_1 = __importDefault(require("body-parser"));
 const app = (0, express_1.default)();
 const PORT = 3000;
 // Use middleware to parse JSON
@@ -17,6 +18,7 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+app.use(body_parser_1.default.json());
 app.use((req, res, next) => {
     console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
     next();
