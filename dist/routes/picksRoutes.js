@@ -6,21 +6,55 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const connectDB_1 = require("../microservices/connectDB");
 const router = express_1.default.Router();
+/*
+router.post('/api/savePicks/:username', async (req, res) => {
+
+  try {
+      const username = req.params.username;
+
+      // Extract data from request
+      const { picks, immortalLock } = req.body;
+
+      // Connect to database and save
+      const database = await connectToDatabase();
+      console.log("Saving picks for username:", username);
+      const picksCollection = database.collection('userPicks');
+
+      // Save to database using username as a reference
+      await picksCollection.insertOne({
+          username,
+          picks,
+          immortalLock
+      });
+
+      await picksCollection.updateOne(
+        { username },
+        {
+            $set: {
+                picks,
+                immortalLock
+            }
+        },
+        { upsert: true }
+     );
+     
+      res.json({ success: true });
+  } catch (error) {
+      console.error('Error saving picks:', error);
+      res.status(500).json({ success: false, message: 'Internal server error' });
+  }
+});
+*/
 router.post('/api/savePicks/:username', async (req, res) => {
     try {
         const username = req.params.username;
         // Extract data from request
         const { picks, immortalLock } = req.body;
-        // Connect to database and save
+        // Connect to database
         const database = await (0, connectDB_1.connectToDatabase)();
-        console.log("Saving picks for username:", username);
+        console.log("Saving or updating picks for username:", username);
         const picksCollection = database.collection('userPicks');
-        // Save to database using username as a reference
-        await picksCollection.insertOne({
-            username,
-            picks,
-            immortalLock
-        });
+        // Use the updateOne method with upsert option to ensure only one document per user
         await picksCollection.updateOne({ username }, {
             $set: {
                 picks,
@@ -30,7 +64,7 @@ router.post('/api/savePicks/:username', async (req, res) => {
         res.json({ success: true });
     }
     catch (error) {
-        console.error('Error saving picks:', error);
+        console.error('Error saving or updating picks:', error);
         res.status(500).json({ success: false, message: 'Internal server error' });
     }
 });

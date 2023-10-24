@@ -1,7 +1,7 @@
 import express from 'express';
 import { connectToDatabase } from '../microservices/connectDB';
 const router = express.Router();
-
+/*
 router.post('/api/savePicks/:username', async (req, res) => {
 
   try {
@@ -38,6 +38,37 @@ router.post('/api/savePicks/:username', async (req, res) => {
       console.error('Error saving picks:', error);
       res.status(500).json({ success: false, message: 'Internal server error' });
   }
+});
+*/
+router.post('/api/savePicks/:username', async (req, res) => {
+    try {
+        const username = req.params.username;
+
+        // Extract data from request
+        const { picks, immortalLock } = req.body;
+
+        // Connect to database
+        const database = await connectToDatabase();
+        console.log("Saving or updating picks for username:", username);
+        const picksCollection = database.collection('userPicks');
+
+        // Use the updateOne method with upsert option to ensure only one document per user
+        await picksCollection.updateOne(
+            { username }, 
+            {
+                $set: {
+                    picks,
+                    immortalLock
+                }
+            },
+            { upsert: true }
+        );
+        
+        res.json({ success: true });
+    } catch (error) {
+        console.error('Error saving or updating picks:', error);
+        res.status(500).json({ success: false, message: 'Internal server error' });
+    }
 });
 
 
