@@ -29,6 +29,7 @@ app.use((req, res, next) => {
   next();
 });
 
+
 app.use(express.urlencoded({ extended: true }));
 
 // Place all your API routes above the static file middleware

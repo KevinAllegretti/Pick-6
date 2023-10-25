@@ -63,3 +63,19 @@ h2 {
     margin-top: 10px;
     color: #ff4d4d; /* A bright red for contrast */
 }
+
+.rules-button {
+    display: inline-block;
+    background-color: #33d9ff;
+    color: #0a0f22;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 20px;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.rules-button:hover {
+    background-color: #1bb1d5;
+}
