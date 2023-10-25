@@ -28,6 +28,7 @@ h1 {
 }
 
 .player-card {
+    position: relative;
     width: 220px;
     border: 2px solid #33d9ff; /* Neon light blue border */
     border-radius: 8px;
@@ -36,6 +37,19 @@ h1 {
     background-color: #17203a; /* A deep blue for card background */
     box-shadow: 0px 0px 20px #33d9ff; /* Neon light blue shadow for depth */
     transition: transform 0.2s, box-shadow 0.2s; /* Animation for hover */
+}
+
+.total-points {
+    font-style: oblique;
+    position: absolute; /* This will position the element relative to its nearest positioned ancestor */
+    top: 2px; /* Adjust this value if you want to move it up or down */
+    right: 50px; /* Adjust this value if you want to move it left or right */
+    background-color: rgba(23, 32, 58, 0.8); /* A slightly transparent deep blue background */
+    padding: 5px 10px;
+    border-radius: 4px;
+    color: #d0e5f2; /* Neon light blue text */
+    font-weight: bold;
+    z-index: 1; /* Ensure it's above other content */
 }
 
 .player-card:hover {
