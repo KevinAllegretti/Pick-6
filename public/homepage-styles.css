@@ -73,9 +73,11 @@ h2 {
     margin: 5px 0;
 }
 
+
 .immortal-lock {
     margin-top: 10px;
-    color: #ff4d4d; /* A bright red for contrast */
+    color: #1ced27; /* A bright red for contrast */
+    font-style: initial;
 }
 
 .rules-button {
@@ -93,3 +95,29 @@ h2 {
 .rules-button:hover {
     background-color: #1bb1d5;
 }
+
+.neon-sign {
+    font-size: 2rem; /* Adjust as needed */
+    font-family: "Arial", sans-serif; /* Use any font you like, this is just a placeholder */
+    color: rgb(255, 255, 255);
+    text-align: center;
+    text-shadow: 0 0 5px rgb(254, 237, 237), 0 0 10px rgb(246, 239, 239), 0 0 15px #00a2ff, 0 0 20px #00a2ff, 0 0 25px #00a2ff, 0 0 30px #00a2ff, 0 0 35px #00a2ff;
+    animation: neonFlicker 1.5s infinite alternate;
+    margin-top: 20px; /* Add space below the "teams" */
+}
+
+@keyframes neonFlicker {
+    0% { opacity: 0.2; }
+    50% { opacity: 1; }
+    100% { opacity: 0.8; }
+}
+
+.crown-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    transform: rotate(45deg);
+    font-size: 1.5rem;  /* Adjust as needed */
+    z-index: 10;
+}
+
