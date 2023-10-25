@@ -20,7 +20,7 @@ function addPick() {
 
     const teamName = document.getElementById('teamInput').value;
     // Get values
-    const team = document.getElementById('teamSelect').value;
+    //const team = document.getElementById('teamSelect').value;
     const type = document.getElementById('typeSelect').value;
     const value = document.getElementById('valueInput').value;
 
@@ -69,7 +69,7 @@ document.getElementById('immortalLockCheck').addEventListener('change', function
 function addImmortalLock() {
     // Get values
     const teamName = document.getElementById('immortalTeamInput').value;
-    const team = document.getElementById('immortalTeamSelect').value;
+    //const team = document.getElementById('immortalTeamSelect').value;
     const type = document.getElementById('immortalTypeSelect').value;
     const value = document.getElementById('immortalValueInput').value;
 

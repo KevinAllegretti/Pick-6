@@ -24,19 +24,21 @@
                 <input type="checkbox" id="immortalLockCheck">
                 <label for="immortalLockCheck">Set Immortal Lock?</label>
             </div>
-            
+            <div class="button-group">
             <button id="resetPicks">Reset Picks</button>
             <button id="submitPicks">Submit Picks</button>
+            </div>
+
 
             <div id="addPick">
-                <select id="teamSelect">
-                    <!-- Populate with teams -->
-                    <input type="text" id="teamInput" placeholder="Enter Team Name">
-                </select>
+                                    <!-- Populate with teams -->
+                <input type="text" id="teamInput" placeholder="Enter Team Name">
+
                 <select id="typeSelect">
                     <option value="spread">Spread</option>
                     <option value="moneyline">Moneyline</option>
                 </select>
+
                 <input type="number" id="valueInput" placeholder="Value">
                 <button onclick="addPick()">Add Pick</button>
 
@@ -44,10 +46,8 @@
 
             <div id="immortalLock" style="display: none;">
                 <h2>Immortal Lock</h2>
-                <select id="immortalTeamSelect">
                     <!-- Populate with teams -->
                     <input type="text" id="immortalTeamInput" placeholder="Enter Immortal Lock Team Name">
-                </select>
                 <select id="immortalTypeSelect">
                     <option value="spread">Spread</option>
                     <option value="moneyline">Moneyline</option>
