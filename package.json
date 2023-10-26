@@ -1,1 +1,1 @@
-{"scripts":{"start":"ts-node src/index.ts"},"dependencies":{"@types/bcryptjs":"^2.4.5","@types/jsonwebtoken":"^9.0.4","bcryptjs":"^2.4.3","ejs":"^3.1.9","express-session":"^1.17.3","jsonwebtoken":"^9.0.2"},"devDependencies":{"@types/express-session":"^1.17.9"}}
+{"scripts":{"start":"ts-node src/index.ts"},"dependencies":{"@types/bcryptjs":"^2.4.5","@types/jsonwebtoken":"^9.0.4","bcryptjs":"^2.4.3","ejs":"^3.1.9","express-session":"^1.17.3","jsonwebtoken":"^9.0.2","ts-node":"^10.9.1","typescript":"^5.2.2"},"devDependencies":{"@types/express-session":"^1.17.9"}}
