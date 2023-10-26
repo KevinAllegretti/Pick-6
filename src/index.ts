@@ -68,7 +68,8 @@ import picksRoutes from './routes/picksRoutes';
 import bodyParser from 'body-parser';
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
+
 
 // 1. Middleware to parse JSON
 app.use(express.json());
