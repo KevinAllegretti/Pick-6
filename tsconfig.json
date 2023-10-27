@@ -5,10 +5,11 @@
       "outDir": "./dist",
       "strict": true,
       "esModuleInterop": true,
-      "skipLibCheck": true
+      "skipLibCheck": true,
+      "noImplicitAny": false,
     },
-    "noImplicitAny": false,
-    "include": ["src/**/*.ts", "src/index.ts", "src/types.d.ts"],
-    "exclude": ["node_modules"]
+    "heroku-postbuild": "tsc",
+    "include": ["src/**/*.ts", "src/index.js", "src/types.d.ts", "src/routes/userRoutes.js", "node_modules"],
+    //"exclude": ["node_modules"]
   }
   

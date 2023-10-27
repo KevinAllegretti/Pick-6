@@ -5,6 +5,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const user_1 = __importDefault(require("../models/user"));
+/*
+declare module 'express-session' {
+    export interface SessionData {
+      username?: string; // Add other custom session properties here if needed
+    }
+  }
+ */
 const router = express_1.default.Router();
 router.post('/login', (req, res) => {
     const { username, password } = req.body;

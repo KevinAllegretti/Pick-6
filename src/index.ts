@@ -74,6 +74,7 @@ const PORT = process.env.PORT || 3000;
 // 1. Middleware to parse JSON
 app.use(express.json());
 
+
 // 2. Logging middleware
 app.use((req: Request, res: Response, next: NextFunction) => {
   console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);

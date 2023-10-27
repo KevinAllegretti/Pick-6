@@ -2,16 +2,17 @@ import express from 'express';
 import { connectToDatabase } from '../microservices/connectDB';
 import users from '../models/user';
 
+/*
 declare module 'express-session' {
     export interface SessionData {
       username?: string; // Add other custom session properties here if needed
     }
   }
-  
+ */ 
 
 const router = express.Router();
 
-router.post('/login', (req: express.Request, res: express.Response) => {
+router.post('/login', (req,res) => {
     const { username, password } = req.body;
 
     const user = users.find(u => u.username === username && u.password === password);
