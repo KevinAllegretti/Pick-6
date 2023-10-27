@@ -8,6 +8,7 @@
       "skipLibCheck": true,
       "noImplicitAny": false,
     },
+    "moduleResolution": "node",
     "heroku-postbuild": "tsc",
     "include": ["src/**/*.ts", "src/index.js", "src/types.d.ts", "src/routes/userRoutes.js", "node_modules"],
     //"exclude": ["node_modules"]
