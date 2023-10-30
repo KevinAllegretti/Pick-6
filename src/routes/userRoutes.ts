@@ -18,7 +18,7 @@ router.post('/login', (req,res) => {
     const user = users.find(u => u.username === username && u.password === password);
     if (user) {
         res.redirect(`/homepage.html?username=${username}`);
-        res.redirect('/homepage.html'); // This would be the URL to your homepage
+        //res.redirect('/homepage.html'); // This would be the URL to your homepage
     } else {
         res.status(401).send('Invalid credentials. Please try again.');
     }
