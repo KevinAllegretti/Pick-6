@@ -1,6 +1,10 @@
 body {
     font-family: 'Arial', sans-serif;
     background-color: #0a0f22; /* Darker background for contrast */
+  /*  background-image: url('P6.png');
+    background-size: 1300px;      /* Resize the background image to cover the entire container */
+    background-repeat: no-repeat; /* Prevents the background image from repeating */
+    background-position: center -290px;  /* Centers the background image */
     color: #33d9ff; /* Neon light blue text */
     margin: 0;
     padding: 0;
@@ -119,11 +123,13 @@ h2 {
     transform: rotate(45deg);
     font-size: 1.5rem;  /* Adjust as needed */
     z-index: 10;
+    color: gold;
 }
 
 
 /* The dunce cap */
 .dunce-icon {
+    color: rgb(142, 93, 2);
     font-size: 30px;  /* Adjust size */
     position: absolute;
     top: 10px;  /* Adjust positioning */
