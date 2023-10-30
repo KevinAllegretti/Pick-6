@@ -92,7 +92,7 @@ app.get('/', (req, res) => {
   res.send('Welcome to Pick 6!');
 });
 
-app.use('/api/users', userRoutes);
+app.use('/users', userRoutes);
 
 
 app.get('/dashboard', (req, res) => {
