@@ -1,19 +1,16 @@
 {
-    "redirects": [
-      { "source": "/", "destination": "/login.html", "permanent": true }
-    ],
-    "rewrites": [
-      { "source": "/api/(.*)", "destination": "/api/index.ts" },
-      { "source": "/login.html", "destination": "/public/login.html" },
-      { "source": "/homepage.html", "destination": "/public/homepage.html" },
-      { "source": "/dashboard.html", "destination": "/public/dashboard.html" },
-      { "source": "/rules.html", "destination": "/public/rules.html" },
-      { "source": "/standings.html", "destination": "/public/standings.html" }
-    ],
-  "routes": [
+  "redirects": [
+    { "source": "/", "destination": "/login.html", "permanent": true }
+  ],
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/index.ts" },
+    { "source": "/login.html", "destination": "/public/login.html" },
+    { "source": "/homepage.html", "destination": "/public/homepage.html" },
+    { "source": "/dashboard.html", "destination": "/public/dashboard.html" },
+    { "source": "/rules.html", "destination": "/public/rules.html" },
+    { "source": "/standings.html", "destination": "/public/standings.html" },
     { "source": "/users(/.*)?", "destination": "/api/index.ts" },
     { "source": "/picks(/.*)?", "destination": "/api/index.ts" },
-
     { "source": "/dashboard.html", "destination": "/public/dashboard.html" },
     { "source": "/homepage.html", "destination": "/public/homepage.html" },
     { "source": "/login.html", "destination": "/public/login.html" },
@@ -26,7 +23,6 @@
     { "source": "/dashboard.js", "destination": "/public/dashboard.js" },
     { "source": "/homepage.js", "destination": "/public/homepage.js" },
     { "source": "/(.*).png", "destination": "/public/$1.png" },
-
     { "source": "/(.*)", "destination": "/public/$1" }
   ]
 }
