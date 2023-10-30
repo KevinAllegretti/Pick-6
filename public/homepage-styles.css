@@ -13,7 +13,14 @@ body {
 .container {
     width: 90%;
     margin: 0 auto;
-    padding-top: 2em;
+    padding-top: 1em;
+}
+
+.containerbutton {
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 1em;
+    margin-left: 580px;
 }
 
 h1 {
@@ -85,13 +92,12 @@ h2 {
 }
 
 .rules-button {
-    display: inline-block;
+   /* display: inline-block; */
     background-color: #33d9ff;
     color: #0a0f22;
     padding: 10px 20px;
     border-radius: 8px;
     text-decoration: none;
-    margin-top: 20px;
     text-align: center;
     transition: background-color 0.3s;
 }
