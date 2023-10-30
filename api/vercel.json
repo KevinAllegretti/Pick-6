@@ -1,0 +1,29 @@
+{
+  "redirects": [
+    { "source": "/", "destination": "/login.html", "permanent": true }
+  ],
+  "rewrites": [
+    { "source": "/login.html", "destination": "/public/login.html" },
+    { "source": "/homepage.html", "destination": "/public/homepage.html" }
+  ],
+  "routes": [
+    { "src": "/users(/.*)?", "dest": "/api/index.ts" },
+    { "src": "/picks(/.*)?", "dest": "/api/index.ts" },
+
+    { "src": "/dashboard.html", "dest": "/public/dashboard.html" },
+    { "src": "/homepage.html", "dest": "/public/homepage.html" },
+    { "src": "/login.html", "dest": "/public/login.html" },
+    { "src": "/rules.html", "dest": "/public/rules.html" },
+    { "src": "/standings.html", "dest": "/public/standings.html" },
+    { "src": "/styles.css", "dest": "/public/styles.css" },
+    { "src": "/homepage-styles.css", "dest": "/public/homepage-styles.css" },
+    { "src": "/loginStyles.css", "dest": "/public/loginStyles.css" },
+    { "src": "/rules.css", "dest": "/public/rules.css" },
+    { "src": "/standings.css", "dest": "/public/standings.css" },
+    { "src": "/dashboard.js", "dest": "/public/dashboard.js" },
+    { "src": "/homepage.js", "dest": "/public/homepage.js" },
+    { "src": "/(.*).png", "dest": "/public/$1.png" },
+
+    { "src": "/(.*)", "dest": "/public/$1" }
+  ]
+}
