@@ -1,6 +1,12 @@
 {
-    "routes": [
-      { "src": "/(.*)", "dest": "index.ts" }
-    ]
-  }
-  
+  "routes": [
+    {
+      "src": "/login.html",
+      "dest": "/public/login.html"
+    },
+    {
+      "src": "/homepage.html",
+      "dest": "/public/homepage.html"
+    }
+  ]
+}
