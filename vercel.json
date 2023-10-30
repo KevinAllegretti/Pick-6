@@ -3,7 +3,7 @@
     { "source": "/", "destination": "/login.html", "permanent": true }
   ],
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api/index.ts" },
+    { "source": "/api/(.*)", "destination": "/index.ts" },
     { "source": "/login.html", "destination": "/public/login.html" },
     { "source": "/homepage.html", "destination": "/public/homepage.html" },
     { "source": "/dashboard.html", "destination": "/public/dashboard.html" },

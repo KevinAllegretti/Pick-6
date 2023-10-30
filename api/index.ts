@@ -92,7 +92,8 @@ app.get('/', (req, res) => {
   res.send('Welcome to Pick 6!');
 });
 
-app.use('/users', userRoutes);
+app.use('/api/users', userRoutes);
+
 
 app.get('/dashboard', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/dashboard.html'));
