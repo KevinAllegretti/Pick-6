@@ -62,9 +62,9 @@ app.use(express.static(path.join(__dirname, '../public')));
 */
 
 import express, { Request, Response, NextFunction } from 'express';
-import userRoutes from './routes/userRoutes';
+import userRoutes from '../src/routes/userRoutes';
 import path from 'path';
-import picksRoutes from './routes/picksRoutes'; 
+import picksRoutes from '../src/routes/picksRoutes'; 
 import bodyParser from 'body-parser';
 
 const app = express();

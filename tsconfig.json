@@ -10,7 +10,7 @@
     },
     "moduleResolution": "node",
     "heroku-postbuild": "tsc",
-    "include": ["src/**/*.ts", "src/index.js", "src/types.d.ts", "src/routes/userRoutes.js", "node_modules"],
+    "include": ["src/**/*.ts", "src/index.js", "src/types.d.ts", "src/routes/userRoutes.js", "node_modules", "api/index.ts"],
     //"exclude": ["node_modules"]
   }
   
