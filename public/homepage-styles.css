@@ -121,3 +121,12 @@ h2 {
     z-index: 10;
 }
 
+
+/* The dunce cap */
+.dunce-icon {
+    font-size: 30px;  /* Adjust size */
+    position: absolute;
+    top: 10px;  /* Adjust positioning */
+    right: 0%;
+    transform: translateX(-50%) rotate(45deg); /* Rotate by 45 degrees */
+}
