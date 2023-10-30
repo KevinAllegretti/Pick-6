@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.connectToDatabase = void 0;
-const { MongoClient } = require("mongodb");
+const mongodb_1 = require("mongodb");
 async function connectToDatabase() {
     const uri = 'mongodb+srv://Kingbeats17:Yunglean17@pick6.nomxpzq.mongodb.net/'; // Replace with your MongoDB connection string
-    const client = new MongoClient(uri);
+    const client = new mongodb_1.MongoClient(uri);
     console.log("Attempting to connect to the database...");
     try {
         await client.connect();

@@ -1,4 +1,5 @@
-const { MongoClient } = require("mongodb");
+import { MongoClient } from 'mongodb';
+
 
 export async function connectToDatabase() {
   const uri = 'mongodb+srv://Kingbeats17:Yunglean17@pick6.nomxpzq.mongodb.net/'; // Replace with your MongoDB connection string
