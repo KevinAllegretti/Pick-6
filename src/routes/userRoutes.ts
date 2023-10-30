@@ -12,6 +12,8 @@ declare module 'express-session' {
 
 const router = express.Router();
 
+router.get('/test', (req, res) => res.send('Test route works!'));
+
 router.post('/login', (req,res) => {
     const { username, password } = req.body;
 

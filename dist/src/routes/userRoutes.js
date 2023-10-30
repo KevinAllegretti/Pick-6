@@ -13,6 +13,7 @@ declare module 'express-session' {
   }
  */
 const router = express_1.default.Router();
+router.get('/test', (req, res) => res.send('Test route works!'));
 router.post('/login', (req, res) => {
     const { username, password } = req.body;
     const user = user_1.default.find(u => u.username === username && u.password === password);
