@@ -8,6 +8,7 @@ body {
     color: #33d9ff; /* Neon light blue text */
     margin: 0;
     padding: 0;
+    justify-content: center;
 }
 
 .container {
