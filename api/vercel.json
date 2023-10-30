@@ -7,23 +7,23 @@
     { "source": "/homepage.html", "destination": "/public/homepage.html" }
   ],
   "routes": [
-    { "src": "/users(/.*)?", "dest": "/api/index.ts" },
-    { "src": "/picks(/.*)?", "dest": "/api/index.ts" },
+    { "source": "/users(/.*)?", "destination": "/api/index.ts" },
+    { "source": "/picks(/.*)?", "destination": "/api/index.ts" },
 
-    { "src": "/dashboard.html", "dest": "/public/dashboard.html" },
-    { "src": "/homepage.html", "dest": "/public/homepage.html" },
-    { "src": "/login.html", "dest": "/public/login.html" },
-    { "src": "/rules.html", "dest": "/public/rules.html" },
-    { "src": "/standings.html", "dest": "/public/standings.html" },
-    { "src": "/styles.css", "dest": "/public/styles.css" },
-    { "src": "/homepage-styles.css", "dest": "/public/homepage-styles.css" },
-    { "src": "/loginStyles.css", "dest": "/public/loginStyles.css" },
-    { "src": "/rules.css", "dest": "/public/rules.css" },
-    { "src": "/standings.css", "dest": "/public/standings.css" },
-    { "src": "/dashboard.js", "dest": "/public/dashboard.js" },
-    { "src": "/homepage.js", "dest": "/public/homepage.js" },
-    { "src": "/(.*).png", "dest": "/public/$1.png" },
+    { "source": "/dashboard.html", "destination": "/public/dashboard.html" },
+    { "source": "/homepage.html", "destination": "/public/homepage.html" },
+    { "source": "/login.html", "destination": "/public/login.html" },
+    { "source": "/rules.html", "destination": "/public/rules.html" },
+    { "source": "/standings.html", "destination": "/public/standings.html" },
+    { "source": "/styles.css", "destination": "/public/styles.css" },
+    { "source": "/homepage-styles.css", "destination": "/public/homepage-styles.css" },
+    { "source": "/loginStyles.css", "destination": "/public/loginStyles.css" },
+    { "source": "/rules.css", "destination": "/public/rules.css" },
+    { "source": "/standings.css", "destination": "/public/standings.css" },
+    { "source": "/dashboard.js", "destination": "/public/dashboard.js" },
+    { "source": "/homepage.js", "destination": "/public/homepage.js" },
+    { "source": "/(.*).png", "destination": "/public/$1.png" },
 
-    { "src": "/(.*)", "dest": "/public/$1" }
+    { "source": "/(.*)", "destination": "/public/$1" }
   ]
 }
