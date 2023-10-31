@@ -26,7 +26,7 @@ app.use(express_1.default.urlencoded({ extended: true }));
   res.send('Welcome to Pick 6!');
 }); */
 app.get('/', (req, res) => {
-    res.sendFile(path_1.default.join(__dirname, '../public/login.html'));
+    res.sendFile(path_1.default.join(__dirname, '../../public/login.html'));
 });
 app.use('/users', userRoutes_1.default);
 app.get('/dashboard', (req, res) => {
