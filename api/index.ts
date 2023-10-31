@@ -30,7 +30,7 @@ app.use(express.urlencoded({ extended: true }));
   res.send('Welcome to Pick 6!');
 }); */
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../public/login.html'));
+  res.sendFile(path.join(__dirname, '../public/login.html'));
 
 });
 
