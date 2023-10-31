@@ -9,7 +9,7 @@
       "noImplicitAny": false,
     },
     "moduleResolution": "node",
-    "include": ["src/**/*.ts", "src/index.js", "src/types.d.ts", "src/routes/userRoutes.js", "node_modules", 
-    "api/index.ts"],src/index.ts
+    "include": ["src/**/*.ts", "api/index.js", "src/types.d.ts", "src/routes/userRoutes.js", "node_modules", 
+    "api/index.ts"]
   }
   

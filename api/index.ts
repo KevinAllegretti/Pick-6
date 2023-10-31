@@ -1,8 +1,8 @@
 
 import express, { Request, Response, NextFunction } from 'express';
-import userRoutes from './routes/userRoutes';
+import userRoutes from '../src/routes/userRoutes';
 import path from 'path';
-import picksRoutes from './routes/picksRoutes'; 
+import picksRoutes from '../src/routes/picksRoutes'; 
 import bodyParser from 'body-parser';
 
 const app = express();
@@ -26,9 +26,13 @@ app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
 
 // 5. API routes
-app.get('/', (req, res) => {
+/*app.get('/', (req, res) => {
   res.send('Welcome to Pick 6!');
+}); */
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/login.html'));
 });
+
 
 app.use('/users', userRoutes);
 
