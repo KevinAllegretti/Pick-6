@@ -1,10 +1,10 @@
 
 import express, { Request, Response, NextFunction } from 'express';
-import userRoutes from '../src/routes/userRoutes';
+import userRoutes from './routes/userRoutes';
 import path from 'path';
-import picksRoutes from '../src/routes/picksRoutes'; 
+import picksRoutes from './routes/picksRoutes'; 
 import bodyParser from 'body-parser';
-/*
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -47,8 +47,4 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 
-export default app;
-*/
-const app = express();
-app.use('/users', userRoutes);
 export default app;
