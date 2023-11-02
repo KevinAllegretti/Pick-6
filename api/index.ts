@@ -1,4 +1,4 @@
-
+import { exec } from 'child_process';
 import express, { Request, Response, NextFunction } from 'express';
 import userRoutes from '../src/routes/userRoutes';
 import path from 'path';
@@ -51,5 +51,25 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+// Your existing code...
+
+// Add a condition to prevent indefinite recursion.
+let counter = 0; // This would be outside any function
+
+const shouldRunAgain = counter < 5;
+
+if (shouldRunAgain) {
+  counter++;
+    exec('npm start', (error, stdout, stderr) => {
+        if (error) {
+            console.error(`exec error: ${error}`);
+            return;
+        }
+        console.log(`stdout: ${stdout}`);
+        console.error(`stderr: ${stderr}`);
+    });
+}
+
 
 export default app;

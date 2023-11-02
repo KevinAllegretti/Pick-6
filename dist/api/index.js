@@ -3,6 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const child_process_1 = require("child_process");
 const express_1 = __importDefault(require("express"));
 const userRoutes_1 = __importDefault(require("../src/routes/userRoutes"));
 const path_1 = __importDefault(require("path"));
@@ -26,7 +27,7 @@ app.use(express_1.default.urlencoded({ extended: true }));
   res.send('Welcome to Pick 6!');
 }); */
 app.get('/', (req, res) => {
-    res.sendFile(path_1.default.join(__dirname, '../../public/login.html'));
+    res.sendFile(path_1.default.join(__dirname, '../public/login.html'));
 });
 app.use('/users', userRoutes_1.default);
 app.get('/dashboard', (req, res) => {
@@ -39,4 +40,19 @@ app.use(express_1.default.static(path_1.default.join(__dirname, '../public')));
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+// Your existing code...
+// Add a condition to prevent indefinite recursion.
+let counter = 0; // This would be outside any function
+const shouldRunAgain = counter < 5;
+if (shouldRunAgain) {
+    counter++;
+    (0, child_process_1.exec)('npm start', (error, stdout, stderr) => {
+        if (error) {
+            console.error(`exec error: ${error}`);
+            return;
+        }
+        console.log(`stdout: ${stdout}`);
+        console.error(`stderr: ${stderr}`);
+    });
+}
 exports.default = app;
