@@ -442,11 +442,9 @@ function resetPicks() {
     
       // Convert each pick object into a string representation
       const picksAsString = userPicks.map(pick => `${pick.teamName} [${pick.type}: ${pick.value}]`);
-      let immortalLockAsString = '';
-      if (userImmortalLock.length > 0 && userImmortalLock[0]) {
-        immortalLockAsString = `${userImmortalLock[0].teamName} [${userImmortalLock[0].type}: ${userImmortalLock[0].value}]`;
-      }
-      
+      const immortalLockAsString = userImortalLock.length > 0 
+      ? `${userImortalLock[0].teamName} [${userImortalLock[0].type}: ${userImortalLock[0].value}]`
+      : '';
       const data = {
         picks: picksAsString,
         immortalLock: immortalLockAsString
