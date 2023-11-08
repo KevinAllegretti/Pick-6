@@ -164,6 +164,12 @@ input, select {
     font-weight: bold;
 }
 
+.back-button-container {
+    text-align: center; /* Center the back button */
+    padding: 10px 0; /* Add some padding above and below the back button */
+}
+
+
 .back-button {
     display: inline-block;
     padding: 10px 20px;
