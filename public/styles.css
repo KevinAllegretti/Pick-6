@@ -1,4 +1,4 @@
-
+/*
 body {
     font-family: 'Oswald', sans-serif;
     background-color: #111;
@@ -16,18 +16,72 @@ body {
 }
 
 .container {
-    
-    background: rgba(0, 0, 0, 0.9); /* Increased opacity for a cleaner look */
+    margin-top: 0;
+    padding-top: 0;
+    background: rgba(0, 0, 0, 0.9); 
     padding: 30px;
     border-radius: 15px;
     width: 80%;
-    max-width: 600px; /* Slightly wider container */
-    box-shadow: 0 0 30px rgba(0, 229, 255, 0.7); /* Enhanced neon glow */
+    max-width: 600px; 
+    box-shadow: 0 0 30px rgba(0, 229, 255, 0.7); 
     transform: scale(0.88);
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center the contents of the container */
+    align-items: center; 
 }
+*/
+body {
+    font-family: 'Oswald', sans-serif;
+    background-color: #111;
+    color: #ddd;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+}
+
+
+.main-wrapper {
+    flex: 1; 
+    display: flex; 
+    justify-content: space-between;
+    align-items: flex-start; 
+    overflow-y: auto; 
+    padding-top: 20px; 
+    max-height: 100vh; 
+}
+
+/*
+.container {
+    background: rgba(0, 0, 0, 0.9);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0, 229, 255, 0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; 
+    max-width: 600px;
+    margin: 0 auto; 
+    transform: none; 
+}
+*/
+.container, .image-container {
+    max-width: 48%; /* Adjust the width so both containers can fit side by side */
+    max-height: 600px; /* Set a max-height that works for your content */
+    overflow-y: auto; /* Enable vertical scrolling */
+    margin: 0 1%; /* Add some margin between the containers */
+    box-shadow: 0 0 30px rgba(0, 229, 255, 0.7);
+    border-radius: 15px;
+}
+@media (max-width: 768px) {
+    .container, .image-container {
+      width: 95%; /* Full width on smaller screens */
+      margin: 10px auto; /* Center and add margin on smaller screens */
+      max-width: none; /* Override any max-width */
+    }
+}
+
 .button-group {
     display: flex;
     justify-content: space-between;
@@ -114,17 +168,25 @@ input, select {
     display: inline-block;
     padding: 10px 20px;
     margin: 10px;
+    justify-content: center;
     background-color: #333;
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s;
 }
+.centered-button {
+    display: flex;
+    justify-content: center; /* Center the button horizontally */
+    width: 100%; /* Take the full width of its parent */
+    margin-top: 20px; /* Optional space above the button */
+  }
+  
   
 .back-button:hover {
     background-color: #555;
 }
-
+/*
 .image-container {
     margin-top: 30px; 
     display: flex;
@@ -136,7 +198,7 @@ input, select {
     border-radius: 15px;
     transform: scale(0.88);
 }
-
+*/
 .image-container img {
     max-width: 100%;
     border-radius: 10px;
@@ -155,3 +217,123 @@ input, select {
 .container, .image-container {
     width: 49%; /* Assigning 49% to leave a small gap in between, you can adjust as needed */
 }
+
+/* VERSION 1*/
+  
+.picks-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Creates a grid with flexible columns */
+    grid-auto-rows: minmax(50px, auto); /* Adjust row height as needed */
+    gap: 5px; /* Spacing between grid items */
+    padding: 10px; /* Padding inside the container */
+    overflow: auto; /* Add scrolling to the container */
+    max-height: 90vh; /* Adjust based on your layout's needs */
+  }
+  .betCell {
+    color: #fff;
+    padding: 5px; /* Padding inside each cell */
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 0.8em; /* Smaller font size to fit content */
+    display: flex; /* To center the content inside the cell */
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+  }
+
+  /* NFL Team Colors */
+.cardinals-color { background-color: #97233F; }
+.falcons-color { background-color: #A71930; }
+.ravens-color { background-color: #241773; }
+.bills-color { background-color: #00338D; }
+.panthers-color { background-color: #0085CA; }
+.bears-color { background-color: #C83803; }
+.bengals-color { background-color: #FB4F14; }
+.browns-color { background-color: #835506; }
+.cowboys-color { background-color: #003594; }
+.broncos-color { background-color: #FB4F14; }
+.lions-color { background-color: #0076B6; }
+.packers-color { background-color: #203731; }
+.texans-color { background-color: #03202F; }
+.colts-color { background-color: #002C5F; }
+.jaguars-color { background-color: #006778; }
+.chiefs-color { background-color: #E31837; }
+.raiders-color { background-color: #A5ACAF; }
+.chargers-color { background-color: #0080C6; }
+.rams-color { background-color: #003594; }
+.dolphins-color { background-color: #008E97; }
+.vikings-color { background-color: #4F2683; }
+.patriots-color { background-color: #002244; }
+.saints-color { background-color: #D3BC8D; }
+.giants-color { background-color: #0B2265; }
+.jets-color { background-color: #125740; }
+.eagles-color { background-color: #004C54; }
+.steelers-color { background-color: #FFB612; }
+.FortyNiners-color { background-color: #AA0000; }
+.seahawks-color { background-color: #002244; }
+.buccaneers-color { background-color: #D50A0A; }
+.titans-color { background-color: #0C2340; }
+.commanders-color { background-color: #773141; }
+  
+  
+  .betCell:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+  }
+  
+  .betCell.selected {
+    background-color: rgba(72, 255, 0, 0.7); /* Selected cell background color */
+    font-weight: bold;
+  }
+
+  .betCell.immortal-lock {
+    background-color: #ff69b4; /* Bright pink background */
+    /* Other styles to make it distinct if necessary */
+  }
+  
+  .info-box {
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+    color: #ddd; /* Text color */
+    margin: 20px auto; /* Centering the box */
+    padding: 20px; /* Padding inside the box */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5); /* Box shadow for depth */
+    width: 90%; /* Match the width of your container, or adjust as necessary */
+    max-width: 1200px; /* Maximum width */
+    text-align: left; /* Align text to the left */
+    font-size: 1rem; /* Adjust font size as necessary */
+    line-height: 1.5; /* Line height for better readability */
+    border: 1px solid #00DDFF; /* Border color to match the theme */
+  }
+  
+  .info-box h2 {
+    color: #00DDFF; /* Heading color to stand out */
+    margin-bottom: 10px; /* Space below the heading */
+  }
+  
+  .info-box p {
+    margin-bottom: 10px; /* Space between paragraphs */
+  }
+  
+  /* Additional media query to handle responsiveness */
+  @media (max-width: 768px) {
+    .info-box {
+      width: 95%; /* Full width on smaller screens */
+      padding: 15px; /* Adjust padding on smaller screens */
+      font-size: 0.9rem; /* Smaller font size on smaller screens */
+    }
+  }
+
+
+  
+  .green-highlight {
+    color: #33ff57;
+}
+.pink-highlight {
+    color: #ff39ce;
+}
+
+.red-highlight {
+    color: #ed322c;
+}
+

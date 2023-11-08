@@ -1,3 +1,4 @@
+<!--
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,6 +67,74 @@
         
     
     </div>
+    <script src="dashboard.js"></script>
+</body>
+</html>
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pick-6 Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main-wrapper">
+        <div class="container">
+            <h2 id="pick6Title">Pick 6</h2>
+            <h1></h1>
+            <!-- The picksContainer will be populated with bet options via JS -->
+            <div id="picksContainer" class="picks-container">
+                <!-- Bet cells will be appended here -->
+            </div>
+
+            <!-- Immortal Lock Option -->
+            <div id="immortalLockOption">
+                <input type="checkbox" id="immortalLockCheck">
+                <label for="immortalLockCheck">Set Immortal Lock?</label>
+            </div>
+
+            <!-- Button Group -->
+            <div class="button-group">
+                <button id="resetPicks">Reset Picks</button>
+                <button id="submitPicks">Submit Picks</button>
+            </div>
+
+            <!-- Immortal Lock -->
+            <div id="immortalLock" style="display: none;">
+                <h2>Immortal Lock</h2>
+                    
+                    <input type="text" id="immortalTeamInput" placeholder="Enter Immortal Lock Team Name">
+                <select id="immortalTypeSelect">
+                    <option value="spread">Spread</option>
+                    <option value="moneyline">Moneyline</option>
+                </select>
+                <input type="number" id="immortalValueInput" placeholder="Line">
+                <button onclick="addImmortalLock()">Set Immortal Lock</button>
+            </div>
+
+            <div id="statusMessage"></div>
+
+            <div class="centered-button">
+            <a href="/homepage.html" class="back-button">Back to Home</a>
+             </div>
+        </div>
+       
+  
+        <div class="image-container">
+            <img src="IMG_7722.PNG">
+        </div>
+    </div>
+    <div class="info-box">
+        <h2>Welcome to the Pick 6 Selection Page</h2>
+        <p>Selected picks will turn <span class="green-highlight">bright green </span> and immortal lock pick (if chosen) will turn  <span class="pink-highlight">bright pink</span></p>
+        <p>Once they are all selected, you can click submit picks which will successfully display your picks for the week back on the homepage</p>
+        <p>If would like to change a selection, you have until the <span class="red-highlight">Thursday 7PM EST</span> deadline to do so with "Reset Picks"</p>
+        <p>Carefully select your picks all at once before submitting and good luck!</p>
+     </div>
     <script src="dashboard.js"></script>
 </body>
 </html>
