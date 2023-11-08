@@ -85,7 +85,7 @@ function addImmortalLock() {
     document.getElementById('statusMessage').textContent = `Immortal Lock set for ${teamName} [${type}: ${sanitizedValue}]`;
     userImortalLock.push(`${teamName} [${type}: ${sanitizedValue}]`); //stirngs pushed into the array
     console.log(userImortalLock);
-}
+}  
 
 function resetPicks() {
     // Reset the counters and arrays
@@ -110,7 +110,7 @@ function resetPicks() {
     document.getElementById('immortalLockCheck').checked = false;
 
     // Make an API call to reset the picks on the server
-    fetch(`/api/resetPicks/${storedUsername}`, {  // Replace `${username}` with the correct variable or method to get the username
+    fetch(`/api/resetPicks/${storedUsername}`, { 
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
