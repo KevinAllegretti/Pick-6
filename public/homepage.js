@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         picksDiv.appendChild(pickElem);
                     });
                     const immortalLockDiv = card.querySelector('.immortal-lock');
+                    console.log(`${data.immortalLock[0]}`)
                     immortalLockDiv.textContent = `Immortal Lock: ${data.immortalLock[0]}`;
                 }
             } catch (error) {

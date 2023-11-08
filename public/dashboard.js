@@ -176,8 +176,8 @@ document.getElementById('submitPicks').addEventListener('click', submitUserPicks
 
 // Assuming betOptions is an array of all bet options for the week
 const betOptions = [
-    { teamName: 'AZ Cardinals', type: 'ML', value: '+150' },
-    { teamName: 'AZ Cardinals', type: 'Spread', value: '-3.5' },
+    { teamName: 'ARI Cardinals', type: 'ML', value: '+150' },
+    { teamName: 'ARI Cardinals', type: 'Spread', value: '-3.5' },
     { teamName: 'ATL Falcons', type: 'ML', value: '+220' },
     { teamName: 'ATL Falcons', type: 'Spread', value: '+5.5' },
     { teamName: 'BAL Ravens', type: 'ML', value: '-120' },
@@ -243,7 +243,7 @@ const betOptions = [
 ];
 
 const teamColorClasses = {
-    'AZ Cardinals': 'cardinals-color',
+    'ARI Cardinals': 'cardinals-color',
     'ATL Falcons': 'falcons-color',
     'BAL Ravens': 'ravens-color',
     'BUF Bills': 'bills-color',
@@ -269,7 +269,7 @@ const teamColorClasses = {
     'NY Giants': 'giants-color',
     'NY Jets': 'jets-color',
     'PHI Eagles': 'eagles-color',
-    'Pittsburgh Steelers': 'steelers-color',
+    'PIT Steelers': 'steelers-color',
     'SF 49ers': 'FortyNiners-color',
     'SEA Seahawks': 'seahawks-color',
     'TB Buccaneers': 'buccaneers-color',
@@ -327,25 +327,9 @@ const teamColorClasses = {
 
   }
 
-  function updateDisplayedPick(option) {
-    // Create a string representation of the bet option
-    const optionString = `${option.teamName} [${option.type}: ${option.value}]`;
-    
-    // Find the pick in the picksContainer and update its text content
-    const pickDiv = document.querySelector(`#picksContainer .selected-pick`);
-    if (pickDiv) {
-      pickDiv.textContent = optionString;
-    } else {
-      // If it doesn't exist, create it
-      const newPickDiv = document.createElement('div');
-      newPickDiv.classList.add('selected-pick');
-      newPickDiv.textContent = optionString;
-      document.getElementById('picksContainer').appendChild(newPickDiv);
-    }
-  }
 
   
-  function updateBetCell(option, isSelected) {
+ function updateBetCell(option, isSelected) {
     const betCells = document.querySelectorAll('.betCell');
     betCells.forEach(cell => {
       if (cell.textContent === `${option.teamName} [${option.type}: ${option.value}]`) {
@@ -442,12 +426,14 @@ function resetPicks() {
     
       // Convert each pick object into a string representation
       const picksAsString = userPicks.map(pick => `${pick.teamName} [${pick.type}: ${pick.value}]`);
-      const immortalLockAsString = userImortalLock.length > 0 
-      ? `${userImortalLock[0].teamName} [${userImortalLock[0].type}: ${userImortalLock[0].value}]`
-      : '';
+      
+
+ 
+     console.log(userImortalLock[0]);
+
       const data = {
         picks: picksAsString,
-        immortalLock: immortalLockAsString
+        immortalLock: userImortalLock
       };
     
     fetch(`/api/savePicks/${storedUsername}`, {
