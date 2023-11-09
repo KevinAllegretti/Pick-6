@@ -5,7 +5,7 @@ type User = {
 
 const users: User[] = [
   { username: "LazyAhhGamer", password: "lazy456" },
-  { username: "Bear jew", password: "bear298" },
+  { username: "Bear Jew", password: "bear298" },
   { username: "porkSkinGooner", password: "pork223" },
   { username: "Primitive Picks", password: "prim142" },
   { username: "L to the OG", password: "L009" },
