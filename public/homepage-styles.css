@@ -142,3 +142,34 @@ h2 {
     right: 0%;
     transform: translateX(-50%) rotate(45deg); /* Rotate by 45 degrees */
 }
+
+/* Digital Clock Container */
+.digital-clock-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+  }
+  
+  /* Digital Clock Styling */
+  .digital-clock {
+    font-family: 'Orbitron', sans-serif;
+    color: #ffffff; /* Change text color to white */
+    background: #333333; /* Dark background for contrast */
+    padding: 10px 20px;
+    border-radius: 5px; /* Smoother border radius */
+    text-align: center;
+    font-size: 1.5em;
+    letter-spacing: 2px;
+    box-shadow: 0px 0px 10px #222222; /* Softer shadow for depth */
+    border: 1px solid #444444; /* Subtle border color */
+  }
+  
+  /* You can add media queries as needed for responsiveness */
+  @media (max-width: 600px) {
+    .digital-clock {
+      font-size: 1em;
+      padding: 5px 10px;
+    }
+  }
+  
+  

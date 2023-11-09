@@ -10,6 +10,78 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log("Script is loaded!");
     console.log("Logged in user:", loggedInUsername);
 
+ // Function to calculate time remaining until next Thursday at 7 PM EST/EDT
+ function getTimeRemaining() {
+    const now = new Date();
+
+    // Set the target time to 7 PM EST Thursday
+    let targetTime = new Date(now);
+    targetTime.setDate(now.getDate() + ((4 + 7 - now.getDay()) % 7));
+    targetTime.setHours(19, 0, 0, 0); // 7 PM EST
+    targetTime.setMinutes(targetTime.getMinutes() + targetTime.getTimezoneOffset()); // Convert to UTC
+    targetTime.setHours(targetTime.getHours() - 5); // Convert UTC to EST (UTC-5)
+
+    // Determine if it's Daylight Saving Time in Eastern Time Zone
+    const isDst = now.dst();
+    if (isDst) {
+        targetTime.setHours(targetTime.getHours() + 1); // Adjust for EDT (UTC-4)
+    }
+
+    // Calculate the time remaining until the target time
+    const total = targetTime - now;
+    const seconds = Math.floor((total / 1000) % 60);
+    const minutes = Math.floor((total / 1000 / 60) % 60);
+    const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
+    const days = Math.floor(total / (1000 * 60 * 60 * 24));
+
+    return {
+        total,
+        days,
+        hours,
+        minutes,
+        seconds
+    };
+}
+
+// Add a method to Date.prototype to determine if DST is in effect
+Date.prototype.dst = function() {
+    const jan = new Date(this.getFullYear(), 0, 1).getTimezoneOffset();
+    const jul = new Date(this.getFullYear(), 6, 1).getTimezoneOffset();
+    return Math.max(jan, jul) != this.getTimezoneOffset();    
+};
+
+// Function to initialize the countdown
+function initializeCountdown() {
+    const countdownDisplay = document.getElementById('countdownDisplay');
+
+    function updateCountdown() {
+        const t = getTimeRemaining();
+
+        countdownDisplay.innerHTML = 
+            'Time until Pick deadline: ' +
+            `${t.days} days: ` +
+            `${t.hours} hours: ` +
+            `${t.minutes} minutes: ` +
+            `${t.seconds} seconds`;
+
+        // If countdown finished, stop updating
+        if (t.total <= 0) {
+            clearInterval(timeInterval);
+            countdownDisplay.innerHTML = 'Countdown finished!';
+        }
+    }
+
+    // Update the countdown every second
+    updateCountdown(); // Run once immediately
+    const timeInterval = setInterval(updateCountdown, 1000);
+}
+
+  
+  // Call initializeCountdown somewhere in your code when you want to start the timer
+  // For example, in a window.onload or document.addEventListener('DOMContentLoaded', ...) handler
+  initializeCountdown();
+  
+
     const cards = document.querySelectorAll('.player-card');
     cards.forEach(card => {
         card.addEventListener('click', function(e) {
@@ -22,6 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
 
     // Populate user data
     async function populateUserData() {
@@ -39,7 +112,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         picksDiv.appendChild(pickElem);
                     });
                     const immortalLockDiv = card.querySelector('.immortal-lock');
-                    console.log(`${data.immortalLock[0]}`)
                     immortalLockDiv.textContent = `Immortal Lock: ${data.immortalLock[0]}`;
                 }
             } catch (error) {

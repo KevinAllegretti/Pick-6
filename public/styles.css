@@ -101,7 +101,6 @@ h1, h2 {
 
 #addPick, #immortalLock {
     display: flex;
-    justify-content: space-between;
     align-items: center;
 }
 
