@@ -82,12 +82,20 @@ body {
     }
 }
 
+/* Button Group */
 .button-group {
     display: flex;
-    justify-content: space-between;
-    width: 100%; /* Take the full width of its parent */
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: center; /* Center buttons horizontally */
     margin-bottom: 20px; /* Some spacing after the button group */
 }
+
+/* Individual Buttons */
+.button-group button {
+    width: 80%; /* Set a width for the buttons */
+    margin: 10px 0; /* Add some space between the buttons */
+}
+
 
 #addPick {
     width: 100%; /* Take the full width of its parent */

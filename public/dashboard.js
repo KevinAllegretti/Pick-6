@@ -425,6 +425,7 @@ function resetPicks() {
     .then(data => {
         if (data && data.success) {
             console.log('Picks reset successfully on server.');
+            alert('Picks reset successfully on server.')
         } else {
             console.error('Error resetting picks on server.', data);
         }
