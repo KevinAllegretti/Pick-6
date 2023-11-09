@@ -23,6 +23,10 @@ body {
     padding-top: 1em;
 }
 
+.containerbutton .rules-button {
+    margin: 0 10px; /* This adds a margin to the left and right of each button */
+}
+
 h1 {
     font-size: 2.5em;
     text-align: center;
