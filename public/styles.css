@@ -326,6 +326,7 @@ input, select {
   
   .info-box p {
     margin-bottom: 10px; /* Space between paragraphs */
+    text-align: center;
   }
   
   /* Additional media query to handle responsiveness */
