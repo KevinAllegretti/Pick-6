@@ -177,3 +177,14 @@ h2 {
   }
   
   
+  /* Initial State */
+.player-card, .digital-clock, .neon-sign, .rules-button {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  
+  /* Transition Effect */
+  .player-card, .digital-clock, .neon-sign, .rules-button {
+    transition: opacity 1s ease-out, transform 1s ease-out;
+  }
+  

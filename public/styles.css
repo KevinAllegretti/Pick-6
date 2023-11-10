@@ -66,14 +66,25 @@ body {
     transform: none; 
 }
 */
-.container, .image-container {
+.container {
     max-width: 48%; /* Adjust the width so both containers can fit side by side */
-    max-height: 600px; /* Set a max-height that works for your content */
+    max-height: 632px; /* Set a max-height that works for your content */
     overflow-y: auto; /* Enable vertical scrolling */
     margin: 0 1%; /* Add some margin between the containers */
     box-shadow: 0 0 30px rgba(0, 229, 255, 0.7);
     border-radius: 15px;
 }
+
+.image-container {
+    max-width: 48%; /* Adjust the width so both containers can fit side by side */
+    max-height: 750px; /* Set a max-height that works for your content */
+    margin: 0 1%; /* Add some margin between the containers */
+    box-shadow: 0 0 30px rgba(0, 229, 255, 0.7);
+    border-radius: 15px;
+    transform: scale(.9);
+    margin-top: -2%;
+}
+
 @media (max-width: 768px) {
     .container, .image-container {
       width: 95%; /* Full width on smaller screens */
@@ -112,6 +123,7 @@ h1, h2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-left: 5%;
 }
 
 button {
@@ -134,7 +146,7 @@ input, select {
     padding: 8px;
     margin-right: 10px;
     border: 1px solid #00DDFF;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(0, 0, 0, 0.1);
     color: #ddd;
 }
 
@@ -215,6 +227,7 @@ input, select {
     transform: scale(0.88);
 }
 */
+
 .image-container img {
     max-width: 100%;
     border-radius: 10px;
