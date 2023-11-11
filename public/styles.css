@@ -1,35 +1,3 @@
-/*
-body {
-    font-family: 'Oswald', sans-serif;
-    background-color: #111;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    color: #ddd;
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.container {
-    margin-top: 0;
-    padding-top: 0;
-    background: rgba(0, 0, 0, 0.9); 
-    padding: 30px;
-    border-radius: 15px;
-    width: 80%;
-    max-width: 600px; 
-    box-shadow: 0 0 30px rgba(0, 229, 255, 0.7); 
-    transform: scale(0.88);
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-}
-*/
 body {
     font-family: 'Oswald', sans-serif;
     background-color: #111;
@@ -39,6 +7,7 @@ body {
     display: flex;
     flex-direction: column; /* Stack children vertically */
 }
+
 
 
 .main-wrapper {
@@ -51,21 +20,6 @@ body {
     max-height: 100vh; 
 }
 
-/*
-.container {
-    background: rgba(0, 0, 0, 0.9);
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 0 30px rgba(0, 229, 255, 0.7);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%; 
-    max-width: 600px;
-    margin: 0 auto; 
-    transform: none; 
-}
-*/
 .container {
     max-width: 48%; /* Adjust the width so both containers can fit side by side */
     max-height: 632px; /* Set a max-height that works for your content */
@@ -114,6 +68,7 @@ body {
 }
 
 h1, h2 {
+    text-shadow: 2px 2px 15px rgba(0, 229, 255, 0.7);
     text-align: center;
     margin-bottom: 20px;
     color: #00DDFF; /* Unified neon blue */
@@ -155,7 +110,6 @@ input, select {
 }
 
 #pick6Title {
-    font-family: 'Bungee', cursive;
     font-size: 50px;
     text-align: center;
     color: #00CCFF;
@@ -214,19 +168,6 @@ input, select {
 .back-button:hover {
     background-color: #555;
 }
-/*
-.image-container {
-    margin-top: 30px; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 3px solid #00DDFF;
-    padding: 15px;
-    box-shadow: 0 0 30px rgba(0, 229, 255, 0.7);
-    border-radius: 15px;
-    transform: scale(0.88);
-}
-*/
 
 .image-container img {
     max-width: 100%;
