@@ -323,29 +323,43 @@ const teamColorClasses = {
   }
   
   function selectBet(option) {
-    if (picksCount >= 6) {
-      alert('You can only select 6 picks.');
-      return;
-    }
+    // Find if a pick for the same team and type already exists
     let existingPickIndex = userPicks.findIndex(pick => pick.teamName === option.teamName && pick.type === option.type);
+
+    // If the same pick was already selected, remove it (toggle off)
     if (existingPickIndex !== -1) {
-      userPicks.splice(existingPickIndex, 1);
-      picksCount--;
-      updateBetCell(option, false);
-    } else {
-      userPicks.push(option);
-      picksCount++;
-      updateBetCell(option, true);
-    }
-  
-    // Toggle Immortal Lock display based on picks
-    if (picksCount === 6 && document.getElementById('immortalLockCheck').checked) {
-      document.getElementById('immortalLock').style.display = 'block';
-    } else if (picksCount === 6) {
-      document.getElementById('addPick').style.display = 'none';
+        userPicks.splice(existingPickIndex, 1);
+        picksCount--;
+        updateBetCell(option, false);
+        updateDisplay();  // Update the display after changing the picks
+        return; // Exit the function after toggling off
     }
 
-  }
+    // Check if a different pick for the same team already exists
+    let existingTeamPickIndex = userPicks.findIndex(pick => pick.teamName === option.teamName);
+
+    // If a different bet for the same team exists, alert the user
+    if (existingTeamPickIndex !== -1) {
+        alert("Only one bet per team is allowed.");
+        return; // Exit the function without adding the new bet
+    }
+
+    // Check if the user has already selected 6 picks
+    if (picksCount >= 6) {
+        alert('You can only select 6 picks.');
+        return; // Exit the function if pick limit is reached
+    }
+
+    // Add the new pick if none of the above conditions are met
+    userPicks.push(option);
+    picksCount++;
+    updateBetCell(option, true);
+    
+    // Call a function to update the display of picks
+    updateDisplay();
+}
+
+
 
 
   
