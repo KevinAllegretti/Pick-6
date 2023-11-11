@@ -29,18 +29,7 @@
                 <label for="immortalLockCheck">Set Immortal Lock?</label>
             </div>
             <!-- Immortal Lock -->
-            <div id="immortalLock" style="display: none;">
-                <h2>Immortal Lock</h2>
-                    
-                    <input type="text" id="immortalTeamInput" placeholder="Enter Lock Team Name">
-                <select id="immortalTypeSelect">
-                    <option value="spread">Spread</option>
-                    <option value="moneyline">Moneyline</option>
-                </select>
-                <input type="number" id="immortalValueInput" placeholder="Line">
-                <button onclick="addImmortalLock()">Set Immortal Lock</button>
-            </div>
-
+            
             <!-- Button Group -->
             <div class="button-group">
                 <button id="resetPicks">Reset Picks</button>
@@ -58,7 +47,7 @@
     </div>
     <div class="info-box">
         <h2>Pick 6 Selection Page</h2>
-        <p>Selected picks will turn <span class="green-highlight">bright green </span> and immortal lock pick (if chosen) will be selected underneath the picks and typed in manually</p>
+        <p>Selected picks will turn <span class="green-highlight">bright green </span> and immortal lock pick (if chosen) will turn <span class="gold-highlight">golden</span>  as your 7th pick </p>
         <p>Once they are all selected, you can click submit picks which will successfully display your picks for the week back on the homepage</p>
         <p>If would like to change a selection, you have until the <span class="red-highlight">Thursday 7PM EST</span> deadline to do so with "Reset Picks"</p>
         <p>Carefully select your picks all at once before submitting and good luck!</p>

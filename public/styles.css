@@ -221,7 +221,7 @@ input, select {
 .bears-color { background-color: #C83803; }
 .bengals-color { background-color: #FB4F14; }
 .browns-color { background-color: #835506; }
-.cowboys-color { background-color: #003594; }
+.cowboys-color { background-color: #798498; }
 .broncos-color { background-color: #FB4F14; }
 .lions-color { background-color: #0076B6; }
 .packers-color { background-color: #203731; }
@@ -254,7 +254,14 @@ input, select {
   .betCell.selected {
     background-color: rgba(72, 255, 0, 0.7); /* Selected cell background color */
     font-weight: bold;
-  }
+    /* other styles */
+}
+
+.betCell.immortal-lock-selected {
+    background-color: #ebff69 !important; /* Example: bright yellow background */
+    color: #000; /* Black text color for contrast */
+    /* Add any other styles you want for the Immortal Lock selected cell */
+}
 
 
   
@@ -305,3 +312,6 @@ input, select {
     color: #ed322c;
 }
 
+.gold-highlight {
+    color: #ebff69
+}

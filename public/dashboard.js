@@ -135,6 +135,9 @@ const teamColorClasses = {
   if (storedUsername) {
     document.querySelector('h1').textContent = `Welcome, ${storedUsername}!`;
   }
+
+  //setting this here for test
+  //another test
   
   function renderBetOptions() {
     const container = document.getElementById('picksContainer');
@@ -148,7 +151,13 @@ const teamColorClasses = {
     });
   }
   
+
+
+  /*
   function selectBet(option) {
+    console.log('selectBet called with option:', option);
+    const immortalLockCheckbox = document.getElementById('immortalLockCheck');
+
     // Find if a pick for the same team and type already exists
     let existingPickIndex = userPicks.findIndex(pick => pick.teamName === option.teamName && pick.type === option.type);
 
@@ -157,7 +166,6 @@ const teamColorClasses = {
         userPicks.splice(existingPickIndex, 1);
         picksCount--;
         updateBetCell(option, false);
-        updateDisplay();  // Update the display after changing the picks
         return; // Exit the function after toggling off
     }
 
@@ -171,55 +179,128 @@ const teamColorClasses = {
     }
 
     // Check if the user has already selected 6 picks
-    if (picksCount >= 6) {
-        alert('You can only select 6 picks.');
+    if (picksCount >= 6 && !immortalLockCheckbox.checked) {
+        alert('You can only select 6 picks. Set your Immortal Lock or deselect a pick.');
         return; // Exit the function if pick limit is reached
     }
 
-    // Add the new pick if none of the above conditions are met
-    userPicks.push(option);
-    picksCount++;
-    updateBetCell(option, true);
-    
-    // Call a function to update the display of picks
-    updateDisplay();
+    // If Immortal Lock is checked, handle it separately
+    if (immortalLockCheckbox.checked) {
+        if (userImortalLock.length > 0) {
+            // If Immortal Lock is already set, replace it with the new selection
+            alert('Replacing the existing Immortal Lock with the new selection.');
+            updateBetCell(userImortalLock[0], false); // Remove highlighting from the old Immortal Lock
+            userImortalLock[0] = option; // Replace with new option
+        } else {
+            // Set new Immortal Lock
+            userImortalLock.push(option);
+        }
+        updateBetCell(option, true); // Highlight the Immortal Lock pick
+    } else {
+        // If Immortal Lock is not checked, just add the pick
+        userPicks.push(option);
+        picksCount++;
+        updateBetCell(option, true);
+    }
 }
 
 
-
-
-  
- function updateBetCell(option, isSelected) {
-    const betCells = document.querySelectorAll('.betCell');
-    betCells.forEach(cell => {
-      if (cell.textContent === `${option.teamName} [${option.type}: ${option.value}]`) {
-        cell.classList.toggle('selected', isSelected);
+function updateBetCell(option, isSelected, isImmortalLock = false) {
+  const betCells = document.querySelectorAll('.betCell');
+  betCells.forEach(cell => {
+      const cellText = `${option.teamName} [${option.type}: ${option.value}]`;
+      if (cell.textContent === cellText) {
+          if (isSelected) {
+              if (isImmortalLock) {
+                  // Add both 'selected' and 'immortal-lock-selected' if it's an Immortal Lock
+                  cell.classList.add('selected', 'immortal-lock-selected');
+              } else {
+                  // Only add 'selected' for regular bets
+                  cell.classList.add('selected');
+                  cell.classList.remove('immortal-lock-selected');
+              }
+          } else {
+              // Remove both classes if deselecting
+              cell.classList.remove('selected', 'immortal-lock-selected');
+          }
       }
-    });
+  });
+}
+*/
+
+/*
+function updateBetCell(option, isSelected) {
+  const betCells = document.querySelectorAll('.betCell');
+  betCells.forEach(cell => {
+      // Check both the team name and the type/value to ensure uniqueness
+      const cellText = `${option.teamName} [${option.type}: ${option.value}]`;
+      if (cell.textContent === cellText) {
+          cell.classList.toggle('selected', isSelected);
+
+          // Apply the 'immortal-lock-selected' class only if it's the immortal lock
+          const isImmortalLock = userImortalLock.some(lock => lock.teamName === option.teamName && lock.type === option.type && lock.value === option.value);
+          cell.classList.toggle('immortal-lock-selected', isSelected && isImmortalLock);
+      }
+  });
+}
+*/
+function selectBet(option) {
+  console.log('selectBet called with option:', option);
+  const immortalLockCheckbox = document.getElementById('immortalLockCheck');
+
+  // Find if a pick for the same team and type already exists
+  let existingPickIndex = userPicks.findIndex(pick => pick.teamName === option.teamName && pick.type === option.type);
+
+  // If the same pick was already selected, remove it (toggle off)
+  if (existingPickIndex !== -1) {
+      userPicks.splice(existingPickIndex, 1);
+      picksCount--;
+      updateBetCell(option, false);
+      return; // Exit the function after toggling off
   }
-  
-function addImmortalLock() {
-    // Get values
-    const teamName = document.getElementById('immortalTeamInput').value;
-    //const team = document.getElementById('immortalTeamSelect').value;
-    const type = document.getElementById('immortalTypeSelect').value;
-    const value = document.getElementById('immortalValueInput').value;
 
-    // Sanitize value to ensure it has a "+" or "-" prefix
-    let sanitizedValue = parseFloat(value);
-    if (!isNaN(sanitizedValue)) {
-        if (sanitizedValue > 0 && !value.startsWith('+')) {
-            sanitizedValue = "+" + sanitizedValue;
-        }
-    }
+  // Check if a different pick for the same team already exists
+  let existingTeamPickIndex = userPicks.findIndex(pick => pick.teamName === option.teamName);
 
-    // For demonstration, display a status message
-    document.getElementById('statusMessage').textContent = `Immortal Lock set for ${teamName} [${type}: ${sanitizedValue}]`;
-    userImortalLock.push(`${teamName} [${type}: ${sanitizedValue}]`); //stirngs pushed into the array
-    alert('Immortal Lock Set');
-    console.log(userImortalLock);
-}  
+  // If a different bet for the same team exists, alert the user
+  if (existingTeamPickIndex !== -1) {
+      alert("Only one bet per team is allowed.");
+      return; // Exit the function without adding the new bet
+  }
 
+  // Check if the user has already selected 6 picks and Immortal Lock is not set
+  if (picksCount >= 6 && !immortalLockCheckbox.checked) {
+      alert('You can only select 6 picks. Set your Immortal Lock or deselect a pick.');
+      return; // Exit the function if pick limit is reached
+  }
+
+  // If Immortal Lock is checked and we already have 6 picks, the next pick is the Immortal Lock
+  if (immortalLockCheckbox.checked && picksCount >= 6) {
+      // Replace the existing Immortal Lock with the new selection
+      if (userImortalLock.length > 0) {
+          alert('Replacing the existing Immortal Lock with the new selection.');
+          updateBetCell(userImortalLock[0], false); // Remove highlighting from the old Immortal Lock
+      }
+      userImortalLock[0] = option; // Set the new Immortal Lock
+      updateBetCell(option, true, true); // Highlight the Immortal Lock pick
+      return; // Exit the function after setting Immortal Lock
+  }
+
+  // Add the new pick if none of the above conditions are met
+  userPicks.push(option);
+  picksCount++;
+  updateBetCell(option, true);
+}
+
+function updateBetCell(option, isSelected, isImmortalLock = false) {
+  const betCells = document.querySelectorAll('.betCell');
+  betCells.forEach(cell => {
+      if (cell.textContent === `${option.teamName} [${option.type}: ${option.value}]`) {
+          cell.classList.toggle('selected', isSelected);
+          cell.classList.toggle('immortal-lock-selected', isSelected && isImmortalLock);
+      }
+  });
+}
 
 function resetPicks() {
     picksCount = 0;
@@ -289,13 +370,13 @@ function resetPicks() {
       // Convert each pick object into a string representation
       const picksAsString = userPicks.map(pick => `${pick.teamName} [${pick.type}: ${pick.value}]`);
       
-
+      const userImmortalLockAsString = userImortalLock.map(pick => `${pick.teamName} [${pick.type}: ${pick.value}]`);
  
      console.log(userImortalLock[0]);
 
       const data = {
         picks: picksAsString,
-        immortalLock: userImortalLock
+        immortalLock: userImmortalLockAsString
       };
     
     fetch(`/api/savePicks/${storedUsername}`, {
