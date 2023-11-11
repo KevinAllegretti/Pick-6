@@ -1,7 +1,8 @@
 body {
     font-family: 'Arial', sans-serif;
     background-color: #0a0f22; /* Darker background for contrast */
-    background-image: url('P6.png');
+   /* background-image: url('P6.png');*/
+   background-image: url('P6.png');
     background-size: 1500px;      /* Resize the background image to cover the entire container */
     background-repeat: no-repeat; /* Prevents the background image from repeating */
     background-position: center -290px;  /* Centers the background image */
@@ -81,12 +82,20 @@ h2 {
 .picks, .immortal-lock {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; /* Aligns children in the center of the container along the cross axis */
+    justify-content: center; /* Aligns children in the center of the container along the main axis */
+    width: 100%; /* Set width to fill the parent container */
 }
 
 .pick {
+    display: flex;
+    align-items: center; /* Vertically center the items */
+    justify-content: center; /* Horizontally center the items */
     margin: 5px 0;
+    width: 100%; /* Ensure the pick takes full width of its container */
 }
+
+
 
 
 .immortal-lock {
@@ -188,3 +197,10 @@ h2 {
     transition: opacity 1s ease-out, transform 1s ease-out;
   }
   
+  .team-logo {
+    width: 35px; /* Or your desired width */
+    height: auto;
+    margin-right: 5px;
+    margin-bottom: -5px;
+    /* Add any other styling you need */
+}

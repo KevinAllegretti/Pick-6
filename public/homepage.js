@@ -6,6 +6,42 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('username', username);
     }
 
+    const teamLogos = {
+        'ARI Cardinals': '/ARILogo.png',
+        'ATL Falcons': '/ATLLogo.png',
+        'BAL Ravens': '/BALLogo.png',
+        'BUF Bills': '/BUFLogo.png',
+        'CAR Panthers': '/CARLogo.png',
+        'CHI Bears': '/CHILogo.png',
+        'CIN Bengals': '/CINLogo.png',
+        'CLE Browns': '/CLELogo.png',
+        'DAL Cowboys': '/DALLogo.png',
+        'DEN Broncos': '/DENLogo.png',
+        'DET Lions': '/DETLogo.png',
+        'GB Packers': '/GBLogo.png',
+        'HOU Texans': '/HOULogo.png',
+        'IND Colts': '/INDLogo.png',
+        'JAX Jaguars': '/JAXLogo.png',
+        'KC Chiefs': '/KCLogo.png',
+        'LV Raiders': '/LVLogo.png',
+        'LA Chargers': '/LACLogo.png',
+        'LA Rams': '/LARLogo.png',
+        'MIA Dolphins': '/MIALogo.png',
+        'MIN Vikings': '/MINLogo.png',
+        'NE Patriots': '/NELogo.png',
+        'NO Saints': '/NOLogo.png',
+        'NY Giants': '/NYGLogo.png',
+        'NY Jets': '/NYJLogo.png',
+        'PHI Eagles': '/PHILogo.png',
+        'PIT Steelers': '/PITLogo.png',
+        'SF 49ers': '/SFLogo.png',
+        'SEA Seahawks': '/SEALogo.png',
+        'TB Buccaneers': '/TBLogo.png',
+        'TEN Titans': '/TENLogo.png',
+        'WAS Commanders': '/WASLogo.png'
+};
+    
+
     const loggedInUsername = localStorage.getItem('username');
     console.log("Script is loaded!");
     console.log("Logged in user:", loggedInUsername);
@@ -94,9 +130,6 @@ function initializeCountdown() {
             }
         });
     });
-
-
-    // Populate user data
     async function populateUserData() {
         const userCards = document.querySelectorAll('.player-card');
         for (let card of userCards) {
@@ -107,9 +140,33 @@ function initializeCountdown() {
                 if (data && data.picks && data.immortalLock) {
                     const picksDiv = card.querySelector('.picks');
                     data.picks.forEach(pick => {
-                        const pickElem = document.createElement('div');
-                        pickElem.textContent = pick;
-                        picksDiv.appendChild(pickElem);
+                        const pickDiv = document.createElement('div');
+                        pickDiv.classList.add('pick');
+    
+                        // Extract the team name using a regular expression
+                        const teamNameMatch = pick.match(/^(.*?)\s\[/);
+                        const teamName = teamNameMatch ? teamNameMatch[1] : null;
+                        // Extract the numeric value using a regular expression
+                        const valueMatch = pick.match(/\[.*?([-+]\d+(?:\.\d+)?)\]/);
+                        const value = valueMatch ? valueMatch[1] : null;
+    
+                        if (teamName && teamLogos[teamName]) {
+                            const logoUrl = teamLogos[teamName];
+                            const logoImg = document.createElement('img');
+                            logoImg.src = logoUrl;
+                            logoImg.alt = `${teamName}`; // The alt attribute remains for accessibility
+                            logoImg.classList.add('team-logo');
+                            pickDiv.appendChild(logoImg);
+                        }
+    
+                        // Create a span for the numeric value and append it
+                        if (value) {
+                            const valueSpan = document.createElement('span');
+                            valueSpan.textContent = value; // Only the numeric value is displayed
+                            pickDiv.appendChild(valueSpan);
+                        }
+    
+                        picksDiv.appendChild(pickDiv);
                     });
                     const immortalLockDiv = card.querySelector('.immortal-lock');
                     immortalLockDiv.textContent = `Immortal Lock: ${data.immortalLock[0]}`;
@@ -119,7 +176,10 @@ function initializeCountdown() {
             }
         }
     }
-
+    
+    
+    
+    
     // Animate points
     function triggerAnimation() {
         console.log("Triggering Animation");
