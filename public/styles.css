@@ -58,6 +58,11 @@ body {
         padding: 0; /* Reset padding to ensure it doesn't affect width */
         border: none; /* Remove borders if they are not needed */
     }
+    .info-box {
+        width: 95%; /* Full width on smaller screens */
+        padding: 15px; /* Adjust padding on smaller screens */
+        font-size: 0.9rem; /* Smaller font size on smaller screens */
+      }
 
 }
 
@@ -306,11 +311,7 @@ input, select {
   
   /* Additional media query to handle responsiveness */
   @media (max-width: 768px) {
-    .info-box {
-      width: 95%; /* Full width on smaller screens */
-      padding: 15px; /* Adjust padding on smaller screens */
-      font-size: 0.9rem; /* Smaller font size on smaller screens */
-    }
+
   }
 
 
