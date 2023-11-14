@@ -204,7 +204,7 @@ input, select {
     grid-auto-rows: minmax(50px, auto); /* Adjust row height as needed */
     gap: 5px; /* Spacing between grid items */
     padding: 10px; /* Padding inside the container */
-    overflow: auto; /* Add scrolling to the container */
+    /*overflow: auto; /* Add scrolling to the container */
     max-height: 90vh; /* Adjust based on your layout's needs */
   }
   .betCell {
