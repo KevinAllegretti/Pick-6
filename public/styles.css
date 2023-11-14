@@ -44,29 +44,27 @@ body {
         flex-direction: column; /* Stack children vertically on small screens */
         align-items: center; /* Center the children horizontally */
         justify-content: center;
-        padding-top: 0; /* Remove any padding that might affect the layout */
     }
 
     .container, .image-container {
-        width: 95%; /* Use almost the full width of the screen, allowing for some margin */
-        margin: 10px auto; /* Provide some top and bottom margin for spacing */
-        max-width: none; /* Do not restrict the maximum width */
-        max-height: none; /* Do not restrict the maximum height */
-        box-sizing: border-box; /* Include padding and borders in the width calculation */
-        transform: none; /* Do not apply any scaling transform */
-        /* Ensure that no other properties (like padding or margin) are inherited here that might affect the width */
+        width: 95%; /* Use the full width of the screen */
+        margin: 0 auto; /* Center the containers */
+        max-width: none; /* Override any max-width */
+        max-height: 400px; /* Override any max-height, or set a new max-height as needed */
+        margin-bottom: 20px; /* Add some space between the containers */
+        transform: scale(1); /* Reset the scale transformation if it was reducing the size */
+        width: 95%; /* Adjusted to match .info-box */
+        box-sizing: border-box; /* This should fix the issue if padding or borders are causing it */
+        padding: 0; /* Reset padding to ensure it doesn't affect width */
+        border: none; /* Remove borders if they are not needed */
     }
-
     .info-box {
-        width: 95%; /* Maintain consistent width with other containers */
-        padding: 15px; /* Consistent padding with other containers */
-        margin: 10px auto; /* Consistent margin for centering */
-        /* Other styles remain the same */
-    }
+        width: 95%; /* Full width on smaller screens */
+        padding: 15px; /* Adjust padding on smaller screens */
+        font-size: 0.9rem; /* Smaller font size on smaller screens */
+      }
 
-    /* Remove any other conflicting styles or reset them as necessary */
 }
-
 
 
 /* Button Group */
@@ -130,13 +128,15 @@ input, select {
 }
 
 #pick6Title {
+    height: 40px;
     font-size: 50px;
     text-align: center;
+    margin-bottom: 5px;
     color: #00CCFF;
     text-shadow: 2px 2px 15px rgba(0, 229, 255, 0.7);
     margin: 0;
-    padding: 20px 0;
-    background: rgba(0, 0, 0, 0.7);
+    padding: 10px 0;
+    background: rgba(18, 17, 17, 0.7);
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
 }
@@ -206,11 +206,13 @@ input, select {
 
 .container, .image-container {
     box-sizing: border-box; /* Include padding and borders in the element's width */
+    width: 48%;
 }
 
 /* VERSION 1*/
   
 .picks-container {
+    color: #000;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Creates a grid with flexible columns */
     grid-auto-rows: minmax(50px, auto); /* Adjust row height as needed */
