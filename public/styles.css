@@ -43,6 +43,7 @@ body {
     .main-wrapper {
         flex-direction: column; /* Stack children vertically on small screens */
         align-items: center; /* Center the children horizontally */
+        justify-content: center;
     }
 
     .container, .image-container {
