@@ -49,7 +49,7 @@ body {
         width: 500px; /* Use the full width of the screen */
         margin: 0 auto; /* Center the containers */
         max-width: none; /* Override any max-width */
-        max-height: 200px; /* Override any max-height, or set a new max-height as needed */
+        max-height: 400px; /* Override any max-height, or set a new max-height as needed */
         margin-bottom: 20px; /* Add some space between the containers */
         transform: scale(1); /* Reset the scale transformation if it was reducing the size */
     }
