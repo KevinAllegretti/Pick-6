@@ -23,7 +23,7 @@ body {
 .container {
     max-width: 48%; /* Adjust the width so both containers can fit side by side */
     max-height: 632px; /* Set a max-height that works for your content */
-    overflow-y: auto; /* Enable vertical scrolling */
+  /*  overflow-y: auto; /* Enable vertical scrolling */
     margin: 0 1%; /* Add some margin between the containers */
     box-shadow: 0 0 30px rgba(0, 229, 255, 0.7);
     border-radius: 15px;
