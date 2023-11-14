@@ -46,7 +46,7 @@ body {
     }
 
     .container, .image-container {
-        width: 150%; /* Use the full width of the screen */
+        width: 100%; /* Use the full width of the screen */
         margin: 0 auto; /* Center the containers */
         max-width: none; /* Override any max-width */
         max-height: none; /* Override any max-height, or set a new max-height as needed */
@@ -54,12 +54,6 @@ body {
         transform: scale(1); /* Reset the scale transformation if it was reducing the size */
     }
 
-    /* If you have other specific height or size constraints, adjust them here */
-    .img {
-        height: 750px;
-        width: 48%;
-        /* Set specific properties that you want to adjust for the image container */
-    }
 }
 
 
