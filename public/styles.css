@@ -193,7 +193,8 @@ input, select {
 }
 
 .container, .image-container {
-    width: 49%; /* Assigning 49% to leave a small gap in between, you can adjust as needed */
+   /* width: 49%; /* Assigning 49% to leave a small gap in between, you can adjust as needed */
+    box-sizing: border-box; /* Include padding and borders in the element's width */
 }
 
 /* VERSION 1*/
