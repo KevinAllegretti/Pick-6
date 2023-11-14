@@ -54,12 +54,6 @@ body {
         transform: scale(1); /* Reset the scale transformation if it was reducing the size */
     }
 
-    /* If you have other specific height or size constraints, adjust them here */
-    .image-container {
-        height: 750px;
-        width: 48%;
-        /* Set specific properties that you want to adjust for the image container */
-    }
 }
 
 
