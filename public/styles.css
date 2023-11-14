@@ -47,14 +47,16 @@ body {
     }
 
     .container, .image-container {
-        width: 100%; /* This will make them as wide as the screen */
-        margin: 0; /* Remove any margin that could add extra width */
-        padding: 0; /* Remove padding for the same reason */
-        border: none; /* Remove border or include it within the width using box-sizing */
-        box-sizing: border-box; /* Include padding and borders within the width */
-        max-height: none; /* Remove max-height to allow content to determine the height */
-        transform: none; /* Remove any transform that could be scaling the size */
-        /* Remove margin-top adjustment if it's causing overlap */
+        width: 95%; /* Use the full width of the screen */
+        margin: 0 auto; /* Center the containers */
+        max-width: none; /* Override any max-width */
+        max-height: 400px; /* Override any max-height, or set a new max-height as needed */
+        margin-bottom: 20px; /* Add some space between the containers */
+        transform: scale(1); /* Reset the scale transformation if it was reducing the size */
+        width: 95%; /* Adjusted to match .info-box */
+        box-sizing: border-box; /* This should fix the issue if padding or borders are causing it */
+        padding: 0; /* Reset padding to ensure it doesn't affect width */
+        border: none; /* Remove borders if they are not needed */
     }
 
 }
