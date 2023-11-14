@@ -41,41 +41,30 @@ body {
 
 @media (max-width: 768px) {
     .main-wrapper {
-        flex-direction: column;
-        align-items: center;
-        padding-top: 0; /* Remove padding that might push content down */
+        flex-direction: column; /* Stack children vertically on small screens */
+        align-items: center; /* Center the children horizontally */
+        justify-content: center;
     }
 
     .container, .image-container {
-        width: 95%; /* Set the width similar to the info box */
-        margin: 10px auto; /* Add margin to the top and bottom, auto to the sides */
-        max-height: none; /* Allow the containers to grow as tall as their content */
+        width: 95%; /* Use the full width of the screen */
+        margin: 0 auto; /* Center the containers */
+        max-width: none; /* Override any max-width */
+        max-height: 400px; /* Override any max-height, or set a new max-height as needed */
+        margin-bottom: 20px; /* Add some space between the containers */
+        transform: scale(1); /* Reset the scale transformation if it was reducing the size */
+        width: 95%; /* Adjusted to match .info-box */
+        box-sizing: border-box; /* This should fix the issue if padding or borders are causing it */
         padding: 0; /* Reset padding to ensure it doesn't affect width */
-        box-sizing: border-box; /* Include padding and borders in the element's width */
-        transform: none; /* Reset any transformations */
-        /* You can add a slight padding if needed, just like the info-box */
+        border: none; /* Remove borders if they are not needed */
     }
-
-    /* Apply the same box-sizing to all elements to avoid unexpected widths */
-    *, *:before, *:after {
-        box-sizing: border-box;
-    }
-
-    /* Additional resets for other elements if necessary */
-    .betCell, .button-group button, .back-button, .centered-button /* other elements */ {
-        margin: 0; /* Reset margins */
-        padding: 0; /* Reset paddings */
-        /* Additional styling here if needed */
-    }
-
-    /* Make sure the info box and other containers have the same left and right padding */
     .info-box {
-        padding: 15px; /* Or whatever padding you want */
-        width: 95%; /* Keep the width consistent with other containers */
-        margin: 10px auto; /* Consistent margin for centering */
-    }
-}
+        width: 95%; /* Full width on smaller screens */
+        padding: 15px; /* Adjust padding on smaller screens */
+        font-size: 0.9rem; /* Smaller font size on smaller screens */
+      }
 
+}
 
 
 /* Button Group */
