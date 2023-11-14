@@ -40,12 +40,19 @@ body {
 }
 
 @media (max-width: 768px) {
+    .main-wrapper {
+        flex-direction: column; /* Stack children vertically on small screens */
+        align-items: center; /* Center the children horizontally */
+    }
+
     .container, .image-container {
-      width: 95%; /* Full width on smaller screens */
-      margin: 10px auto; /* Center and add margin on smaller screens */
-      max-width: none; /* Override any max-width */
+        width: 95%; /* Full width on smaller screens */
+        margin: 10px auto; /* Center and add margin on smaller screens */
+        max-width: none; /* Override any max-width */
+        margin-bottom: 20px; /* Add some space between the containers */
     }
 }
+
 
 /* Button Group */
 .button-group {
@@ -60,8 +67,6 @@ body {
     width: 80%; /* Set a width for the buttons */
     margin: 10px 0; /* Add some space between the buttons */
 }
-
-
 
 #addPick {
     width: 100%; /* Take the full width of its parent */
