@@ -204,9 +204,18 @@ input, select {
     width: 100%;
 }
 
-.container, .image-container {
-    box-sizing: border-box; /* Include padding and borders in the element's width */
-    width: 48%;
+@media (min-width: 769px) {
+    /* This will only apply to screens wider than 768px */
+    .container, .image-container {
+        /* Set the width to 48% for desktop screens */
+        width: 48%;
+        /* Reset the margins as they were for desktop */
+        margin: 0 1%;
+        /* Other styles... */
+        max-height: 750px;
+        transform: scale(.9);
+        margin-top: -2%;
+    }
 }
 
 /* VERSION 1*/
