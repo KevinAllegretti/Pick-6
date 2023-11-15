@@ -1,15 +1,20 @@
 import { MongoClient } from 'mongodb';
 
 
+const uri = 'mongodb+srv://Kingbeats17:Yunglean17@pick6.nomxpzq.mongodb.net/'; // Replace with your MongoDB connection string
+let client;
+let clientPromise;
+
 export async function connectToDatabase() {
-  const uri = 'mongodb+srv://Kingbeats17:Yunglean17@pick6.nomxpzq.mongodb.net/'; // Replace with your MongoDB connection string
-  const client = new MongoClient(uri);
-  console.log("Attempting to connect to the database...");
+  if (!client) {
+    client = new MongoClient(uri);
+    clientPromise = client.connect();
+  }
+
   try {
-    await client.connect();
+    await clientPromise;
     console.log("Successfully connected to the database!");
-    const database = client.db('Pick6');
-    return database;
+    return client.db('Pick6');
   } catch (error) {
     console.error('Error connecting to the database:', error);
     throw error;
