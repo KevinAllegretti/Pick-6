@@ -29,7 +29,7 @@ body {
 }
 
 h1 {
-    -webkit-text-stroke: 3px rgb(255, 255, 255); /* Add a 1px black stroke */
+   /* -webkit-text-stroke: 3px rgb(255, 255, 255); /* Add a 1px black stroke */
     text-shadow: none; /* Optionally, remove the text shadow if it's not needed */
     /* Your existing styles */
     font-size: 2.5em;
