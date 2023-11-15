@@ -29,6 +29,9 @@ body {
 }
 
 h1 {
+    -webkit-text-stroke: 3px rgb(255, 255, 255); /* Add a 1px black stroke */
+    text-shadow: none; /* Optionally, remove the text shadow if it's not needed */
+    /* Your existing styles */
     font-size: 2.5em;
     text-align: center;
     color: #33d9ff; /* Neon light blue */
@@ -36,6 +39,13 @@ h1 {
     padding-bottom: 10px;
     margin-bottom: 20px;
 }
+.underline {
+    height: 4px; /* Or however thick you want it */
+    background-color: #33d9ff; /* Neon light blue */
+    width: 100%; /* Or a specific width if you prefer */
+    margin-top: 5px; /* Space between the text and the line */
+}
+
 
 .players {
     display: flex;
