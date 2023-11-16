@@ -1,41 +1,16 @@
 body {
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(45deg, #0a0f22, #222);
+    background: #0a0f22 url('standings.PNG') no-repeat center center;
+    background-size: contain;
     color: #ddd;
     margin: 0;
     padding: 0;
     height: 100vh;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end; /* Aligns the button at the bottom */
     align-items: center;
     flex-direction: column;
-    position: relative;
 }
-
-.standings-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 4px solid #00DDFF;
-    padding: 5px;
-    box-shadow: 0 0 40px rgba(0, 229, 255, 0.6);
-    border-radius: 20px;
-    transform: scale(0.7);
-    transition: transform 0.3s;
-    margin-bottom: 50px;
-}
-
-.standings-container:hover {
-    transform: scale(0.87);
-}
-
-.standings-container img {
-    width: 100%;   /* This ensures the image takes the full width of its container */
-    height: 100%;  /* This ensures the image takes the full height of its container */
-    object-fit: cover; /* This ensures the image covers the entire space of its container without distortion */
-    /*border-radius: 15px; */
-}
-
 
 .rules-button {
     font-family: 'Oswald', sans-serif;
@@ -48,7 +23,8 @@ body {
     text-decoration: none;
     text-align: center;
     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    margin-top: 120px;
+    margin-top: auto; /* Pushes the button to the bottom */
+    margin-bottom: 20px; /* Gives some space from the bottom */
     box-shadow: 0 5px 15px rgba(0, 229, 255, 0.4);
 }
 
