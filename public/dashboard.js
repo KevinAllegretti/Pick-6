@@ -10,7 +10,7 @@ const betOptions = [
 
   // Steelers vs Browns
   { teamName: 'PIT Steelers', type: 'Spread', value: '+1' },
-  { teamName: 'PIT Steelers', type: 'ML', value: '+105' },
+  { teamName: 'PIT Steelers', type: 'ML', value: '-105' },
   { teamName: 'CLE Browns', type: 'Spread', value: '-1' },
   { teamName: 'CLE Browns', type: 'ML', value: '-115' },
 

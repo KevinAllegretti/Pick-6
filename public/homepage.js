@@ -123,6 +123,7 @@ function initializeCountdown() {
         card.addEventListener('click', function(e) {
             const cardUsername = e.currentTarget.getAttribute('data-username');
             console.log("Card clicked:", cardUsername);  
+            
             //comment out during play time
             if (cardUsername && cardUsername === loggedInUsername) {
                 console.log("Redirecting to dashboard");
