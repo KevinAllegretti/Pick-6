@@ -303,6 +303,11 @@ function resetPicks() {
   document.getElementById('resetPicks').addEventListener('click', resetPicks);
 
   function submitUserPicks() {
+    isDeadline = true;
+  if (isDeadline == true){
+    alert('Deadline has passed, can no longer submit picks!')
+  }
+  else {
     if (userPicks.length === 0) {
         alert('Please add at least one pick before submitting.');
         return;
@@ -340,6 +345,7 @@ function resetPicks() {
       console.error('Error:', error);
       alert('An error occurred. Please try again later.');
     });
+  }
   }
   
   // Event Listeners
