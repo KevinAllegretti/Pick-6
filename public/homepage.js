@@ -125,18 +125,18 @@ function initializeCountdown() {
             console.log("Card clicked:", cardUsername);  
             
             //comment out during play time
-            
+            /*
             if (cardUsername && cardUsername === loggedInUsername) {
                 console.log("Redirecting to dashboard");
                 window.location.href = `/dashboard?username=${cardUsername}`;
             }
-            
+            */
         });
     });
     
     async function populateUserData() {
         const userCards = document.querySelectorAll('.player-card');
-        /*
+        //start here
         for (let card of userCards) {
             const username = card.getAttribute('data-username');
             try {
@@ -217,7 +217,7 @@ function initializeCountdown() {
             } catch (error) {
                 console.error('Error fetching data for', username, error);
             }
-        } */
+        } //end here
         
     }  //uncomment at 7pm thursday
     
