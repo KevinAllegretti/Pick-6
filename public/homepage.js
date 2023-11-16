@@ -131,9 +131,10 @@ function initializeCountdown() {
             
         });
     });
-    /*
+    
     async function populateUserData() {
         const userCards = document.querySelectorAll('.player-card');
+        /*
         for (let card of userCards) {
             const username = card.getAttribute('data-username');
             try {
@@ -214,9 +215,9 @@ function initializeCountdown() {
             } catch (error) {
                 console.error('Error fetching data for', username, error);
             }
-        }
-    }*/ //uncomment at 7pm thursday
-    
+        } */
+        
+    } //uncomment at 7pm thursday
     
     
     

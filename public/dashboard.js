@@ -2,90 +2,89 @@
 
 // Assuming betOptions is an array of all bet options for the week
 const betOptions = [
-    // Panthers vs Bears
-    { teamName: 'CAR Panthers', type: 'Spread', value: '+3.5' },
-    { teamName: 'CAR Panthers', type: 'ML', value: '+142' },
-    { teamName: 'CHI Bears', type: 'Spread', value: '-3.5' },
-    { teamName: 'CHI Bears', type: 'ML', value: '-170' },
+  // Bengals vs Ravens
+  { teamName: 'CIN Bengals', type: 'Spread', value: '+3.5' },
+  { teamName: 'CIN Bengals', type: 'ML', value: '+145' },
+  { teamName: 'BAL Ravens', type: 'Spread', value: '-3.5' },
+  { teamName: 'BAL Ravens', type: 'ML', value: '-175' },
 
-    // Colts vs Patriots
-    { teamName: 'IND Colts', type: 'Spread', value: '-1.5' },
-    { teamName: 'IND Colts', type: 'ML', value: '-122' },
-    { teamName: 'NE Patriots', type: 'Spread', value: '+1.5' },
-    { teamName: 'NE Patriots', type: 'ML', value: '+102' },
+  // Steelers vs Browns
+  { teamName: 'PIT Steelers', type: 'Spread', value: '+1' },
+  { teamName: 'PIT Steelers', type: 'ML', value: '+105' },
+  { teamName: 'CLE Browns', type: 'Spread', value: '-1' },
+  { teamName: 'CLE Browns', type: 'ML', value: '-115' },
 
-    //texans vs bengals
-    { teamName: 'HOU Texans', type: 'Spread', value: '+6.5'},
-    { teamName: 'HOU Texans', type: 'ML', value: '+240'},
-    { teamName: 'CIN Bengals', type: 'Spread', value: '-6.5'},
-    { teamName: 'CIN Bengals', type: 'ML', value: '-298'},
+  // Cowboys vs Panthers
+  { teamName: 'DAL Cowboys', type: 'Spread', value: '-10.5' },
+  { teamName: 'DAL Cowboys', type: 'ML', value: '-575' },
+  { teamName: 'CAR Panthers', type: 'Spread', value: '+10.5' },
+  { teamName: 'CAR Panthers', type: 'ML', value: '+425' },
 
-    // Browns vs Ravens
-    { teamName: 'CLE Browns', type: 'Spread', value: '+6' },
-    { teamName: 'CLE Browns', type: 'ML', value: '+195' },
-    { teamName: 'BAL Ravens', type: 'Spread', value: '-6' },
-    { teamName: 'BAL Ravens', type: 'ML', value: '-250' },
+  // Raiders vs Dolphins
+  { teamName: 'LV Raiders', type: 'Spread', value: '+13.5' },
+  { teamName: 'LV Raiders', type: 'ML', value: '+550' },
+  { teamName: 'MIA Dolphins', type: 'Spread', value: '-13.5' },
+  { teamName: 'MIA Dolphins', type: 'ML', value: '-800' },
 
-    // 49ers vs Jaguars
-    { teamName: 'SF 49ers', type: 'Spread', value: '-3' },
-    { teamName: 'SF 49ers', type: 'ML', value: '-170' },
-    { teamName: 'JAX Jaguars', type: 'Spread', value: '+3' },
-    { teamName: 'JAX Jaguars', type: 'ML', value: '+142' },
+  // Bears vs Lions
+  { teamName: 'CHI Bears', type: 'Spread', value: '+8' },
+  { teamName: 'CHI Bears', type: 'ML', value: '+330' },
+  { teamName: 'DET Lions', type: 'Spread', value: '-8' },
+  { teamName: 'DET Lions', type: 'ML', value: '-425' },
 
-     // Packers vs Steelers
-     { teamName: 'GB Packers', type: 'Spread', value: '+3' },
-     { teamName: 'GB Packers', type: 'ML', value: '+140' },
-     { teamName: 'PIT Steelers', type: 'Spread', value: '-3' },
-     { teamName: 'PIT Steelers', type: 'ML', value: '-166' },
+  // Cardinals vs Texans
+  { teamName: 'ARI Cardinals', type: 'Spread', value: '+5' },
+  { teamName: 'ARI Cardinals', type: 'ML', value: '+185' },
+  { teamName: 'HOU Texans', type: 'Spread', value: '-5' },
+  { teamName: 'HOU Texans', type: 'ML', value: '-225' },
 
-    // Saints vs Vikings
-    { teamName: 'NO Saints', type: 'Spread', value: '-2.5' },
-    { teamName: 'NO Saints', type: 'ML', value: '-135' },
-    { teamName: 'MIN Vikings', type: 'Spread', value: '+2.5' },
-    { teamName: 'MIN Vikings', type: 'ML', value: '+114' },
+  // Giants vs Commanders
+  { teamName: 'NY Giants', type: 'Spread', value: '+9' },
+  { teamName: 'NY Giants', type: 'ML', value: '+340' },
+  { teamName: 'WAS Commanders', type: 'Spread', value: '-9' },
+  { teamName: 'WAS Commanders', type: 'ML', value: '-440' },
 
-        // Titans vs Buccaneers
-        { teamName: 'TEN Titans', type: 'Spread', value: '-1' },
-        { teamName: 'TEN Titans', type: 'ML', value: '-110' },
-        { teamName: 'TB Buccaneers', type: 'Spread', value: '+1' },
-        { teamName: 'TB Buccaneers', type: 'ML', value: '-110' },
-    
-    // Lions vs Chargers
-    { teamName: 'DET Lions', type: 'Spread', value: '-3' },
-    { teamName: 'DET Lions', type: 'ML', value: '-162' },
-    { teamName: 'LA Chargers', type: 'Spread', value: '+3' },
-    { teamName: 'LA Chargers', type: 'ML', value: '+136' },
+  // Chargers vs Packers
+  { teamName: 'LA Chargers', type: 'Spread', value: '-3' },
+  { teamName: 'LA Chargers', type: 'ML', value: '-170' },
+  { teamName: 'GB Packers', type: 'Spread', value: '+3' },
+  { teamName: 'GB Packers', type: 'ML', value: '+142' },
 
-     // Falcons vs Chargers
-     { teamName: 'ATL Falcons', type: 'Spread', value: '-1.5' },
-     { teamName: 'ATL Falcons', type: 'ML', value: '-122' },
-     { teamName: 'ARI Cardinals', type: 'Spread', value: '+1.5' },
-     { teamName: 'ARI Cardinals', type: 'ML', value: '+100' },
+  // Titans vs Jaguars
+  { teamName: 'TEN Titans', type: 'Spread', value: '+7' },
+  { teamName: 'TEN Titans', type: 'ML', value: '+260' },
+  { teamName: 'JAX Jaguars', type: 'Spread', value: '-7' },
+  { teamName: 'JAX Jaguars', type: 'ML', value: '-325' },
 
-       // Giants vs Cowboys
-    { teamName: 'NY Giants', type: 'Spread', value: '+16' },
-    { teamName: 'NY Giants', type: 'ML', value: '+700' },
-    { teamName: 'DAL Cowboys', type: 'Spread', value: '-16' },
-    { teamName: 'DAL Cowboys', type: 'ML', value: '-1100' },
+  // Buccaneers vs 49ers
+  { teamName: 'TB Buccaneers', type: 'Spread', value: '+12' },
+  { teamName: 'TB Buccaneers', type: 'ML', value: '+425' },
+  { teamName: 'SF 49ers', type: 'Spread', value: '-12' },
+  { teamName: 'SF 49ers', type: 'ML', value: '-575' },
 
-        // Commanders vs Seahawks
-        { teamName: 'WAS Commanders', type: 'Spread', value: '+6' },
-        { teamName: 'WAS Commanders', type: 'ML', value: '+220' },
-        { teamName: 'SEA Seahawks', type: 'Spread', value: '-6' },
-        { teamName: 'SEA Seahawks', type: 'ML', value: '-270' },
+  // Jets vs Bills
+  { teamName: 'NY Jets', type: 'Spread', value: '+7' },
+  { teamName: 'NY Jets', type: 'ML', value: '+250' },
+  { teamName: 'BUF Bills', type: 'Spread', value: '-7' },
+  { teamName: 'BUF Bills', type: 'ML', value: '-310' },
 
-    // Jets vs Raiders
-    { teamName: 'NY Jets', type: 'Spread', value: '-1' },
-    { teamName: 'NY Jets', type: 'ML', value: '-118' },
-    { teamName: 'LV Raiders', type: 'Spread', value: '+1' },
-    { teamName: 'LV Raiders', type: 'ML', value: '-102' },
+  // Seahawks vs Rams
+  { teamName: 'SEA Seahawks', type: 'Spread', value: '-1' },
+  { teamName: 'SEA Seahawks', type: 'ML', value: '-115' },
+  { teamName: 'LA Rams', type: 'Spread', value: '+1' },
+  { teamName: 'LA Rams', type: 'ML', value: '-105' },
 
-        // Broncos vs Bills
-        { teamName: 'DEN Broncos', type: 'Spread', value: '+7.5' },
-        { teamName: 'DEN Broncos', type: 'ML', value: '+295' },
-        { teamName: 'BUF Bills', type: 'Spread', value: '-7.5' },
-        { teamName: 'BUF Bills', type: 'ML', value: '-375' },
-    
+  // Vikings vs Broncos
+  { teamName: 'MIN Vikings', type: 'Spread', value: '+2.5' },
+  { teamName: 'MIN Vikings', type: 'ML', value: '+114' },
+  { teamName: 'DEN Broncos', type: 'Spread', value: '-2.5' },
+  { teamName: 'DEN Broncos', type: 'ML', value: '-135' },
+
+  // Eagles vs Chiefs
+  { teamName: 'PHI Eagles', type: 'Spread', value: '+2.5' },
+  { teamName: 'PHI Eagles', type: 'ML', value: '+124' },
+  { teamName: 'KC Chiefs', type: 'Spread', value: '-2.5' },
+  { teamName: 'KC Chiefs', type: 'ML', value: '-148' },
 ];
 
 const teamColorClasses = {
@@ -185,99 +184,6 @@ const teamLogos = {
     });
   }
   
-
-
-  /*
-  function selectBet(option) {
-    console.log('selectBet called with option:', option);
-    const immortalLockCheckbox = document.getElementById('immortalLockCheck');
-
-    // Find if a pick for the same team and type already exists
-    let existingPickIndex = userPicks.findIndex(pick => pick.teamName === option.teamName && pick.type === option.type);
-
-    // If the same pick was already selected, remove it (toggle off)
-    if (existingPickIndex !== -1) {
-        userPicks.splice(existingPickIndex, 1);
-        picksCount--;
-        updateBetCell(option, false);
-        return; // Exit the function after toggling off
-    }
-
-    // Check if a different pick for the same team already exists
-    let existingTeamPickIndex = userPicks.findIndex(pick => pick.teamName === option.teamName);
-
-    // If a different bet for the same team exists, alert the user
-    if (existingTeamPickIndex !== -1) {
-        alert("Only one bet per team is allowed.");
-        return; // Exit the function without adding the new bet
-    }
-
-    // Check if the user has already selected 6 picks
-    if (picksCount >= 6 && !immortalLockCheckbox.checked) {
-        alert('You can only select 6 picks. Set your Immortal Lock or deselect a pick.');
-        return; // Exit the function if pick limit is reached
-    }
-
-    // If Immortal Lock is checked, handle it separately
-    if (immortalLockCheckbox.checked) {
-        if (userImortalLock.length > 0) {
-            // If Immortal Lock is already set, replace it with the new selection
-            alert('Replacing the existing Immortal Lock with the new selection.');
-            updateBetCell(userImortalLock[0], false); // Remove highlighting from the old Immortal Lock
-            userImortalLock[0] = option; // Replace with new option
-        } else {
-            // Set new Immortal Lock
-            userImortalLock.push(option);
-        }
-        updateBetCell(option, true); // Highlight the Immortal Lock pick
-    } else {
-        // If Immortal Lock is not checked, just add the pick
-        userPicks.push(option);
-        picksCount++;
-        updateBetCell(option, true);
-    }
-}
-
-
-function updateBetCell(option, isSelected, isImmortalLock = false) {
-  const betCells = document.querySelectorAll('.betCell');
-  betCells.forEach(cell => {
-      const cellText = `${option.teamName} [${option.type}: ${option.value}]`;
-      if (cell.textContent === cellText) {
-          if (isSelected) {
-              if (isImmortalLock) {
-                  // Add both 'selected' and 'immortal-lock-selected' if it's an Immortal Lock
-                  cell.classList.add('selected', 'immortal-lock-selected');
-              } else {
-                  // Only add 'selected' for regular bets
-                  cell.classList.add('selected');
-                  cell.classList.remove('immortal-lock-selected');
-              }
-          } else {
-              // Remove both classes if deselecting
-              cell.classList.remove('selected', 'immortal-lock-selected');
-          }
-      }
-  });
-}
-*/
-
-/*
-function updateBetCell(option, isSelected) {
-  const betCells = document.querySelectorAll('.betCell');
-  betCells.forEach(cell => {
-      // Check both the team name and the type/value to ensure uniqueness
-      const cellText = `${option.teamName} [${option.type}: ${option.value}]`;
-      if (cell.textContent === cellText) {
-          cell.classList.toggle('selected', isSelected);
-
-          // Apply the 'immortal-lock-selected' class only if it's the immortal lock
-          const isImmortalLock = userImortalLock.some(lock => lock.teamName === option.teamName && lock.type === option.type && lock.value === option.value);
-          cell.classList.toggle('immortal-lock-selected', isSelected && isImmortalLock);
-      }
-  });
-}
-*/
 function selectBet(option) {
   console.log('selectBet called with option:', option);
   const immortalLockCheckbox = document.getElementById('immortalLockCheck');
@@ -456,62 +362,149 @@ function resetPicks() {
 // This function fetches the current user's picks and displays them
 async function fetchAndDisplayUserPicks() {
   try {
-      const response = await fetch(`/api/getPicks/${storedUsername}`);
-      const data = await response.json();
-      // Assuming data has a structure { picks: Array, immortalLock: String }
-      displayPicks(data.picks);
-      displayImmortalLock(data.immortalLock);
+    const response = await fetch(`/api/getPicks/${storedUsername}`);
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const data = await response.json();
+    displayPicks(data.picks);
+    // Assuming data.immortalLock is an object with teamName and value properties
+    displayImmortalLock(data.immortalLock);
   } catch (error) {
-      console.error('Error fetching user picks:', error);
+    console.error('Error fetching user picks:', error);
+  }
+}
+// Function to display picks with only the logo and the line
+function displayPicks(picks) {
+  const picksContainer = document.getElementById('userPicksContainer');
+  picksContainer.innerHTML = ''; // Clear previous content
+
+  picks.forEach(pick => {
+    const pickDiv = document.createElement('div');
+    pickDiv.classList.add('pick');
+
+    // Assuming pick is a string like "NY Giants [ML: +700]"
+    const teamNameMatch = pick.match(/^(.*?)\s\[/);
+    const teamName = teamNameMatch ? teamNameMatch[1] : null;
+    const valueMatch = pick.match(/\[.*?([-+]\d+(?:\.\d+)?)\]/);
+    const value = valueMatch ? valueMatch[1] : null;
+
+    if (teamName && teamLogos[teamName]) {
+      const logoImg = document.createElement('img');
+      logoImg.src = teamLogos[teamName];
+      logoImg.alt = `${teamName} logo`;
+      logoImg.classList.add('team-logo');
+      pickDiv.appendChild(logoImg);
+    }
+
+    if (value) {
+      const valueSpan = document.createElement('span');
+      valueSpan.textContent = value;
+      pickDiv.appendChild(valueSpan);
+    }
+
+    picksContainer.appendChild(pickDiv);
+  });
+}
+
+function displayImmortalLock(immortalLockArray) {
+  const userImmortalLockContainer = document.getElementById('userImmortalLockContainer');
+  userImmortalLockContainer.innerHTML = ''; // Clear previous content
+
+  if (Array.isArray(immortalLockArray) && immortalLockArray.length > 0) {
+    // Extract the team name and value from the string
+    const immortalLockString = immortalLockArray[0];
+    const [fullMatch, teamName, type, value] = immortalLockString.match(/^(.*?)\s\[(.*?):\s([-+]\d+(?:\.\d+)?)\]$/) || [];
+
+    if (teamName && teamLogos[teamName]) {
+      const lockDiv = document.createElement('div');
+      lockDiv.classList.add('immortal-lock');
+        // Create and append the line span with the value
+        const line = document.createElement('string');
+        line.textContent = `Immortal Lock: `;
+        lockDiv.appendChild(line);
+  
+
+      // Create and append the team logo image
+      const logoImg = document.createElement('img');
+      logoImg.src = teamLogos[teamName];
+      logoImg.alt = `${teamName} logo`;
+      logoImg.classList.add('team-logo');
+      lockDiv.appendChild(logoImg);
+
+      // Create and append the line span with the value
+      const lineSpan = document.createElement('span');
+      lineSpan.textContent = `${value}`;
+      lockDiv.appendChild(lineSpan);
+
+      // Append the lock div to the container
+      userImmortalLockContainer.appendChild(lockDiv);
+    }
+  } else {
+    userImmortalLockContainer.textContent = 'Immortal Lock: Not Set';
   }
 }
 
 // Call this function when the page loads and after picks are submitted
 fetchAndDisplayUserPicks();
 
-// Function to display picks
-function displayPicks(picks) {
-  const picksContainer = document.getElementById('userPicksContainer'); // Create this container in your HTML
-  picksContainer.innerHTML = ''; // Clear previous picks
-  picks.forEach(pick => {
-      const pickElement = document.createElement('div');
-      pickElement.textContent = pick; // Modify as needed to display the pick information
-      picksContainer.appendChild(pickElement);
-  });
-}
 
-// Function to display the immortal lock
-function displayImmortalLock(immortalLock) {
-  const immortalLockContainer = document.getElementById('userImmortalLockContainer'); // Create this container in your HTML
-  immortalLockContainer.innerHTML = ''; // Clear previous content
-  if (immortalLock) {
-      const immortalLockElement = document.createElement('div');
-      immortalLockElement.textContent = `Immortal Lock: ${immortalLock}`; // Prepends "Immortal Lock: " to the pick
-      immortalLockContainer.appendChild(immortalLockElement);
-  } else {
-      immortalLockContainer.textContent = 'Immortal Lock: Not Set'; // Display when no immortal lock is set
-  }
-}
+
+
+// Call this function when the page loads and after picks are submitted
+fetchAndDisplayUserPicks();
 
 function updatePicksDisplay() {
   // Function to update the user picks display
   const userPicksContainer = document.getElementById('userPicksContainer');
   userPicksContainer.innerHTML = ''; // Clear previous picks
+
   userPicks.forEach(pick => {
     const pickDiv = document.createElement('div');
-    pickDiv.textContent = `${pick.teamName} [${pick.type}: ${pick.value}]`;
+    pickDiv.classList.add('pick');
+
+    // Assuming each pick object has properties like { teamName: "Team", type: "Spread", value: "+3.5" }
+    if (teamLogos[pick.teamName]) {
+      const logoImg = document.createElement('img');
+      logoImg.src = teamLogos[pick.teamName];
+      logoImg.alt = `${pick.teamName} logo`;
+      logoImg.classList.add('team-logo');
+      pickDiv.appendChild(logoImg);
+    }
+
+    const lineSpan = document.createElement('span');
+    lineSpan.textContent = pick.value; // Only the line is displayed, not the team name or type
+    pickDiv.appendChild(lineSpan);
+
     userPicksContainer.appendChild(pickDiv);
   });
-  
-  // Update the immortal lock display
+
+  // Update the immortal lock display in a similar way
   const userImmortalLockContainer = document.getElementById('userImmortalLockContainer');
   userImmortalLockContainer.innerHTML = ''; // Clear previous immortal lock
+
   if (userImortalLock.length > 0) {
     const lockDiv = document.createElement('div');
-    lockDiv.textContent = `Immortal Lock: ${userImortalLock[0].teamName} [${userImortalLock[0].type}: ${userImortalLock[0].value}]`;
+    lockDiv.classList.add('pick', 'immortal-lock');
+
+    const line = document.createElement('string');
+    line.textContent = `Immortal Lock: `;
+    lockDiv.appendChild(line);
+
+    if (teamLogos[userImortalLock[0].teamName]) {
+      const logoImg = document.createElement('img');
+      logoImg.src = teamLogos[userImortalLock[0].teamName];
+      logoImg.alt = `${userImortalLock[0].teamName} logo`;
+      logoImg.classList.add('team-logo');
+      lockDiv.appendChild(logoImg);
+    }
+
+    const lineSpan = document.createElement('span');
+    lineSpan.textContent = `${userImortalLock[0].value}`;
+    lockDiv.appendChild(lineSpan);
+
     userImmortalLockContainer.appendChild(lockDiv);
   }
 }
-
 
 updatePicksDisplay();

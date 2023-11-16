@@ -350,7 +350,7 @@ input, select {
     justify-content: center; /* Centers children vertically if there is space */
     height: auto; /* Adjusts height based on content */
     margin: auto; /* Center the container itself if it's not full width */
-    width: 50%; /* Adjust width as needed */
+    width: 30%; /* Adjust width as needed */
     background: #000; /* Background color */
     color: #fff; /* Text color */
     border: 1px solid #33d9ff; /* Border color */
@@ -371,3 +371,18 @@ input, select {
     line-height: 1.2;
 }
 
+.team-logo{
+    margin-bottom: -5px;
+}
+h4 {
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 5px;
+    color: #00CCFF;
+    text-shadow: 2px 2px 10px rgba(0, 229, 255, 0.7);
+    margin: 0;
+    padding: 10px 0;
+    background: rgba(18, 17, 17, 0.7);
+
+
+}
