@@ -303,7 +303,7 @@ function resetPicks() {
   document.getElementById('resetPicks').addEventListener('click', resetPicks);
 
   function submitUserPicks() {
-    isDeadline = false;
+    isDeadline = true;
   if (isDeadline == true){
     alert('Deadline has passed, can no longer submit picks!')
   }
