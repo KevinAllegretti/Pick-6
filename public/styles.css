@@ -342,3 +342,32 @@ input, select {
 .gold-highlight {
     color: #ebff69
 }
+
+#userPicksContainer, #userImmortalLockContainer {
+    display: flex;
+    flex-direction: column; /* Stacks children vertically */
+    align-items: center; /* Centers children horizontally */
+    justify-content: center; /* Centers children vertically if there is space */
+    height: auto; /* Adjusts height based on content */
+    margin: auto; /* Center the container itself if it's not full width */
+    width: 50%; /* Adjust width as needed */
+    background: #000; /* Background color */
+    color: #fff; /* Text color */
+    border: 1px solid #33d9ff; /* Border color */
+    border-radius: 10px; /* Rounded corners */
+    padding: 10px; /* Padding around the text */
+    gap: 10px; /* Space between child elements */
+}
+  
+
+.team-logo {
+    width: 30px; /* Adjust size as needed */
+    height: 30px; /* Adjust size as needed */
+    margin-right: 10px;
+}
+
+.user-pick span, .user-immortal-lock span {
+    font-size: 0.9em;
+    line-height: 1.2;
+}
+

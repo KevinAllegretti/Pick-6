@@ -131,6 +131,7 @@ function initializeCountdown() {
             
         });
     });
+    /*
     async function populateUserData() {
         const userCards = document.querySelectorAll('.player-card');
         for (let card of userCards) {
@@ -214,7 +215,7 @@ function initializeCountdown() {
                 console.error('Error fetching data for', username, error);
             }
         }
-    }
+    }*/ //uncomment at 7pm thursday
     
     
     

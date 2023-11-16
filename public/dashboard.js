@@ -123,6 +123,40 @@ const teamColorClasses = {
     'WAS Commanders': 'commanders-color'
 };
   
+const teamLogos = {
+  'ARI Cardinals': '/ARILogo.png',
+  'ATL Falcons': '/ATLLogo.png',
+  'BAL Ravens': '/BALLogo.png',
+  'BUF Bills': '/BUFLogo.png',
+  'CAR Panthers': '/CARLogo.png',
+  'CHI Bears': '/CHILogo.png',
+  'CIN Bengals': '/CINLogo.png',
+  'CLE Browns': '/CLELogo.png',
+  'DAL Cowboys': '/DALLogo.png',
+  'DEN Broncos': '/DENLogo.png',
+  'DET Lions': '/DETLogo.png',
+  'GB Packers': '/GBLogo.png',
+  'HOU Texans': '/HOULogo.png',
+  'IND Colts': '/INDLogo.png',
+  'JAX Jaguars': '/JAXLogo.png',
+  'KC Chiefs': '/KCLogo.png',
+  'LV Raiders': '/LVLogo.png',
+  'LA Chargers': '/LACLogo.png',
+  'LA Rams': '/LARLogo.png',
+  'MIA Dolphins': '/MIALogo.png',
+  'MIN Vikings': '/MINLogo.png',
+  'NE Patriots': '/NELogo.png',
+  'NO Saints': '/NOLogo.png',
+  'NY Giants': '/NYGLogo.png',
+  'NY Jets': '/NYJLogo.png',
+  'PHI Eagles': '/PHILogo.png',
+  'PIT Steelers': '/PITLogo.png',
+  'SF 49ers': '/SFLogo.png',
+  'SEA Seahawks': '/SEALogo.png',
+  'TB Buccaneers': '/TBLogo.png',
+  'TEN Titans': '/TENLogo.png',
+  'WAS Commanders': '/WASLogo.png'
+};
   
   
   let picksCount = 0;
@@ -348,6 +382,7 @@ function resetPicks() {
         if (data && data.success) {
             console.log('Picks reset successfully on server.');
             alert('Picks reset successfully on server.')
+            updatePicksDisplay();
         } else {
             console.error('Error resetting picks on server.', data);
         }
@@ -390,6 +425,7 @@ function resetPicks() {
     .then(data => {
       if (data.success) {
         alert('Picks successfully submitted!');
+        updatePicksDisplay();
       } else {
         alert('Error submitting picks. Please try again.');
       }
@@ -415,3 +451,67 @@ function resetPicks() {
   
   // Initialization
   renderBetOptions();
+
+
+// This function fetches the current user's picks and displays them
+async function fetchAndDisplayUserPicks() {
+  try {
+      const response = await fetch(`/api/getPicks/${storedUsername}`);
+      const data = await response.json();
+      // Assuming data has a structure { picks: Array, immortalLock: String }
+      displayPicks(data.picks);
+      displayImmortalLock(data.immortalLock);
+  } catch (error) {
+      console.error('Error fetching user picks:', error);
+  }
+}
+
+// Call this function when the page loads and after picks are submitted
+fetchAndDisplayUserPicks();
+
+// Function to display picks
+function displayPicks(picks) {
+  const picksContainer = document.getElementById('userPicksContainer'); // Create this container in your HTML
+  picksContainer.innerHTML = ''; // Clear previous picks
+  picks.forEach(pick => {
+      const pickElement = document.createElement('div');
+      pickElement.textContent = pick; // Modify as needed to display the pick information
+      picksContainer.appendChild(pickElement);
+  });
+}
+
+// Function to display the immortal lock
+function displayImmortalLock(immortalLock) {
+  const immortalLockContainer = document.getElementById('userImmortalLockContainer'); // Create this container in your HTML
+  immortalLockContainer.innerHTML = ''; // Clear previous content
+  if (immortalLock) {
+      const immortalLockElement = document.createElement('div');
+      immortalLockElement.textContent = `Immortal Lock: ${immortalLock}`; // Prepends "Immortal Lock: " to the pick
+      immortalLockContainer.appendChild(immortalLockElement);
+  } else {
+      immortalLockContainer.textContent = 'Immortal Lock: Not Set'; // Display when no immortal lock is set
+  }
+}
+
+function updatePicksDisplay() {
+  // Function to update the user picks display
+  const userPicksContainer = document.getElementById('userPicksContainer');
+  userPicksContainer.innerHTML = ''; // Clear previous picks
+  userPicks.forEach(pick => {
+    const pickDiv = document.createElement('div');
+    pickDiv.textContent = `${pick.teamName} [${pick.type}: ${pick.value}]`;
+    userPicksContainer.appendChild(pickDiv);
+  });
+  
+  // Update the immortal lock display
+  const userImmortalLockContainer = document.getElementById('userImmortalLockContainer');
+  userImmortalLockContainer.innerHTML = ''; // Clear previous immortal lock
+  if (userImortalLock.length > 0) {
+    const lockDiv = document.createElement('div');
+    lockDiv.textContent = `Immortal Lock: ${userImortalLock[0].teamName} [${userImortalLock[0].type}: ${userImortalLock[0].value}]`;
+    userImmortalLockContainer.appendChild(lockDiv);
+  }
+}
+
+
+updatePicksDisplay();
