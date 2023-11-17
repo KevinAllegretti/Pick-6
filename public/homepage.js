@@ -108,14 +108,14 @@ function initializeCountdown() {
     }
 
     // Update the countdown every second
-    updateCountdown(); // Run once immediately
-    const timeInterval = setInterval(updateCountdown, 1000);
+  //  updateCountdown(); // Run once immediately
+   // const timeInterval = setInterval(updateCountdown, 1000);
 }
 
   
   // Call initializeCountdown somewhere in your code when you want to start the timer
   // For example, in a window.onload or document.addEventListener('DOMContentLoaded', ...) handler
-  initializeCountdown();
+ // initializeCountdown();
   
 
     const cards = document.querySelectorAll('.player-card');
