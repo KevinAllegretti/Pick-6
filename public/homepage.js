@@ -129,12 +129,12 @@ function initializeCountdown() {
             console.log("Card clicked:", cardUsername);  
             
             //comment out during play time
-            
+            /*
             if (cardUsername && cardUsername === loggedInUsername) {
                 console.log("Redirecting to dashboard");
                 window.location.href = `/dashboard?username=${cardUsername}`;
             }
-            
+            */
         });
     });
     
