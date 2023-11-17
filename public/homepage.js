@@ -86,7 +86,8 @@ Date.prototype.dst = function() {
     return Math.max(jan, jul) != this.getTimezoneOffset();    
 };
 
-// Function to initialize the countdown
+let timeInterval; // Declare this at the top of your script or outside your functions
+
 function initializeCountdown() {
     const countdownDisplay = document.getElementById('countdownDisplay');
 
@@ -108,14 +109,17 @@ function initializeCountdown() {
     }
 
     // Update the countdown every second
-  //  updateCountdown(); // Run once immediately
-   // const timeInterval = setInterval(updateCountdown, 1000);
+    updateCountdown(); // Run once immediately
+    timeInterval = setInterval(updateCountdown, 1000);
 }
+
+// The rest of your script...
+
 
   
   // Call initializeCountdown somewhere in your code when you want to start the timer
   // For example, in a window.onload or document.addEventListener('DOMContentLoaded', ...) handler
- // initializeCountdown();
+  initializeCountdown();
   
 
     const cards = document.querySelectorAll('.player-card');
