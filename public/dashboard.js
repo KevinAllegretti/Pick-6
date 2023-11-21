@@ -301,7 +301,7 @@ function resetPicks() {
         if (data && data.success) {
             console.log('Picks reset successfully on server.');
             alert('Picks reset successfully on server.')
-            updatePicksDisplay();
+            //updatePicksDisplay();
         } else {
             console.error('Error resetting picks on server.', data);
         }
@@ -314,10 +314,10 @@ function resetPicks() {
 
 
   document.getElementById('resetPicks').addEventListener('click', resetPicks);
-
+  console.log(thursdayDeadline, tuesdayEndTime);
   function submitUserPicks() {
     if (now < thursdayDeadline && now > tuesdayEndTime){
-    isDeadline = true;
+    isDeadline = false;
     }
   if (isDeadline == true){
     alert('Deadline has passed, can no longer submit picks!')
@@ -351,7 +351,7 @@ function resetPicks() {
     .then(data => {
       if (data.success) {
         alert('Picks successfully submitted!');
-        updatePicksDisplay();
+        //updatePicksDisplay();
       } else {
         alert('Error submitting picks. Please try again.');
       }
@@ -379,7 +379,7 @@ function resetPicks() {
   // Initialization
   renderBetOptions();
 
-
+/*
 // This function fetches the current user's picks and displays them
 async function fetchAndDisplayUserPicks() {
   try {
@@ -395,6 +395,8 @@ async function fetchAndDisplayUserPicks() {
     console.error('Error fetching user picks:', error);
   }
 }
+*/
+/*
 // Function to display picks with only the logo and the line
 function displayPicks(picks) {
   const picksContainer = document.getElementById('userPicksContainer');
@@ -529,3 +531,4 @@ function updatePicksDisplay() {
 }
 
 updatePicksDisplay();
+*/

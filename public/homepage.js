@@ -209,7 +209,7 @@ function initializeCountdown() {
         
         });
     });
-
+    
     async function pickWindowPlayerCard(){
 
         console.log(tuesdayEndTime);
@@ -223,8 +223,12 @@ function initializeCountdown() {
                const picksDiv = userCard.querySelector('.picks');
                picksDiv.innerHTML = ''; // Clear existing picks
                 
-               const response = await fetch(`/api/getPicks/${username}`);
-                    const data = await response.json();
+               const response = await fetch(`/api/getPicks/${loggedInUsername}`);
+                if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+                } else {
+                const data = await response.json();
+
                if (data && data.picks) {
                    data.picks.forEach(pick => {
                        const pickDiv = document.createElement('div');
@@ -266,13 +270,16 @@ function initializeCountdown() {
                } else {
                    immortalLockDiv.textContent = 'Immortal Lock: Not Set';
                }
-            }
+
+            }}
         else{
             populateUserData();
             console.log("Fetch all");
         }
         
     }
+    
+    
     
     async function populateUserData() {
         const userCards = document.querySelectorAll('.player-card');
