@@ -2,7 +2,7 @@
     const now = new Date();
     let thursdayDeadline = new Date(now);
     thursdayDeadline.setDate(now.getDate() + ((4 + 7 - now.getDay()) % 7));
-    thursdayDeadline.setHours(19, 0, 0, 0); // 7 PM EST
+    thursdayDeadline.setHours(12, 0, 0, 0); // 7 PM EST
     thursdayDeadline.setMinutes(thursdayDeadline.getMinutes() + thursdayDeadline.getTimezoneOffset());
     thursdayDeadline.setHours(thursdayDeadline.getHours() - 5); // Convert UTC to EST (UTC-5)
 
