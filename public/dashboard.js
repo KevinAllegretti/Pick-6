@@ -261,8 +261,21 @@ const lastWeekPicks = {
 
 async function wasPickMadeLastWeek(username, currentPick) {
   // Check if the current pick was part of the user's picks last week
-  return lastWeekPicks[username] && lastWeekPicks[username].includes(currentPick);
+  if (lastWeekPicks[username]) {
+    return lastWeekPicks[username].some((pick) => {
+      // Split the string into components
+      const [pickTeamName, pickDetails] = pick.split(' [');
+      const [currentTeamName, currentDetails] = currentPick.split(' [');
+      // Extract the bet type (Spread or ML) from the details
+      const pickType = pickDetails.split(': ')[0];
+      const currentType = currentDetails.split(': ')[0];
+      // Compare team names and bet types
+      return pickTeamName === currentTeamName && pickType === currentType;
+    });
+  }
+  return false;
 }
+
   
   let picksCount = 0;
   let userPicks = [];
