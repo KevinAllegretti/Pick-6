@@ -107,7 +107,7 @@ const betOptions = [
 
     // Bears Vikings
     { teamName: 'CHI Bears', type: 'Spread', value: '+3.5' },
-    { teamName: 'BAL Ravens', type: 'ML', value: '+140' },
+    { teamName: 'CHI Bears', type: 'ML', value: '+140' },
     { teamName: 'LA Chargers', type: 'Spread', value: '-3.5' },
     { teamName: 'PHI Eagles', type: 'ML', value: '-166' },
 ];
