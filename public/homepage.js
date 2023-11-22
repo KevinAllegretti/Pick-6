@@ -262,16 +262,44 @@ function initializeCountdown() {
                // Populate the immortal lock for the user card
                const immortalLockDiv = userCard.querySelector('.immortal-lock');
                immortalLockDiv.innerHTML = ''; // Clear existing content
-               
+           
                if (data.immortalLock && data.immortalLock[0]) {
                    const immortalPick = data.immortalLock[0];
-                   // ... rest of your code to populate the immortalPick ...
-                   // Similar logic as the picksDiv above
+                   const pickDiv = document.createElement('div');
+                   pickDiv.classList.add('pick', 'immortal-pick');
+           
+                   // Create and append the "Immortal Lock:" text
+                   const immortalTextSpan = document.createElement('span');
+                   immortalTextSpan.textContent = 'Immortal Lock: ';
+                   pickDiv.appendChild(immortalTextSpan);
+           
+                   // Extract the team name and value using the same regex as before
+                   const teamNameMatch = immortalPick.match(/^(.*?)\s\[/);
+                   const teamName = teamNameMatch ? teamNameMatch[1] : null;
+                   const valueMatch = immortalPick.match(/\[.*?([-+]\d+(?:\.\d+)?)\]/);
+                   const value = valueMatch ? valueMatch[1] : null;
+           
+                   if (teamName && teamLogos[teamName]) {
+                       const logoUrl = teamLogos[teamName];
+                       const logoImg = document.createElement('img');
+                       logoImg.src = logoUrl;
+                       logoImg.alt = `${teamName}`; // The alt attribute remains for accessibility
+                       logoImg.classList.add('team-logo');
+                       pickDiv.appendChild(logoImg);
+                   }
+           
+                   if (value) {
+                       const valueSpan = document.createElement('span');
+                       valueSpan.textContent = value; // Only the numeric value is displayed
+                       pickDiv.appendChild(valueSpan);
+                   }
+           
+                   // Append the Immortal Lock pick to the container
+                   immortalLockDiv.appendChild(pickDiv);
                } else {
                    immortalLockDiv.textContent = 'Immortal Lock: Not Set';
                }
-
-            }}
+           }}
         else{
             populateUserData();
             console.log("Fetch all");

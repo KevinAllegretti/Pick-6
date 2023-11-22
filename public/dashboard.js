@@ -414,6 +414,8 @@ function resetPicks() {
 
   document.getElementById('resetPicks').addEventListener('click', resetPicks);
   console.log(thursdayDeadline, tuesdayEndTime);
+ 
+ 
   function submitUserPicks() {
     if (now < thursdayDeadline && now > tuesdayEndTime){
     isDeadline = false;
@@ -448,6 +450,7 @@ function resetPicks() {
     })
     .then(response => response.json())
     .then(data => {
+      console.log(data);
       if (data.success) {
         alert('Picks successfully submitted!');
         //updatePicksDisplay();
