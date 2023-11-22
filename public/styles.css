@@ -386,3 +386,11 @@ h4 {
 
 
 }
+
+.disabled {
+    background-color: #0f0f0f; /* A light grey background */
+    color: #de1818;           /* A darker grey text color */
+    cursor: not-allowed;      /* The cursor indicates the element is not allowed to be interacted with */
+    opacity: 0.5;             /* Makes the bet cell look faded */
+  }
+  

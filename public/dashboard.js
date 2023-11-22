@@ -169,7 +169,88 @@ const teamLogos = {
   'TEN Titans': '/TENLogo.png',
   'WAS Commanders': '/WASLogo.png'
 };
-  
+
+
+const lastWeekPicks = {
+  "LazyAhhGamer": [
+    "HOU Texans [Spread: -5]",
+    "TEN Titans [ML: +260]",
+    "TB Buccaneers [Spread: +12]",
+    "DET Lions [ML: -425]",
+    "LA Chargers [ML: -170]",
+    "KC Chiefs [Spread: -2.5]",
+    "MIA Dolphins [ML: -800]",
+  ],
+  "TheDiggler": [
+    "DAL Cowboys [Spread: -10.5]",
+    "WAS Commanders [Spread: -9]",
+    "LA Chargers [Spread: -3]",
+    "JAX Jaguars [Spread: -7]",
+    "DEN Broncos [Spread: -2.5]",
+    "PHI Eagles [Spread: +2.5]",
+    "DET Lions [ML: -425]",
+  ],
+  "L to the OG": [
+    "DAL Cowboys [Spread: -10.5]",
+    "DET Lions [Spread: -8]",
+    "PIT Steelers [ML: -105]",
+    "MIN Vikings [Spread: +2.5]",
+    "PHI Eagles [Spread: +2.5]",
+    "SF 49ers [ML: -575]",
+    "MIA Dolphins [ML: -800]",
+  ],
+  "Parlay Prodigy": [
+    "MIN Vikings [Spread: +2.5]",
+    "PHI Eagles [Spread: +2.5]",
+    "LA Chargers [Spread: -3]",
+    "LA Rams [Spread: +1]",
+    "CIN Bengals [Spread: +3.5]",
+    "PIT Steelers [Spread: +1]",
+    "DAL Cowboys [ML: -575]",
+  ],
+  "Midnight Professional": [
+    "CIN Bengals [ML: +145]",
+    "DAL Cowboys [Spread: -10.5]",
+    "HOU Texans [Spread: -5]",
+    "LA Chargers [ML: -170]",
+    "LA Rams [ML: -105]",
+    "MIN Vikings [Spread: +2.5]",
+    "MIA Dolphins [ML: -800]",
+  ],
+  "Primitive Picks": [
+    "CIN Bengals [Spread: +3.5]",
+    "PIT Steelers [Spread: +1]",
+    "ARI Cardinals [Spread: +5]",
+    "NY Jets [Spread: +7]",
+    "DEN Broncos [Spread: -2.5]",
+    "KC Chiefs [Spread: -2.5]",
+    "WAS Commanders [ML: -440]",
+  ],
+  "Bear Jew": [
+    "PHI Eagles [Spread: +2.5]",
+    "CIN Bengals [ML: +145]",
+    "DET Lions [ML: -425]",
+    "LV Raiders [ML: +550]",
+    "NY Jets [Spread: +7]",
+    "GB Packers [Spread: +3]",
+    "DAL Cowboys [Spread: -10.5]",
+  ],
+  "porkSkinGooner": [
+    "DAL Cowboys [Spread: -10.5]",
+    "HOU Texans [Spread: -5]",
+    "JAX Jaguars [Spread: -7]",
+    "SF 49ers [Spread: -12]",
+    "CIN Bengals [ML: +145]",
+    "SEA Seahawks [Spread: -1]",
+    "MIA Dolphins [ML: -800]",
+  ]
+
+};
+
+async function wasPickMadeLastWeek(username, currentPick) {
+  // Check if the current pick was part of the user's picks last week
+  return lastWeekPicks[username] && lastWeekPicks[username].includes(currentPick);
+}
   
   let picksCount = 0;
   let userPicks = [];
@@ -188,14 +269,23 @@ const teamLogos = {
   function renderBetOptions() {
     const container = document.getElementById('picksContainer');
     betOptions.forEach(option => {
-      const betCell = document.createElement('div');
-    
-      betCell.classList.add('betCell', teamColorClasses[option.teamName]);
-      betCell.textContent = `${option.teamName} [${option.type}: ${option.value}]`;
-      betCell.onclick = () => selectBet(option);
-      container.appendChild(betCell);
+        const betCell = document.createElement('div');
+        const currentPick = `${option.teamName} [${option.type}: ${option.value}]`;
+
+        wasPickMadeLastWeek(storedUsername, currentPick).then(isPickFromLastWeek => {
+            betCell.classList.add('betCell', teamColorClasses[option.teamName]);
+            betCell.textContent = currentPick;
+            if (isPickFromLastWeek) {
+                betCell.classList.add('disabled'); // Grey out the option if it was picked last week
+                betCell.onclick = () => alert('This bet was made last week!');
+            } else {
+                betCell.onclick = () => selectBet(option); // Allow selection if it wasn't picked last week
+            }
+            container.appendChild(betCell);
+        });
     });
-  }
+}
+
   
 function selectBet(option) {
   console.log('selectBet called with option:', option);
@@ -221,6 +311,14 @@ function selectBet(option) {
       return; // Exit the function without adding the new bet
   }
 
+  const currentPick = `${option.teamName} [${option.type}: ${option.value}]`;
+  /*
+  // Check if this pick was made last week
+  if (wasPickMadeLastWeek(storedUsername, currentPick)) {
+    alert('You cannot select the same bet as last week!');
+    return;
+  }
+*/
   // Check if the user has already selected 6 picks and Immortal Lock is not set
   if (picksCount >= 6 && !immortalLockCheckbox.checked) {
       alert('You can only select 6 picks. Set your Immortal Lock or deselect a pick.');
@@ -244,6 +342,7 @@ function selectBet(option) {
   picksCount++;
   updateBetCell(option, true);
 }
+
 
 function updateBetCell(option, isSelected, isImmortalLock = false) {
   const betCells = document.querySelectorAll('.betCell');
