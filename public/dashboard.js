@@ -417,7 +417,7 @@ function resetPicks() {
  
  
   function submitUserPicks() {
-    if (now < thursdayDeadline && now > tuesdayEndTime){
+    if (now < thursdayDeadline && now < tuesdayEndTime){
     isDeadline = false;
     }
   if (isDeadline == true){
