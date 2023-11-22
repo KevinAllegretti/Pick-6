@@ -103,13 +103,13 @@ const betOptions = [
     { teamName: 'BAL Ravens', type: 'Spread', value: '-3.5' },
     { teamName: 'BAL Ravens', type: 'ML', value: '-185' },
     { teamName: 'LA Chargers', type: 'Spread', value: '+3.5' },
-    { teamName: 'PHI Eagles', type: 'ML', value: '+154' },
+    { teamName: 'LA Chargers', type: 'ML', value: '+154' },
 
     // Bears Vikings
     { teamName: 'CHI Bears', type: 'Spread', value: '+3.5' },
     { teamName: 'CHI Bears', type: 'ML', value: '+140' },
-    { teamName: 'LA Chargers', type: 'Spread', value: '-3.5' },
-    { teamName: 'PHI Eagles', type: 'ML', value: '-166' },
+    { teamName: 'MIN Vikings', type: 'Spread', value: '-3.5' },
+    { teamName: 'MIN Vikings', type: 'ML', value: '-166' },
 ];
 
 const teamColorClasses = {
