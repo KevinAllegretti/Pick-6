@@ -15,102 +15,85 @@ tuesdayEndTime.setMinutes(tuesdayEndTime.getMinutes() + tuesdayEndTime.getTimezo
 tuesdayEndTime.setHours(tuesdayEndTime.getHours() - 5); // Convert UTC to EST (UTC-5)
 // Assuming betOptions is an array of all bet options for the week
 const betOptions = [
-  // Bengals vs Ravens
-  { teamName: 'GB Packers', type: 'Spread', value: '+7.5' },
-  { teamName: 'GB Packers', type: 'ML', value: '+285' },
-  { teamName: 'DET Lions', type: 'Spread', value: '-7.5' },
-  { teamName: 'DET Lions', type: 'ML', value: '-360' },
+  // Seahawks vs Cowboys
+  { teamName: 'SEA Seahawks', type: 'Spread', value: '+9' },
+  { teamName: 'SEA Seahawks', type: 'ML', value: '+340' },
+  { teamName: 'DAL Cowboys', type: 'Spread', value: '-9' },
+  { teamName: 'DAL Cowboys', type: 'ML', value: '-440' },
 
-  // Steelers vs Browns
-  { teamName: 'WAS Commanders', type: 'Spread', value: '+11' },
-  { teamName: 'WAS Commanders', type: 'ML', value: '+455' },
-  { teamName: 'DAL Cowboys', type: 'Spread', value: '-11' },
-  { teamName: 'DAL Cowboys', type: 'ML', value: '-625' },
+  // Dolphins vs Commanders
+  { teamName: 'MIA Dolphins', type: 'Spread', value: '-9.5' },
+  { teamName: 'MIA Dolphins', type: 'ML', value: '-470' },
+  { teamName: 'WAS Commanders', type: 'Spread', value: '+9.5' },
+  { teamName: 'WAS Commanders', type: 'ML', value: '+360' },
 
-  // Cowboys vs Panthers
-  { teamName: 'SF 49ers', type: 'Spread', value: '-7' },
-  { teamName: 'SF 49ers', type: 'ML', value: '-340' },
-  { teamName: 'SEA Seahawks', type: 'Spread', value: '+7' },
-  { teamName: 'SEA Seahawks', type: 'ML', value: '+270' },
+  // Lions vs Saints
+  { teamName: 'DET Lions', type: 'Spread', value: '-4' },
+  { teamName: 'DET Lions', type: 'ML', value: '-205' },
+  { teamName: 'NO Saints', type: 'Spread', value: '+4' },
+  { teamName: 'NO Saints', type: 'ML', value: '+170' },
 
-  // Raiders vs Dolphins
-  { teamName: 'MIA Dolphins', type: 'Spread', value: '-10' },
-  { teamName: 'MIA Dolphins', type: 'ML', value: '-520' },
-  { teamName: 'NY Jets', type: 'Spread', value: '+10' },
-  { teamName: 'NY Jets', type: 'ML', value: '+390' },
+  // Chargers vs Patriots
+  { teamName: 'LA Chargers', type: 'Spread', value: '-5.5' },
+  { teamName: 'LA Chargers', type: 'ML', value: '-238' },
+  { teamName: 'NE Patriots', type: 'Spread', value: '+5.5' },
+  { teamName: 'NE Patriots', type: 'ML', value: '+195' },
 
-  // Bears vs Lions
-  { teamName: 'NO Saints', type: 'Spread', value: '-1' },
-  { teamName: 'NO Saints', type: 'ML', value: '-112' },
-  { teamName: 'ATL Falcons', type: 'Spread', value: '+1' },
-  { teamName: 'ATL Falcons', type: 'ML', value: '-108' },
+  // Cardinals vs Steelers
+  { teamName: 'ARI Cardinals', type: 'Spread', value: '+5.5' },
+  { teamName: 'ARI Cardinals', type: 'ML', value: '+200' },
+  { teamName: 'PIT Steelers', type: 'Spread', value: '-5.5' },
+  { teamName: 'PIT Steelers', type: 'ML', value: '-245' },
 
-  // Cardinals vs Texans
-  { teamName: 'PIT Steelers', type: 'Spread', value: '-1' },
-  { teamName: 'PIT Steelers', type: 'ML', value: '-115' },
-  { teamName: 'CIN Bengals', type: 'Spread', value: '+1' },
-  { teamName: 'CIN Bengals', type: 'ML', value: '-105' },
+  // Broncos vs Texans
+  { teamName: 'DEN Broncos', type: 'Spread', value: '+3.5' },
+  { teamName: 'DEN Broncos', type: 'ML', value: '+150' },
+  { teamName: 'HOU Texans', type: 'Spread', value: '-3.5' },
+  { teamName: 'HOU Texans', type: 'ML', value: '-180' },
 
-  // Giants vs Commanders
-  { teamName: 'CAR Panthers', type: 'Spread', value: '+3.5' },
-  { teamName: 'CAR Panthers', type: 'ML', value: '+150' },
-  { teamName: 'TEN Titans', type: 'Spread', value: '-3.5' },
-  { teamName: 'TEN Titans', type: 'ML', value: '-180' },
+  // Colts vs Titans
+  { teamName: 'IND Colts', type: 'Spread', value: '-1' },
+  { teamName: 'IND Colts', type: 'ML', value: '-118' },
+  { teamName: 'TEN Titans', type: 'Spread', value: '+1' },
+  { teamName: 'TEN Titans', type: 'ML', value: '-102' },
 
-  // Chargers vs Packers
-  { teamName: 'TB Buccaneers', type: 'Spread', value: '+1.5' },
-  { teamName: 'TB Buccaneers', type: 'ML', value: '+114' },
-  { teamName: 'IND Colts', type: 'Spread', value: '-1.5' },
-  { teamName: 'IND Colts', type: 'ML', value: '-135' },
+  // Falcons vs Jets
+  { teamName: 'ATL Falcons', type: 'Spread', value: '-2.5' },
+  { teamName: 'ATL Falcons', type: 'ML', value: '-135' },
+  { teamName: 'NY Jets', type: 'Spread', value: '+2.5' },
+  { teamName: 'NY Jets', type: 'ML', value: '+114' },
 
-  // Titans vs Jaguars
-  { teamName: 'NE Patriots', type: 'Spread', value: '-3' },
-  { teamName: 'NE Patriots', type: 'ML', value: '-162' },
-  { teamName: 'NY Giants', type: 'Spread', value: '+3' },
-  { teamName: 'NY Giants', type: 'ML', value: '+136' },
+  // Panthers vs Buccaneers
+  { teamName: 'CAR Panthers', type: 'Spread', value: '+5' },
+  { teamName: 'CAR Panthers', type: 'ML', value: '+185' },
+  { teamName: 'TB Buccaneers', type: 'Spread', value: '-5' },
+  { teamName: 'TB Buccaneers', type: 'ML', value: '-225' },
 
-  // Buccaneers vs 49ers
-  { teamName: 'JAX Jaguars', type: 'Spread', value: '-1.5' },
-  { teamName: 'JAX Jaguars', type: 'ML', value: '-122' },
-  { teamName: 'HOU Texans', type: 'Spread', value: '+1.5' },
-  { teamName: 'HOU Texans', type: 'ML', value: '+102' },
+  // 49ers vs Eagles
+  { teamName: 'SF 49ers', type: 'Spread', value: '-3' },
+  { teamName: 'SF 49ers', type: 'ML', value: '-155' },
+  { teamName: 'PHI Eagles', type: 'Spread', value: '+3' },
+  { teamName: 'PHI Eagles', type: 'ML', value: '+130' },
 
-  // Jets vs Bills
-  { teamName: 'CLE Browns', type: 'Spread', value: '+2.5' },
-  { teamName: 'CLE Browns', type: 'ML', value: '+114' },
-  { teamName: 'DEN Broncos', type: 'Spread', value: '-2.5' },
-  { teamName: 'DEN Broncos', type: 'ML', value: '-135' },
+  // Browns vs Rams
+  { teamName: 'CLE Browns', type: 'Spread', value: '+3.5' },
+  { teamName: 'CLE Browns', type: 'ML', value: '+150' },
+  { teamName: 'LA Rams', type: 'Spread', value: '-3.5' },
+  { teamName: 'LA Rams', type: 'ML', value: '-180' },
 
-  // Seahawks vs Rams
-  { teamName: 'LA Rams', type: 'Spread', value: '-1' },
-  { teamName: 'LA Rams', type: 'ML', value: '-115' },
-  { teamName: 'ARI Cardinals', type: 'Spread', value: '+1' },
-  { teamName: 'ARI Cardinals', type: 'ML', value: '-105' },
+  // Chiefs vs Packers
+  { teamName: 'KC Chiefs', type: 'Spread', value: '-6' },
+  { teamName: 'KC Chiefs', type: 'ML', value: '-250' },
+  { teamName: 'GB Packers', type: 'Spread', value: '+6' },
+  { teamName: 'GB Packers', type: 'ML', value: '+205' },
 
-  // Vikings vs Broncos
-  { teamName: 'KC Chiefs', type: 'Spread', value: '-8.5' },
-  { teamName: 'KC Chiefs', type: 'ML', value: '-380' },
-  { teamName: 'LV Raiders', type: 'Spread', value: '-8.5' },
-  { teamName: 'LV Raiders', type: 'ML', value: '+300' },
-
-  // Eagles vs Chiefs
-  { teamName: 'BUF Bills', type: 'Spread', value: '+3.5' },
-  { teamName: 'BUF Bills', type: 'ML', value: '+124' },
-  { teamName: 'PHI Eagles', type: 'Spread', value: '-3.5' },
-  { teamName: 'PHI Eagles', type: 'ML', value: '-175' },
-
-    // Ravens chargers
-    { teamName: 'BAL Ravens', type: 'Spread', value: '-3.5' },
-    { teamName: 'BAL Ravens', type: 'ML', value: '-185' },
-    { teamName: 'LA Chargers', type: 'Spread', value: '+3.5' },
-    { teamName: 'LA Chargers', type: 'ML', value: '+154' },
-
-    // Bears Vikings
-    { teamName: 'CHI Bears', type: 'Spread', value: '+3.5' },
-    { teamName: 'CHI Bears', type: 'ML', value: '+140' },
-    { teamName: 'MIN Vikings', type: 'Spread', value: '-3.5' },
-    { teamName: 'MIN Vikings', type: 'ML', value: '-166' },
+  // Bengals vs Jaguars
+  { teamName: 'CIN Bengals', type: 'Spread', value: '+9' },
+  { teamName: 'CIN Bengals', type: 'ML', value: '+320' },
+  { teamName: 'JAX Jaguars', type: 'Spread', value: '-9' },
+  { teamName: 'JAX Jaguars', type: 'ML', value: '-410' },
 ];
+
 
 const teamColorClasses = {
     'ARI Cardinals': 'cardinals-color',
@@ -442,7 +425,7 @@ function resetPicks() {
  
  
   function submitUserPicks() {
-    if (now < thursdayDeadline && now > tuesdayEndTime){
+    if (now < thursdayDeadline && now < tuesdayEndTime){
     isDeadline = false;
     }
   if (isDeadline == true){
