@@ -28,9 +28,9 @@ const betOptions = [
   { teamName: 'BAL Ravens', type: 'ML', value: '-345' },
 
   // Lions vs Bears
-  { teamName: 'DET Lions', type: 'Spread', value: '+3.5' },
+  { teamName: 'DET Lions', type: 'Spread', value: '-3.5' },
   { teamName: 'DET Lions', type: 'ML', value: '-180' },
-  { teamName: 'CHI Bears', type: 'Spread', value: '-3.5' },
+  { teamName: 'CHI Bears', type: 'Spread', value: '+3.5' },
   { teamName: 'CHI Bears', type: 'ML', value: '+150' },
 
   // Texans vs Jets
