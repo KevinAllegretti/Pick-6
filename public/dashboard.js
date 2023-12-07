@@ -86,7 +86,7 @@ const betOptions = [
   { teamName: 'LA Chargers', type: 'Spread', value: '-2.5' },
   { teamName: 'LA Chargers', type: 'ML', value: '-142'},
 
-  { teamName: 'PHI Eagles', type: 'Spread', value: '+2.5' },
+  { teamName: 'PHI Eagles', type: 'Spread', value: '+3.5' },
   { teamName: 'PHI Eagles', type: 'ML', value: '+154' },
   { teamName: 'DAL Cowboys', type: 'Spread', value: '-3.5' },
   { teamName: 'DAL Cowboys', type: 'ML', value: '-185'},
