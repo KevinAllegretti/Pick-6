@@ -434,7 +434,7 @@ function resetPicks() {
     if (now < thursdayDeadline && now < tuesdayEndTime){
     isDeadline = false;
     }
-  if (isDeadline == false){
+  if (isDeadline == true){
     alert('Deadline has passed, can no longer submit picks!')
   }
   else {
