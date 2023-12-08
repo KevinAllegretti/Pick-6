@@ -429,12 +429,12 @@ function resetPicks() {
   document.getElementById('resetPicks').addEventListener('click', resetPicks);
   console.log(thursdayDeadline, tuesdayEndTime);
  
- 
+  isDeadline = false;
   function submitUserPicks() {
     if (now < thursdayDeadline && now < tuesdayEndTime){
     isDeadline = false;
     }
-  if (isDeadline == true){
+  if (isDeadline == false){
     alert('Deadline has passed, can no longer submit picks!')
   }
   else {
