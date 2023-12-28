@@ -15,102 +15,103 @@ tuesdayEndTime.setMinutes(tuesdayEndTime.getMinutes() + tuesdayEndTime.getTimezo
 tuesdayEndTime.setHours(tuesdayEndTime.getHours() - 5); // Convert UTC to EST (UTC-5)
 // Assuming betOptions is an array of all bet options for the week
 const betOptions = [
-  // Saints vs Rams
-  { teamName: 'NO Saints', type: 'Spread', value: '+3.5' },
-  { teamName: 'NO Saints', type: 'ML', value: '+160' },
-  { teamName: 'LA Rams', type: 'Spread', value: '-3.5' },
-  { teamName: 'LA Rams', type: 'ML', value: '-192' },
+  // Jets vs Browns
+  { teamName: 'NY Jets', type: 'Spread', value: '+7.5' },
+  { teamName: 'NY Jets', type: 'ML', value: '+270' },
+  { teamName: 'CLE Browns', type: 'Spread', value: '-7.5' },
+  { teamName: 'CLE Browns', type: 'ML', value: '-340' },
 
-  // Bengals vs Steelers
-  { teamName: 'CIN Bengals', type: 'Spread', value: '-2' },
-  { teamName: 'CIN Bengals', type: 'ML', value: '-130' },
-  { teamName: 'PIT Steelers', type: 'Spread', value: '+2' },
-  { teamName: 'PIT Steelers', type: 'ML', value: '+110' },
+  // Lions vs Cowboys
+  { teamName: 'DET Lions', type: 'Spread', value: '+6' },
+  { teamName: 'DET Lions', type: 'ML', value: '+210' },
+  { teamName: 'DAL Cowboys', type: 'Spread', value: '-6' },
+  { teamName: 'DAL Cowboys', type: 'ML', value: '-258' },
 
-  // Bills vs Chargers
-  { teamName: 'BUF Bills', type: 'Spread', value: '-11.5' },
-  { teamName: 'BUF Bills', type: 'ML', value: '-850' },
-  { teamName: 'LA Chargers', type: 'Spread', value: '+11.5' },
-  { teamName: 'LA Chargers', type: 'ML', value: '+575' },
+  // Dolphins vs Ravens
+  { teamName: 'MIA Dolphins', type: 'Spread', value: '+3' },
+  { teamName: 'MIA Dolphins', type: 'ML', value: '+145' },
+  { teamName: 'BAL Ravens', type: 'Spread', value: '-3' },
+  { teamName: 'BAL Ravens', type: 'ML', value: '-175' },
 
-  // Lions vs Vikings
-  { teamName: 'DET Lions', type: 'Spread', value: '-3' },
-  { teamName: 'DET Lions', type: 'ML', value: '-170' },
-  { teamName: 'MIN Vikings', type: 'Spread', value: '+3' },
-  { teamName: 'MIN Vikings', type: 'ML', value: '+142' },
+  // 49ers vs Commanders
+  { teamName: 'SF 49ers', type: 'Spread', value: '-13' },
+  { teamName: 'SF 49ers', type: 'ML', value: '-850' },
+  { teamName: 'WAS Commanders', type: 'Spread', value: '+13' },
+  { teamName: 'WAS Commanders', type: 'ML', value: '+575' },
 
-  // Seahawks vs Titans
-  { teamName: 'SEA Seahawks', type: 'Spread', value: '-2.5' },
-  { teamName: 'SEA Seahawks', type: 'ML', value: '-135' },
-  { teamName: 'TEN Titans', type: 'Spread', value: '+2.5' },
-  { teamName: 'TEN Titans', type: 'ML', value: '+114' },
+  // Raiders vs Colts
+  { teamName: 'LV Raiders', type: 'Spread', value: '+3.5' },
+  { teamName: 'LV Raiders', type: 'ML', value: '+154' },
+  { teamName: 'IND Colts', type: 'Spread', value: '-3.5' },
+  { teamName: 'IND Colts', type: 'ML', value: '-185' },
 
-  // Browns vs Texans
-  { teamName: 'CLE Browns', type: 'Spread', value: '-2.5' },
-  { teamName: 'CLE Browns', type: 'ML', value: '-148' },
-  { teamName: 'HOU Texans', type: 'Spread', value: '+2.5' },
-  { teamName: 'HOU Texans', type: 'ML', value: '+124' },
+  // Rams vs Giants
+  { teamName: 'LA Rams', type: 'Spread', value: '-5.5' },
+  { teamName: 'LA Rams', type: 'ML', value: '-238' },
+  { teamName: 'NY Giants', type: 'Spread', value: '+5.5' },
+  { teamName: 'NY Giants', type: 'ML', value: '+195' },
 
-  // Commanders vs Jets
-  { teamName: 'WAS Commanders', type: 'Spread', value: '+3' },
-  { teamName: 'WAS Commanders', type: 'ML', value: '+136' },
-  { teamName: 'NY Jets', type: 'Spread', value: '-3' },
-  { teamName: 'NY Jets', type: 'ML', value: '-162' },
+  // Patriots vs Bills
+  { teamName: 'NE Patriots', type: 'Spread', value: '+13' },
+  { teamName: 'NE Patriots', type: 'ML', value: '+525' },
+  { teamName: 'BUF Bills', type: 'Spread', value: '-13' },
+  { teamName: 'BUF Bills', type: 'ML', value: '-750' },
 
-  // Colts vs Falcons
-  { teamName: 'IND Colts', type: 'Spread', value: '+1' },
-  { teamName: 'IND Colts', type: 'ML', value: '-102' },
-  { teamName: 'ATL Falcons', type: 'Spread', value: '-1' },
-  { teamName: 'ATL Falcons', type: 'ML', value: '-118' },
+  // Titans vs Texans
+  { teamName: 'TEN Titans', type: 'Spread', value: '-4.5' },
+  { teamName: 'TEN Titans', type: 'ML', value: '+170' },
+  { teamName: 'HOU Texans', type: 'Spread', value: '+4.5' },
+  { teamName: 'HOU Texans', type: 'ML', value: '-205' },
 
-  // Packers vs Panthers
-  { teamName: 'GB Packers', type: 'Spread', value: '-5' },
-  { teamName: 'GB Packers', type: 'ML', value: '-230' },
-  { teamName: 'CAR Panthers', type: 'Spread', value: '+5' },
-  { teamName: 'CAR Panthers', type: 'ML', value: '+190' },
+  // Cardinals vs Eagles
+  { teamName: 'ARI Cardinals', type: 'Spread', value: '+11' },
+  { teamName: 'ARI Cardinals', type: 'ML', value: '+410' },
+  { teamName: 'PHI Eagles', type: 'Spread', value: '-11' },
+  { teamName: 'PHI Eagles', type: 'ML', value: '-550' },
 
-  // Jaguars vs Buccaneers
-  { teamName: 'JAX Jaguars', type: 'Spread', value: '+1' },
-  { teamName: 'JAX Jaguars', type: 'ML', value: '-102' },
-  { teamName: 'TB Buccaneers', type: 'Spread', value: '-1' },
-  { teamName: 'TB Buccaneers', type: 'ML', value: '-118' },
+  // Saints vs Buccaneers
+  { teamName: 'NO Saints', type: 'Spread', value: '+2.5' },
+  { teamName: 'NO Saints', type: 'ML', value: '+114' },
+  { teamName: 'TB Buccaneers', type: 'Spread', value: '-2.5' },
+  { teamName: 'TB Buccaneers', type: 'ML', value: '-135' },
 
-  // Cardinals vs Bears
-  { teamName: 'ARI Cardinals', type: 'Spread', value: '+4' },
-  { teamName: 'ARI Cardinals', type: 'ML', value: '+170' },
-  { teamName: 'CHI Bears', type: 'Spread', value: '-4' },
-  { teamName: 'CHI Bears', type: 'ML', value: '-205' },
+  // Falcons vs Bears
+  { teamName: 'ATL Falcons', type: 'Spread', value: '+3' },
+  { teamName: 'ATL Falcons', type: 'ML', value: '+130' },
+  { teamName: 'CHI Bears', type: 'Spread', value: '-3' },
+  { teamName: 'CHI Bears', type: 'ML', value: '-155' },
 
-  // Cowboys vs Dolphins
-  { teamName: 'DAL Cowboys', type: 'Spread', value: '+1' },
-  { teamName: 'DAL Cowboys', type: 'ML', value: '-108' },
-  { teamName: 'MIA Dolphins', type: 'Spread', value: '-1' },
-  { teamName: 'MIA Dolphins', type: 'ML', value: '-112' },
+  // Panthers vs Jaguars
+  { teamName: 'CAR Panthers', type: 'Spread', value: '+6.5' },
+  { teamName: 'CAR Panthers', type: 'ML', value: '+230' },
+  { teamName: 'JAX Jaguars', type: 'Spread', value: '-6.5' },
+  { teamName: 'JAX Jaguars', type: 'ML', value: '-285' },
 
-  // Patriots vs Broncos
-  { teamName: 'NE Patriots', type: 'Spread', value: '+6.5' },
-  { teamName: 'NE Patriots', type: 'ML', value: '+225' },
-  { teamName: 'DEN Broncos', type: 'Spread', value: '-6.5' },
-  { teamName: 'DEN Broncos', type: 'ML', value: '-278' },
+  // Steelers vs Seahawks
+  { teamName: 'PIT Steelers', type: 'Spread', value: '+3.5' },
+  { teamName: 'PIT Steelers', type: 'ML', value: '+145' },
+  { teamName: 'SEA Seahawks', type: 'Spread', value: '-3.5' },
+  { teamName: 'SEA Seahawks', type: 'ML', value: '-175' },
 
-  // Raiders vs Chiefs
-  { teamName: 'LV Raiders', type: 'Spread', value: '+10' },
-  { teamName: 'LV Raiders', type: 'ML', value: '+390' },
-  { teamName: 'KC Chiefs', type: 'Spread', value: '-10' },
-  { teamName: 'KC Chiefs', type: 'ML', value: '-520' },
+  // Bengals vs Chiefs
+  { teamName: 'CIN Bengals', type: 'Spread', value: '+7' },
+  { teamName: 'CIN Bengals', type: 'ML', value: '+245' },
+  { teamName: 'KC Chiefs', type: 'Spread', value: '-7' },
+  { teamName: 'KC Chiefs', type: 'ML', value: '-305' },
 
-  // Giants vs Eagles
-  { teamName: 'NY Giants', type: 'Spread', value: '+12' },
-  { teamName: 'NY Giants', type: 'ML', value: '+440' },
-  { teamName: 'PHI Eagles', type: 'Spread', value: '-12' },
-  { teamName: 'PHI Eagles', type: 'ML', value: '-600' },
+  // Chargers vs Broncos
+  { teamName: 'LA Chargers', type: 'Spread', value: '+3.5' },
+  { teamName: 'LA Chargers', type: 'ML', value: '+150' },
+  { teamName: 'DEN Broncos', type: 'Spread', value: '-3.5' },
+  { teamName: 'DEN Broncos', type: 'ML', value: '-180' },
 
-  // Ravens vs 49ers
-  { teamName: 'BAL Ravens', type: 'Spread', value: '+5' },
-  { teamName: 'BAL Ravens', type: 'ML', value: '+190' },
-  { teamName: 'SF 49ers', type: 'Spread', value: '-5' },
-  { teamName: 'SF 49ers', type: 'ML', value: '-230' },
+  // Packers vs Vikings
+  { teamName: 'GB Packers', type: 'Spread', value: '+1.5' },
+  { teamName: 'GB Packers', type: 'ML', value: '+105' },
+  { teamName: 'MIN Vikings', type: 'Spread', value: '-1.5' },
+  { teamName: 'MIN Vikings', type: 'ML', value: '-125' },
 ];
+
 
 const teamColorClasses = {
     'ARI Cardinals': 'cardinals-color',
@@ -184,78 +185,71 @@ const teamLogos = {
 
 const lastWeekPicks = {
   "TheDiggler": [
-    "CIN Bengals [Spread: -3]",
-    "DEN Broncos [Spread: +4]",
-    "ATL Falcons [Spread: -3]",
-    "LA Rams [Spread: -6.5]",
-    "DAL Cowboys [Spread: +2]",
-    "PHI Eagles [Spread: -4]",
-    "KC Chiefs [ML: -345]", // Immortal Lock
+    "LA Rams [ML: -192]",
+    "CLE Browns [Spread: -2.5]",
+    "IND Colts [Spread: +1]",
+    "GB Packers [ML: -230]",
+    "TB Buccaneers [Spread: -1]",
+    "BAL Ravens [Spread: +5]",
+    "BUF Bills [ML: -850]", // Immortal Lock
   ],
   "Parlay Prodigy": [
-    "LA Chargers [Spread: +3]",
-    "PIT Steelers [Spread: +1.5]",
-    "PHI Eagles [Spread: -4]",
-    "BAL Ravens [Spread: -3]",
-    "CHI Bears [Spread: +3]",
-    "ATL Falcons [Spread: -3]",
-    "MIA Dolphins [ML: -440]", // Immortal Lock
+    "CIN Bengals [Spread: -2]",
+    "DET Lions [Spread: -3]",
+    "SEA Seahawks [Spread: -2.5]",
+    "HOU Texans [Spread: +2.5]",
+    "IND Colts [Spread: +1]",
+    "JAX Jaguars [Spread: +1]",
+    "PHI Eagles [ML: -600]", // Immortal Lock
   ],
   "Midnight Professional": [
-    "TEN Titans [Spread: -3]",
-    "DET Lions [ML: -225]",
-    "NO Saints [ML: -245]",
-    "LV Raiders [ML: -162]",
-    "IND Colts [Spread: -1.5]",
-    "BUF Bills [Spread: -2]",
-    "MIA Dolphins [ML: -440]", // Immortal Lock
+    "CHI Bears [Spread: -4]",
+    "DET Lions [Spread: -3]",
+    "SEA Seahawks [ML: -135]",
+    "DEN Broncos [Spread: -6.5]",
+    "SF 49ers [Spread: -5]",
+    "IND Colts [ML: -102]",
+    "BUF Bills [ML: -850]", // Immortal Lock
   ],
   "Primitive Picks": [
-    "DAL Cowboys [ML: +105]",
-    "GB Packers [ML: -170]",
-    "ATL Falcons [Spread: -3]",
-    "IND Colts [Spread: -1.5]",
-    "SEA Seahawks [Spread: +4]",
-    "JAX Jaguars [Spread: +3]",
-    "KC Chiefs [ML: -345]", // Immortal Lock
+    "MIA Dolphins [Spread: -1]",
+    "DEN Broncos [Spread: -6.5]",
+    "HOU Texans [Spread: +2.5]",
+    "CHI Bears [Spread: -4]",
+    "SF 49ers [Spread: -5]",
+    "DET Lions [Spread: -3]",
+    "BUF Bills [ML: -850]", // Immortal Lock
   ],
   "LazyAhhGamer": [
-    "DAL Cowboys [Spread: +2]",
-    "PHI Eagles [Spread: -4]",
-    "DET Lions [Spread: -4]",
-    "LA Chargers [Spread: +3]",
-    "MIN Vikings [Spread: +3]",
-    "IND Colts [Spread: -1.5]",
-    "SF 49ers [ML: -850]", // Immortal Lock
-  ],
-  "Bear Jew": [
-    "BAL Ravens [Spread: -3]",
-    "PHI Eagles [Spread: -4]",
-    "CLE Browns [ML: -166]",
-    "KC Chiefs [Spread: -7.5]",
-    "LV Raiders [Spread: -3]",
-    "ATL Falcons [ML: -162]",
-    "SF 49ers [ML: -850]", // Immortal Lock
+    "LA Rams [Spread: -3.5]",
+    "GB Packers [Spread: -5]",
+    "IND Colts [ML: -102]",
+    "CLE Browns [Spread: -2.5]",
+    "TB Buccaneers [Spread: -1]",
+    "DEN Broncos [Spread: -6.5]",
+    "KC Chiefs [ML: -520]", // Immortal Lock
   ],
   "L to the OG": [
-    "DEN Broncos [Spread: +4]",
-    "ATL Falcons [Spread: -3]",
-    "NY Giants [Spread: +5.5]",
-    "DAL Cowboys [ML: +105]",
-    "PHI Eagles [Spread: -4]",
-    "LA Rams [Spread: -6.5]",
-    "KC Chiefs [ML: -345]", // Immortal Lock
+    "SEA Seahawks [Spread: -2.5]",
+    "IND Colts [Spread: +1]",
+    "JAX Jaguars [Spread: +1]",
+    "SF 49ers [Spread: -5]",
+    "CHI Bears [Spread: -4]",
+    "GB Packers [Spread: -5]",
+    "PHI Eagles [ML: -600]", // Immortal Lock
   ],
   "porkSkinGooner": [
-    "LV Raiders [ML: -162]",
-    "IND Colts [Spread: -1.5]",
-    "BAL Ravens [Spread: -3]",
-    "NY Giants [Spread: +5.5]",
-    "LA Rams [Spread: -6.5]",
-    "PHI Eagles [ML: -198]",
-    "KC Chiefs [ML: -345]", // Immortal Lock
+    "CIN Bengals [Spread: -2]",
+    "SEA Seahawks [Spread: -2.5]",
+    "JAX Jaguars [Spread: +1]",
+    "DEN Broncos [Spread: -6.5]",
+    "SF 49ers [ML: -230]",
+    "NY Jets [Spread: -3]",
+    "BUF Bills [ML: -850]", // Immortal Lock
   ],
+  // Note: "Bear Jew" has no changed picks as mentioned, so remains the same.
 };
+
 
 
 async function wasPickMadeLastWeek(username, currentPick) {

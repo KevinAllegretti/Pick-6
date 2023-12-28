@@ -12,7 +12,7 @@
     tuesdayEndTime.setHours(0, 0, 0, 0); // 12 AM EST
     tuesdayEndTime.setMinutes(tuesdayEndTime.getMinutes() + tuesdayEndTime.getTimezoneOffset());
     tuesdayEndTime.setHours(tuesdayEndTime.getHours() - 5); // Convert UTC to EST (UTC-5)
-    /*
+    
     function getLastThursday() {
         var now = new Date();
         var dayOfWeek = now.getDay(); // Day of the week (0 is Sunday)
@@ -50,17 +50,17 @@
     
         return lastThursday;
     }
-    */
+    
     // Helper function to check if DST is observed on the given date in Eastern Time
     function isDstObserved(date) {
         var jan = new Date(date.getFullYear(), 0, 1);
         var jul = new Date(date.getFullYear(), 6, 1);
         return Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset()) > date.getTimezoneOffset();
     }
-    /*
+    
     var lastThursdayDate = getLastThursday();
     console.log(lastThursdayDate); // This will log the last Thursday at 7 PM EST/EDT
-    */
+    
       
 document.addEventListener('DOMContentLoaded', function() {
     // Handling username and redirection
@@ -199,7 +199,7 @@ function initializeCountdown() {
             
             //comment out during play time
      
-            if (now < thursdayDeadline && now > tuesdayEndTime && cardUsername && cardUsername === loggedInUsername) {
+            if (now < thursdayDeadline && now > tuesdayEndTime && cardUsername && cardUsername === loggedInUsername || now < lastThursdayDate && now < tuesdayEndTime && cardUsername && cardUsername === loggedInUsername) {
                 console.log("Redirecting to dashboard");
                 window.location.href = `/dashboard?username=${cardUsername}`;
             }
@@ -215,7 +215,7 @@ function initializeCountdown() {
         console.log(tuesdayEndTime);
         console.log(thursdayDeadline);
         console.log(now);
-        if (now < thursdayDeadline && now > tuesdayEndTime){
+        if (now < thursdayDeadline && now < tuesdayEndTime || now < lastThursdayDate && now < tuesdayEndTime){
             const loggedInUsername = localStorage.getItem('username');
             const userCard = document.querySelector(`.player-card[data-username="${loggedInUsername}"]`);
     
