@@ -58,9 +58,9 @@ const betOptions = [
   { teamName: 'BUF Bills', type: 'ML', value: '-750' },
 
   // Titans vs Texans
-  { teamName: 'TEN Titans', type: 'Spread', value: '-4.5' },
+  { teamName: 'TEN Titans', type: 'Spread', value: '+4.5' },
   { teamName: 'TEN Titans', type: 'ML', value: '+170' },
-  { teamName: 'HOU Texans', type: 'Spread', value: '+4.5' },
+  { teamName: 'HOU Texans', type: 'Spread', value: '-4.5' },
   { teamName: 'HOU Texans', type: 'ML', value: '-205' },
 
   // Cardinals vs Eagles
