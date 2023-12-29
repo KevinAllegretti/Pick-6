@@ -199,7 +199,7 @@ function initializeCountdown() {
             
             //comment out during play time
      
-            if ((now < thursdayDeadline && now < tuesdayEndTime && cardUsername && cardUsername === loggedInUsername) || (now < lastThursdayDate && now > tuesdayEndTime && cardUsername && cardUsername === loggedInUsername)) {
+            if ((now < thursdayDeadline && now > tuesdayEndTime && cardUsername && cardUsername === loggedInUsername) || (now < lastThursdayDate && now > tuesdayEndTime && cardUsername && cardUsername === loggedInUsername)) {
                 console.log("Redirecting to dashboard");
                 window.location.href = `/dashboard?username=${cardUsername}`;
             }
@@ -215,7 +215,7 @@ function initializeCountdown() {
         console.log(tuesdayEndTime);
         console.log(thursdayDeadline);
         console.log(now);
-        if (now < thursdayDeadline && now < tuesdayEndTime || now < lastThursdayDate && now < tuesdayEndTime){
+        if (now < thursdayDeadline && now > tuesdayEndTime || now < lastThursdayDate && now < tuesdayEndTime){
             const loggedInUsername = localStorage.getItem('username');
             const userCard = document.querySelector(`.player-card[data-username="${loggedInUsername}"]`);
     
