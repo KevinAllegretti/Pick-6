@@ -122,76 +122,34 @@ const teamLogos = {
   'WAS Commanders': '/WASLogo.png'
 };
 
-/*
+
 const lastWeekPicks = {
   "TheDiggler": [
-    "BAL Ravens [ML: -175]",
-    "LA Rams [Spread: -5.5]",
-    "TB Buccaneers [ML: -135]",
-    "JAX Jaguars [Spread: -6.5]",
-    "CIN Bengals [Spread: +7]",
-    "GB Packers [Spread: +1.5]",
-    "SF 49ers [ML: -850]" // Immortal Lock
+
   ],
   "Parlay Prodigy": [
-    "MIA Dolphins [Spread: +3]",
-    "DAL Cowboys [Spread: -6]",
-    "LA Rams [Spread: -5.5]",
-    "PHI Eagles [Spread: -11]",
-    "CHI Bears [Spread: -3]",
-    "TB Buccaneers [Spread: -2.5]",
-    "BUF Bills [ML: -750]" // Immortal Lock
+
   ],
   "Midnight Professional": [
-    "CLE Browns [Spread: -7.5]",
-    "JAX Jaguars [Spread: -6.5]",
-    "HOU Texans [Spread: -4.5]",
-    "DAL Cowboys [Spread: -6]",
-    "BAL Ravens [Spread: -3]",
-    "LV Raiders [Spread: +3.5]",
-    "SF 49ers [ML: -850]" // Immortal Lock
+
   ],
   "Primitive Picks": [
-    "NE Patriots [Spread: +13]",
-    "IND Colts [Spread: -3.5]",
-    "CLE Browns [Spread: -7.5]",
-    "KC Chiefs [Spread: -7]",
-    "TB Buccaneers [Spread: -2.5]",
-    "GB Packers [ML: +105]",
-    "SF 49ers [ML: -850]" // Immortal Lock
+
   ],
   "Bear Jew": [
     // No new picks listed, assuming they remain unchanged
   ],
   "L to the OG": [
-    "BAL Ravens [Spread: -3]",
-    "DAL Cowboys [Spread: -6]",
-    "TEN Titans [Spread: -4.5]",
-    "PIT Steelers [Spread: +3.5]",
-    "SF 49ers [ML: -850]",
-    "TB Buccaneers [Spread: -2.5]",
-    "BUF Bills [ML: -750]" // Immortal Lock
+
   ],
   "porkSkinGooner": [
-    "DET Lions [Spread: +6]",
-    "MIA Dolphins [Spread: +3]",
-    "LA Rams [ML: -238]",
-    "LV Raiders [Spread: +3.5]",
-    "CHI Bears [ML: -155]",
-    "TB Buccaneers [Spread: -2.5]",
-    "PHI Eagles [ML: -550]" // Immortal Lock
+ // Immortal Lock
   ],
   "LazyAhhGamer": [
-    "CHI Bears [Spread: -3]",
-    "SEA Seahawks [Spread: -3.5]",
-    "JAX Jaguars [Spread: -6.5]",
-    "BAL Ravens [Spread: -3]",
-    "LA Rams [ML: -238]",
-    "DAL Cowboys [ML: -258]",
-    "SF 49ers [ML: -850]" // Immortal Lock
+// Immortal Lock
   ]
 };
-*/
+
 
 
 
