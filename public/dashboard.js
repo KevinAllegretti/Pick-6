@@ -16,100 +16,40 @@ tuesdayEndTime.setHours(tuesdayEndTime.getHours() - 5); // Convert UTC to EST (U
 // Assuming betOptions is an array of all bet options for the week
 const betOptions = [
   // Steelers vs Ravens
-  { teamName: 'PIT Steelers', type: 'Spread', value: '-3' },
-  { teamName: 'PIT Steelers', type: 'ML', value: '-162' },
-  { teamName: 'BAL Ravens', type: 'Spread', value: '+3' },
-  { teamName: 'BAL Ravens', type: 'ML', value: '+136' },
+  { teamName: 'CLE Browns', type: 'Spread', value: '-2' },
+  { teamName: 'CLE Browns', type: 'ML', value: '-135' },
+  { teamName: 'HOU Texans', type: 'Spread', value: '+2' },
+  { teamName: 'HOU Texans', type: 'ML', value: '+114' },
 
   // Texans vs Colts
-  { teamName: 'HOU Texans', type: 'Spread', value: '-2' },
-  { teamName: 'HOU Texans', type: 'ML', value: '-130' },
-  { teamName: 'IND Colts', type: 'Spread', value: '+2' },
-  { teamName: 'IND Colts', type: 'ML', value: '+110' },
+  { teamName: 'MIA Dolphins', type: 'Spread', value: '+4.5' },
+  { teamName: 'MIA Dolphins', type: 'ML', value: '+190' },
+  { teamName: 'KC Chiefs', type: 'Spread', value: '-4.5' },
+  { teamName: 'KC Chiefs', type: 'ML', value: '-230' },
 
   // Jaguars vs Titans
-  { teamName: 'JAX Jaguars', type: 'Spread', value: '-3.5' },
-  { teamName: 'JAX Jaguars', type: 'ML', value: '-185' },
-  { teamName: 'TEN Titans', type: 'Spread', value: '+3.5' },
-  { teamName: 'TEN Titans', type: 'ML', value: '+154' },
+  { teamName: 'PIT Steelers', type: 'Spread', value: '+9' },
+  { teamName: 'PIT Steelers', type: 'ML', value: '+360' },
+  { teamName: 'BUF Bills', type: 'Spread', value: '-9' },
+  { teamName: 'BUF Bills', type: 'ML', value: '-470' },
 
   // Vikings vs Lions
-  { teamName: 'MIN Vikings', type: 'Spread', value: '+3.5' },
-  { teamName: 'MIN Vikings', type: 'ML', value: '+154' },
-  { teamName: 'DET Lions', type: 'Spread', value: '-3.5' },
-  { teamName: 'DET Lions', type: 'ML', value: '-185' },
+  { teamName: 'GB Packers', type: 'Spread', value: '+7' },
+  { teamName: 'GB Packers', type: 'ML', value: '+270' },
+  { teamName: 'DAL Cowboys', type: 'Spread', value: '-7' },
+  { teamName: 'DAL Cowboys', type: 'ML', value: '-340' },
 
   // Browns vs Bengals
-  { teamName: 'CLE Browns', type: 'Spread', value: '+7' },
-  { teamName: 'CLE Browns', type: 'ML', value: '+275' },
-  { teamName: 'CIN Bengals', type: 'Spread', value: '-7' },
-  { teamName: 'CIN Bengals', type: 'ML', value: '-345' },
+  { teamName: 'LA Rams', type: 'Spread', value: '+3' },
+  { teamName: 'LA Rams', type: 'ML', value: '+136' },
+  { teamName: 'DET Lions', type: 'Spread', value: '-3' },
+  { teamName: 'DET Lions', type: 'ML', value: '-162' },
 
   // Buccaneers vs Panthers
-  { teamName: 'TB Buccaneers', type: 'Spread', value: '-4.5' },
-  { teamName: 'TB Buccaneers', type: 'ML', value: '-238' },
-  { teamName: 'CAR Panthers', type: 'Spread', value: '+4.5' },
-  { teamName: 'CAR Panthers', type: 'ML', value: '+195' },
-
-  // Falcons vs Saints
-  { teamName: 'ATL Falcons', type: 'Spread', value: '+3' },
-  { teamName: 'ATL Falcons', type: 'ML', value: '+136' },
-  { teamName: 'NO Saints', type: 'Spread', value: '-3' },
-  { teamName: 'NO Saints', type: 'ML', value: '-162' },
-
-  // Jets vs Patriots
-  { teamName: 'NY Jets', type: 'Spread', value: '+2.5' },
-  { teamName: 'NY Jets', type: 'ML', value: '+110' },
-  { teamName: 'NE Patriots', type: 'Spread', value: '-2.5' },
-  { teamName: 'NE Patriots', type: 'ML', value: '-130' },
-
-  // Chiefs vs Chargers
-  { teamName: 'KC Chiefs', type: 'Spread', value: '+3.5' },
-  { teamName: 'KC Chiefs', type: 'ML', value: '+154' },
-  { teamName: 'LA Chargers', type: 'Spread', value: '-3.5' },
-  { teamName: 'LA Chargers', type: 'ML', value: '-185' },
-
-  // Bears vs Packers
-  { teamName: 'CHI Bears', type: 'Spread', value: '+3' },
-  { teamName: 'CHI Bears', type: 'ML', value: '+136' },
-  { teamName: 'GB Packers', type: 'Spread', value: '-3' },
-  { teamName: 'GB Packers', type: 'ML', value: '-162' },
-
-  // Broncos vs Raiders
-  { teamName: 'DEN Broncos', type: 'Spread', value: '+3' },
-  { teamName: 'DEN Broncos', type: 'ML', value: '+130' },
-  { teamName: 'LV Raiders', type: 'Spread', value: '-3' },
-  { teamName: 'LV Raiders', type: 'ML', value: '-155' },
-
-  // Eagles vs Giants
-  { teamName: 'PHI Eagles', type: 'Spread', value: '-5.5' },
-  { teamName: 'PHI Eagles', type: 'ML', value: '-245' },
-  { teamName: 'NY Giants', type: 'Spread', value: '+5.5' },
-  { teamName: 'NY Giants', type: 'ML', value: '+200' },
-
-  // Seahawks vs Cardinals
-  { teamName: 'SEA Seahawks', type: 'Spread', value: '-3' },
-  { teamName: 'SEA Seahawks', type: 'ML', value: '-148' },
-  { teamName: 'ARI Cardinals', type: 'Spread', value: '+3' },
-  { teamName: 'ARI Cardinals', type: 'ML', value: '+124' },
-
-  // Rams vs 49ers
-  { teamName: 'LA Rams', type: 'Spread', value: '+4.5' },
-  { teamName: 'LA Rams', type: 'ML', value: '+180' },
-  { teamName: 'SF 49ers', type: 'Spread', value: '-4.5' },
-  { teamName: 'SF 49ers', type: 'ML', value: '-218' },
-
-  // Cowboys vs Commanders
-  { teamName: 'DAL Cowboys', type: 'Spread', value: '-13' },
-  { teamName: 'DAL Cowboys', type: 'ML', value: '-850' },
-  { teamName: 'WAS Commanders', type: 'Spread', value: '+13' },
-  { teamName: 'WAS Commanders', type: 'ML', value: '+575' },
-
-  // Bills vs Dolphins
-  { teamName: 'BUF Bills', type: 'Spread', value: '-2.5' },
-  { teamName: 'BUF Bills', type: 'ML', value: '-155' },
-  { teamName: 'MIA Dolphins', type: 'Spread', value: '+2.5' },
-  { teamName: 'MIA Dolphins', type: 'ML', value: '+130' },
+  { teamName: 'PHI Eagles', type: 'Spread', value: '-3' },
+  { teamName: 'PHI Eagles', type: 'ML', value: '-155' },
+  { teamName: 'TB Buccaneers', type: 'Spread', value: '+3' },
+  { teamName: 'TB Buccaneers', type: 'ML', value: '+130' },
 ];
 
 const teamColorClasses = {
@@ -182,6 +122,7 @@ const teamLogos = {
   'WAS Commanders': '/WASLogo.png'
 };
 
+/*
 const lastWeekPicks = {
   "TheDiggler": [
     "BAL Ravens [ML: -175]",
@@ -250,7 +191,7 @@ const lastWeekPicks = {
     "SF 49ers [ML: -850]" // Immortal Lock
   ]
 };
-
+*/
 
 
 
