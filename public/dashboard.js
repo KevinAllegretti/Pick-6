@@ -16,40 +16,28 @@ tuesdayEndTime.setHours(tuesdayEndTime.getHours() - 5); // Convert UTC to EST (U
 // Assuming betOptions is an array of all bet options for the week
 const betOptions = [
   // Steelers vs Ravens
-  { teamName: 'CLE Browns', type: 'Spread', value: '-2' },
-  { teamName: 'CLE Browns', type: 'ML', value: '-135' },
-  { teamName: 'HOU Texans', type: 'Spread', value: '+2' },
-  { teamName: 'HOU Texans', type: 'ML', value: '+114' },
+  { teamName: 'HOU Texans', type: 'Spread', value: '+9.5' },
+  { teamName: 'HOU Texans', type: 'ML', value: '+330' },
+  { teamName: 'BAL Ravens', type: 'Spread', value: '-9.5' },
+  { teamName: 'BAL Ravens', type: 'ML', value: '-425' },
 
   // Texans vs Colts
-  { teamName: 'MIA Dolphins', type: 'Spread', value: '+4.5' },
-  { teamName: 'MIA Dolphins', type: 'ML', value: '+190' },
-  { teamName: 'KC Chiefs', type: 'Spread', value: '-4.5' },
-  { teamName: 'KC Chiefs', type: 'ML', value: '-230' },
+  { teamName: 'GB Packers', type: 'Spread', value: '+9.5' },
+  { teamName: 'GB Packers', type: 'ML', value: '+320' },
+  { teamName: 'SF 49ers', type: 'Spread', value: '-9.5' },
+  { teamName: 'SF 49ers', type: 'ML', value: '-410' },
 
   // Jaguars vs Titans
-  { teamName: 'PIT Steelers', type: 'Spread', value: '+9' },
-  { teamName: 'PIT Steelers', type: 'ML', value: '+360' },
-  { teamName: 'BUF Bills', type: 'Spread', value: '-9' },
-  { teamName: 'BUF Bills', type: 'ML', value: '-470' },
+  { teamName: 'TB Buccaneers', type: 'Spread', value: '+6.5' },
+  { teamName: 'TB Buccaneers', type: 'ML', value: '+245' },
+  { teamName: 'DET Lions', type: 'Spread', value: '-6.5' },
+  { teamName: 'DET Lions', type: 'ML', value: '-305' },
 
   // Vikings vs Lions
-  { teamName: 'GB Packers', type: 'Spread', value: '+7' },
-  { teamName: 'GB Packers', type: 'ML', value: '+270' },
-  { teamName: 'DAL Cowboys', type: 'Spread', value: '-7' },
-  { teamName: 'DAL Cowboys', type: 'ML', value: '-340' },
-
-  // Browns vs Bengals
-  { teamName: 'LA Rams', type: 'Spread', value: '+3' },
-  { teamName: 'LA Rams', type: 'ML', value: '+136' },
-  { teamName: 'DET Lions', type: 'Spread', value: '-3' },
-  { teamName: 'DET Lions', type: 'ML', value: '-162' },
-
-  // Buccaneers vs Panthers
-  { teamName: 'PHI Eagles', type: 'Spread', value: '-3' },
-  { teamName: 'PHI Eagles', type: 'ML', value: '-155' },
-  { teamName: 'TB Buccaneers', type: 'Spread', value: '+3' },
-  { teamName: 'TB Buccaneers', type: 'ML', value: '+130' },
+  { teamName: 'KC Chiefs', type: 'Spread', value: '+2.5' },
+  { teamName: 'KC Chiefs', type: 'ML', value: '+124' },
+  { teamName: 'BUF Bills', type: 'Spread', value: '-2.5' },
+  { teamName: 'BUF Bills', type: 'ML', value: '-148' },
 ];
 
 const teamColorClasses = {
